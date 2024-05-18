@@ -1,0 +1,41 @@
+ion-content {
+    --background: url("/assets/newAssets/bg-bday.jpg") center/cover no-repeat; /* Set the background image */
+    overflow: hidden; /* Hide the scroll */
+}
+
+ion-toolbar{
+    --background: #ff8200;
+  }
+
+.bday{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: "IntegralCF-Bold";
+    border: 1px solid;
+    border-radius: 10px;
+    background: #03AED2;
+    padding: 10px;
+    h1{
+        font-size: 40px;
+    }
+}
+
+.parent{
+    display: flex;
+    justify-content: center;
+    margin-top: 50%;
+}
+
+.cake-container{
+    img{
+        height: 100px;
+        width: 100px;
+    }
+}
+
+.remaining-time{
+    text-align: center;
+    color: red;
+}

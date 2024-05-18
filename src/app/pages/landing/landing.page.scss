@@ -1,0 +1,91 @@
+ion-content {
+  --background: url("/assets/newAssets/land2.jpg") center/cover no-repeat; /* Set the background image */
+  overflow: hidden; /* Hide the scroll */
+}
+
+@media only screen and (max-width: 500px) {
+  ion-content {
+    --background: url("/assets/newAssets/land2.jpg") center/cover no-repeat;
+  }
+}
+
+@media only screen and (min-width: 680px) {
+  ion-content {
+    --background: url("/assets/newAssets/bg-land2.jpg") center/cover no-repeat;
+  }
+  .Logo {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 50%;
+  }
+
+  .box-parents {
+    margin-left: 50%;
+    margin-bottom: 43vh;
+  }
+}
+
+.body {
+  height: 100%;
+}
+
+* {
+  font-family: 'IntegralCF-Bold';
+}
+
+ion-grid,
+ion-row,
+ion-col {
+  flex-shrink: 0; /* Prevents shrinking */
+}
+
+.Logo {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  position: absolute;
+  top: 40px;
+  width: 40vh;
+  transition: transform 0.3s ease;
+}
+.logo:hover {
+  transform: scale(1.1); /* Enlarge the image by 10% on hover */
+}
+
+.logoTop {
+  width: 15vh;
+}
+
+.box-parents {
+  position: fixed;
+  bottom: 20px;
+  text-align: center;
+  color: black;
+  padding: 15px;
+}
+
+ion-button {
+  border: 1px solid;
+  background: #a1fff9;
+  transition: transform 0.3s ease;
+  color: black;
+}
+ion-button:hover {
+  transform: scale(1.5); /* Scales the button by 1.1 on hover */
+}
+.parent {
+  display: flex;
+  justify-content: center;
+}
+
+.family {
+  display: flex;
+  justify-content: center;
+}
+
+ion-button {
+  font-weight: bold;
+  font-size: 0.5 em;
+}

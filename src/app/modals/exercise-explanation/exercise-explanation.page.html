@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Exercise Explanation</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>{{ task.description }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{ explanation }}</p>
+      <ion-img
+        [src]="'assets/Exercises/' + task.imageFilename"
+        alt="Task Image"
+      ></ion-img>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "FitQuestJunior",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

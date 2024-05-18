@@ -1,0 +1,52 @@
+<ion-grid class="sticky-nav">
+  <div class="component-container">
+    <div class="rowParent">
+      <ion-row>
+        <!-- <ion-col size="12" size-lg="6" (click)="navigateToEBook()">
+              <div class="questPending" routerLink="/babyBook">
+                <div class="quest">
+                  <img alt="daily task" src="assets/ebook/babyBook.png" />
+                </div>
+              </div>
+            </ion-col> -->
+        <ion-col size="6" size-lg="6" (click)="navigateToConsultation()">
+          <div class="questPending" routerLink="/consultation">
+            <div class="quest">
+              <img alt="daily task" src="assets/ebook/Progress.png" />
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="6" size-lg="6" (click)="navigateToKids()">
+          <div class="questPending" routerLink="/vaccination">
+            <div class="quest">
+              <img alt="daily task" src="assets/ebook/kids.png" />
+            </div>
+          </div>
+        </ion-col>
+        <ion-col size="6" size-lg="6" (click)="navigateToActivity()">
+          <div class="questPending" routerLink="/parents-acitvity">
+            <div class="quest">
+              <img alt="daily task" src="assets/ebook/Activity.png" />
+            </div>
+          </div>
+        </ion-col>
+        <ion-col
+          class="comParent"
+          size="6"
+          size-lg="6"
+          (click)="navigateToQuest()"
+        >
+          <div class="questPending" routerLink="/kids-progress">
+            <div class="quest">
+              <img
+                alt="daily task"
+                src="assets/ebook/quest.png"
+                class="center-image"
+              />
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-grid>

@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Vaccine Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Display vaccine details using baby data -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Vaccine Details</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content id="vaccineDetailsContent">
+      <ion-item>
+        <ion-label>BCG</ion-label>
+        <ion-checkbox [(ngModel)]="vaccines.BCG"></ion-checkbox>
+        <ion-button slot="end" (click)="openVaccineDetailsModal('BCG')"
+          >Details</ion-button
+        >
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Hepatitis B</ion-label>
+        <ion-checkbox [(ngModel)]="vaccines['Hepatitis B']"></ion-checkbox>
+        <ion-button slot="end" (click)="openVaccineDetailsModal('Hepatitis B')"
+          >Details</ion-button
+        >
+      </ion-item>
+
+      <ion-item>
+        <ion-label>DPT/TdaP/Td</ion-label>
+        <ion-checkbox [(ngModel)]="vaccines['DPT/TdaP/Td']"></ion-checkbox>
+        <ion-button slot="end" (click)="openVaccineDetailsModal('DPT/TdaP/Td')"
+          >Details</ion-button
+        >
+      </ion-item>
+
+      <ion-item>
+        <ion-label>IPV</ion-label>
+        <ion-checkbox [(ngModel)]="vaccines.IPV"></ion-checkbox>
+        <ion-button slot="end" (click)="openVaccineDetailsModal('IPV')"
+          >Details</ion-button
+        >
+      </ion-item>
+
+      <ion-item>
+        <ion-label>HiB</ion-label>
+        <ion-checkbox [(ngModel)]="vaccines.HiB"></ion-checkbox>
+        <ion-button slot="end" (click)="openVaccineDetailsModal('HiB')"
+          >Details</ion-button
+        >
+      </ion-item>
+
+      <ion-item>
+        <ion-label>PCV</ion-label>
+        <ion-checkbox [(ngModel)]="vaccines.PCV"></ion-checkbox>
+        <ion-button slot="end" (click)="openVaccineDetailsModal('PCV')"
+          >Details</ion-button
+        >
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Measles/MMR</ion-label>
+        <ion-checkbox [(ngModel)]="vaccines['Measles/MMR']"></ion-checkbox>
+        <ion-button slot="end" (click)="openVaccineDetailsModal('Measles/MMR')"
+          >Details</ion-button
+        >
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Varicella</ion-label>
+        <ion-checkbox [(ngModel)]="vaccines.Varicella"></ion-checkbox>
+        <ion-button slot="end" (click)="openVaccineDetailsModal('Varicella')"
+          >Details</ion-button
+        >
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+<ion-footer>
+  <div class="foot-btn">
+    <ion-row>
+      <ion-col class="save" size="auto">
+        <ion-button color="secondary" (click)="saveVaccines()">
+          Save
+        </ion-button>
+      </ion-col>
+      <!-- <ion-col class="reg" size="auto">
+        <ion-button color="success" (click)="navigateToSignup()" [disabled]="!isAllVaccinesChecked()">
+          Register Now <ion-icon name="lock-open-outline"></ion-icon>
+        </ion-button>
+      </ion-col> -->
+    </ion-row>
+  </div>
+</ion-footer>

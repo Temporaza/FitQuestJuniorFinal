@@ -1,0 +1,173 @@
+//NEW UI
+ion-title {
+  font-family: "IntegralCF-Bold";
+}
+
+
+@media (max-width: 500px) {
+  .iconAva h2 {
+    display: none;
+  }
+}
+.title, .btn-log{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconAva{
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  border-radius: 10px;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+ion-avatar{
+  border: 1px solid black;
+}
+
+.bordered{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+
+ion-content {
+  --background: url("/assets/ebook/bg.png") center/cover no-repeat;
+  height: 100vh;
+}
+
+.questPending {
+  display: flex;
+  justify-content: center;
+}
+
+.outputs {
+  display: flex;
+  justify-content: center;
+}
+
+.second {
+  display: flex;
+  justify-content: center;
+}
+
+.parent-container {
+  // background: url('/assets/ebook/board.png') center/cover no-repeat;
+  // height: 50vh;
+  font-family: "IntegralCF-Bold";
+  position: absolute;
+  margin-top: 10vh;
+  width: 300px;
+}
+
+@media only screen and (min-width: 768px) {
+  .board {
+    img {
+      width: 100vh;
+    }
+  }
+  .title {
+    width: 50%;
+  }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 500px) {
+  .board {
+    img {
+      width: 70vh;
+    }
+  }
+}
+
+.board {
+  img {
+    max-width: 80vh;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  width: 90%;
+  text-align: center;
+}
+
+.kids-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.kid-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 5vh;
+}
+
+.kid-details {
+  flex-grow: 1;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.quest {
+  max-width: 80%;
+}
+
+ion-fab-button::part(native) {
+  background-color: #57ABA5;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3),
+    3px 3px 3px 1px rgb(255 255 255 / 100%);
+  color: black;
+  transition: transform 0.3s ease-in-out;
+  /* Add transition for smooth scaling */
+}
+
+ion-fab-button::part(native):hover {
+  transform: scale(1.1);
+  /* Scale up by 10% when hovered */
+}
+
+ion-fab-button::part(native):active {
+  transform: scale(0.9);
+  /* Scale down by 10% when active */
+}
+
+ion-fab-button::part(native):hover::after {
+  background-color: #a3e681;
+}
+
+ion-fab-button::part(native):active::after {
+  background-color: #87d361;
+}
+
+.larger-button {
+  width: 100px;
+  /* Adjust the width to your desired size */
+  height: 100px;
+  /* Adjust the height to your desired size */
+}
+
+.centered-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* Ensure it spans the entire width of the container */
+}

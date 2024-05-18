@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Email Verification Required</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-icon name="mail" size="large"></ion-icon>
+      <p>
+        Before you can access the full features of our application, please
+        verify your email address.
+      </p>
+      <p>
+        A verification email has been sent to <strong>{{ userEmail }}</strong>.
+        Please check your inbox (and spam/junk folder) and follow the
+        instructions to verify your email address.
+      </p>
+      <p style="color: red; font-weight: bold">
+        After clicking the email verification link, please remember to refresh
+        this page to continue.
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

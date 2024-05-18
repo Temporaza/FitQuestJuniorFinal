@@ -1,0 +1,111 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row style="text-align: center">
+        <ion-col size="6">
+          <ion-button routerLink="/home-parent">Dashboard</ion-button>
+        </ion-col>
+        <ion-col size="6" class="title">
+          <h1>Progress</h1>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6">
+        <app-custom-navigation class="stick"></app-custom-navigation>
+      </ion-col>
+      <ion-col size="12" size-md="6">
+        <div class="SuperParent">
+          <div class="parentConsult">
+            <ion-list *ngIf="usersData.length > 0">
+              <div class="dropD">
+                <div class="select">
+                  <ion-select
+                    [(ngModel)]="selectedGraph"
+                    placeholder="Select Type"
+                  >
+                    <ion-select-option value="lineGraph"
+                      >BMI Graph</ion-select-option
+                    >
+                    <ion-select-option value="pieGraph"
+                      >Tasks Graph</ion-select-option
+                    >
+                  </ion-select>
+                </div>
+              </div>
+
+              <div class="childs" *ngFor="let user of usersData">
+                <ion-card-header class="card-header">
+                  <h4>{{ user.fullname }}</h4>
+                  <ion-card-title class="card-title">Name:</ion-card-title>
+                  <!-- Dropdown button for graph selection -->
+                </ion-card-header>
+
+                <!-- Graph container based on selected graph type -->
+                <div *ngIf="selectedGraph === 'lineGraph'" class="lineGraph">
+                  <h1>BMI Progress Graph</h1>
+                  <!-- Graph canvas within the card -->
+                  <canvas [id]="'lineCanvas_' + user.uid" #lineCanvas></canvas>
+                  <!-- Display BMI history below the line graph -->
+                  <div class="bmiHistory">
+                    <h2>BMI History</h2>
+                    <table class="bmi-table">
+                      <thead>
+                        <tr>
+                          <th>Date</th>
+                          <th>BMI</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let bmiRecord of user.bmiHistory">
+                          <td>{{ bmiRecord.date | date: 'yyyy-MM-dd' }}</td>
+                          <td>{{ bmiRecord.bmi }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div
+                  *ngIf="selectedGraph === 'pieGraph'"
+                  class="pie-graph-container"
+                >
+                  <div class="pie-graph">
+                    <h1 style="text-align: center">Tasks Percentage</h1>
+                    <canvas [id]="'pieCanvas_' + user.uid" #pieCanvas></canvas>
+                  </div>
+                  <!-- Display tasks data only when pie graph is selected -->
+                  <div class="task-details">
+                    <table class="task-table">
+                      <thead>
+                        <tr>
+                          <th class="align-left">Description</th>
+                          <th class="align-center">Count</th>
+                          <th class="align-center">Percent</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr
+                          *ngFor="let task of userTaskDataMap.get(user.uid) || []"
+                        >
+                          <td class="align-left">{{ task.description }}</td>
+                          <td class="align-center">{{ task.count }}</td>
+                          <td class="align-center">{{ task.percentage }}%</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </ion-list>
+          </div>
+        </div>
+      </ion-col>
+      <!-- Display user data -->
+    </ion-row>
+  </ion-grid>
+</ion-content>

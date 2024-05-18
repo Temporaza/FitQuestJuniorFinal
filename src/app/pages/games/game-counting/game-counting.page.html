@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Add a back button to navigate to the home page -->
+      <ion-back-button defaultHref="/search-games"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Alphabet Balloon!</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="balloonContent">
+    <ion-grid>
+      <ion-row *ngFor="let row of balloonRows">
+        <ion-col *ngFor="let balloon of row" (click)="popBalloon(balloon)">
+          <div class="balloon" [ngClass]="{ 'popped': balloon.popped }" [style]="{'--balloon-color': balloon.color}">{{ balloon.letter }}</div>
+          <audio #popSound>
+            <source src="assets/balloonPop.mp3" type="audio/mpeg">
+          </audio>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <!-- Win Pop-up -->
+  <div *ngIf="showWinPopup" class="win-popup">
+    <div class="confetti">
+      <img src="https://media.tenor.com/IW5jiF1BZHQAAAAi/confetti-glitter.gif" class="confetti-gif" alt="Confetti">
+      <h1 style="text-align: center;">Congratulations!!<br>
+          You Won!!!
+      </h1>
+      <img src="https://www.icegif.com/wp-content/uploads/2023/05/icegif-1109.gif" class="confetti-gif" alt="Confetti">
+    </div>
+    <div class="win-btns">
+      <img src="assets/retry.png" (click)="retry()" alt="Retry">
+      <img src="assets/quit.png" (click)="quit()" alt="Quit">
+    </div>
+  </div>
+</ion-content>

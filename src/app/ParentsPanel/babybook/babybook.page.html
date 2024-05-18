@@ -1,0 +1,42 @@
+<!-- babybook.page.html -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'/home-parent'"></ion-back-button>
+    </ion-buttons>
+    <ion-title>babybook</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="book-page-container">
+    <img [src]="images[currentPage]" alt="Baby Book Page" class="book-page" />
+  </div>
+
+  <div class="pagination">
+    <ion-button
+      (click)="prevPage()"
+      fill="clear"
+      color="primary"
+      [disabled]="currentPage === 0"
+    >
+      <ion-label  class="nextPrev">
+        <img src="/assets/shapes/prev.png" alt="Previous">
+      </ion-label>
+    </ion-button>
+    <span class="page-counter"
+      >{{ currentPage + 1 }} / {{ images.length }}</span
+    >
+    <ion-button
+      (click)="nextPage()"
+      fill="clear"
+      color="primary"
+      [disabled]="currentPage === images.length - 1"
+    >
+      <ion-label class="nextPrev">
+        <img src="/assets/shapes/next.png" alt="Next">
+      </ion-label>
+    </ion-button>
+  </div>
+</ion-content>

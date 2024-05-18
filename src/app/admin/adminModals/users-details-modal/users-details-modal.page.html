@@ -1,0 +1,44 @@
+<!-- user-details-modal.page.html -->
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ userDetails.fullname }} Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card class="details-card">
+    <ion-card-header>
+      <ion-card-title>User Details</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <!-- Display details for the selected user -->
+      <div class="details-container">
+        <div>
+          <strong>Fullname:</strong> {{ userDetails.fullname }}
+        </div>
+        <div>
+          <strong>Email:</strong> {{ userDetails.email }}
+        </div>
+        <div>
+          <strong>Age:</strong> {{ userDetails.age }}
+        </div>
+        <div>
+          <strong>Height:</strong> {{ userDetails.height }} cm
+        </div>
+        <div>
+          <strong>Weight:</strong> {{ userDetails.weight }} kg
+        </div>
+        <div>
+          <strong>BMI:</strong> {{ userDetails.bmi }}
+        </div>
+        <div>
+          <strong>Status:</strong> {{ userDetails.status }}
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/search-games"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ game?.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Game Details</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Game Description: {{ game?.description }}</p>
+      <!-- Add other game details as needed -->
+    </ion-card-content>
+  </ion-card>
+</ion-content>

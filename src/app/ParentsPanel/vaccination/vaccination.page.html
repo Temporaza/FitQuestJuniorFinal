@@ -1,0 +1,108 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row style="text-align: center">
+        <ion-col size="6">
+          <ion-button routerLink="/home-parent">Dashboard</ion-button>
+        </ion-col>
+        <ion-col size="6" class="title">
+          <h1>Kids</h1>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-lg="6">
+        <app-custom-navigation></app-custom-navigation>
+      </ion-col>
+      <ion-col size="12" size-lg="6">
+        <div class="parent">
+          <div class="Users">
+            <h1 style="text-align: center">Kids</h1>
+            <!-- <ion-card class="Kids" *ngIf="usersData.length > 0"> -->
+            <ion-card *ngFor="let userData of usersData">
+              <ion-card-header>
+                <ion-item>
+                  <div>
+                    <img
+                      [src]="'https://m.media-amazon.com/images/I/41jLBhDISxL.jpg'"
+                      alt="Profile Picture"
+                      style="
+                        width: 50px;
+                        height: 50px;
+                        margin: 0 10px;
+                        border: 1px solid;
+                        border-radius: 50%;
+                      "
+                    />
+                  </div>
+                  <ion-label>{{ userData.fullname }}</ion-label>
+                </ion-item>
+              </ion-card-header>
+              <ion-card-content>
+                <!-- <ion-item no-lines>
+                          <ion-icon slot="start" name="mail" size="large"></ion-icon>
+                          <ion-label>Email:</ion-label>
+                          <ion-text>{{ userData.email }}</ion-text>
+                        </ion-item> -->
+                <!-- Add more items as needed -->
+
+                <ion-item no-lines>
+                  <ion-label>Age:</ion-label>
+                  <ion-text>{{ userData.age }}</ion-text>
+                </ion-item>
+                <ion-item no-lines>
+                  <ion-label>Height:</ion-label>
+                  <ion-text>{{ userData.height }}</ion-text>
+                </ion-item>
+                <ion-item no-lines>
+                  <ion-label>Weight:</ion-label>
+                  <ion-text>{{ userData.weight }}</ion-text>
+                </ion-item>
+                <ion-item no-lines>
+                  <ion-label>BMI:</ion-label>
+                  <ion-text>{{ userData.bmi }}</ion-text>
+                </ion-item>
+                <ion-item no-lines>
+                  <ion-label>Status:</ion-label>
+                  <ion-text [class]="getStatusClass(userData.status)"
+                    >{{ userData.status }}</ion-text
+                  >
+                </ion-item>
+              </ion-card-content>
+              <ion-card-footer>
+                <ion-buttons class="edit-btn">
+                  <ion-button (click)="editUser(userData)"> Edit </ion-button>
+                </ion-buttons>
+                <ion-buttons class="edit-btn">
+                  <ion-button
+                    (click)="openLoginPageModal(userData.usersUID)"
+                    [disabled]="userData.age === null || userData.height === null || userData.weight === null || userData.bmi === null || userData.status === null"
+                  >
+                    Play
+                  </ion-button>
+                </ion-buttons>
+
+                <ion-buttons class="edit-btn">
+                  <ion-button (click)="openVaccineDetailsModal(userData)">
+                    Vaccine
+                  </ion-button>
+                </ion-buttons>
+              </ion-card-footer>
+            </ion-card>
+            <!-- </ion-card> -->
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="openSignupModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

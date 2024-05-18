@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Task Done Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="userData.bmiHistory && userData.bmiHistory.length > 1">
+    <ion-item-divider>
+      <ion-label>Date</ion-label>
+      <ion-label>BMI</ion-label>
+      <ion-label>BMI Difference</ion-label>
+      <ion-label>Days Difference</ion-label>
+    </ion-item-divider>
+
+    <ion-item *ngFor="let record of userData.bmiHistory; let i = index">
+      <ion-label>{{ record.date }}</ion-label>
+      <ion-label>{{ record.bmi }}</ion-label>
+
+      <!-- Display BMI and days difference for records after the first one -->
+      <ng-container *ngIf="i > 0">
+        <ion-label>{{ calculateBmiDifference(userData.bmiHistory[i], userData.bmiHistory[i - 1]) | number: '1.2-2' }}</ion-label>
+        <ion-label>{{ calculateDaysDifference(userData.bmiHistory[i], userData.bmiHistory[i - 1]) | number: '1.0-0' }}</ion-label>
+      </ng-container>
+    </ion-item>
+  </ion-list>
+</ion-content>

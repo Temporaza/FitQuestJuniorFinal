@@ -1,0 +1,204 @@
+.title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  display: flex;
+  align-items: center;
+  h1{
+    margin: auto;
+  }
+}
+
+ion-list {
+  background-color: transparent !important;
+}
+
+ion-content {
+  --background: url("/assets/ebook/bg.png") center/cover no-repeat;
+    height: 100vh;
+}
+
+.custom-card {
+  max-width: 400px; /* Set your desired maximum width */
+  width: 100%; /* Ensure the card takes full width if the content is smaller than max-width */
+  margin: 10px auto; /* Adjust margin as needed for spacing */
+}
+
+@media (min-width: 680px) {
+  .custom-card {
+    max-width: 800px; /* Set your desired maximum width */
+    width: 100%; /* Ensure the card takes full width if the content is smaller than max-width */
+    margin: 10px auto; /* Adjust margin as needed for spacing */
+    margin-top: 8vh;
+  }
+  ion-card {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 6vh;
+  }
+  .title {
+    width: 50%;
+  }
+}
+
+.findBtn {
+  display: block;
+  margin: 0 auto; /* Center the button horizontally */
+  max-width: 500px; /* Set your desired maximum width */
+  width: 100%; /* Ensure the button takes full width if the content is smaller than max-width */
+}
+
+.lineGraph {
+  margin-bottom: 50px; /* Adjust the value as needed */
+  text-align: center;
+  font-weight: bold;
+  margin: 30px 10px;
+  border-radius: 10px;
+  background: #f1eedc;
+  box-shadow: 10px 9px 21px -10px rgba(0, 0, 0, 0.78);
+  transition: all 0.3s ease;
+  animation: slideFromRight 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.lineGraph:hover {
+  transform: scale(1.02);
+  box-shadow: 10px 9px 37px -5px rgba(0, 0, 0, 0.83);
+}
+
+.pie-graph-container {
+  margin: 20px 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #f1eedc;
+  box-shadow: 10px 9px 21px -10px rgba(0, 0, 0, 0.78);
+  transition: all 0.3s ease;
+  animation: slideFromRight 0.8s ease forwards;
+  opacity: 0;
+}
+
+.pie-graph-container:hover {
+  transform: scale(1.02);
+  box-shadow: 10px 9px 37px -5px rgba(0, 0, 0, 0.83);
+}
+
+.SuperParent {
+  display: flex;
+  justify-content: center;
+}
+
+.parentConsult {
+  background-color: white;
+  height: auto;
+  border-radius: 20px;
+  border: #0080ff 15px solid;
+  width: 65vh;
+  margin-top: 10vh;
+}
+
+@media only screen and (max-width: 768px) {
+  .parentConsult {
+    width: 100%;
+  }
+}
+
+.card-header {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+}
+
+.pie-graph{
+  width: 200px;
+}
+
+.task-table{
+  margin: 10px auto;
+  border: solid lightblue;
+}
+.task-table th,
+.task-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+@media only screen and (min-width: 550px) {
+  .pie-graph-container {
+     
+      display: flex;
+      align-items: center;
+    }
+}
+
+@media only screen and (max-width: 549px) {
+  .pie-graph {
+      width: 300px;
+      margin: 0 auto;
+    }
+}
+
+.bmi-table {
+  margin: 0 auto;
+  width: 80%;
+  border: solid lightblue;
+  /* Adjust the width as needed */
+}
+
+.bmi-table th,
+.bmi-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.bmi-table th {
+  background-color: #f2f2f2;
+  /* Background color for table header */
+  font-weight: bold;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.dropD{
+border: 1px solid;
+border-radius: 10px;
+margin: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.select{
+  --font-family: "IntegralCF-Bold";
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.bmiHistory{
+  padding: 10px;
+}

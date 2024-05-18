@@ -1,0 +1,156 @@
+<ion-content [fullscreen]="true">
+  <ion-icon
+    name="arrow-back-outline"
+    (click)="navigateToVaccinationPage()"
+  ></ion-icon>
+
+  <div class="container">
+    <div class="Logo">
+      <img class="logo" src="assets/newAssets/Likha.png" alt="Your Logo" />
+      <img class="logo" src="assets/icon/new.png" alt="Your Logo" />
+      <img class="circle" src="assets/newAssets/circle.png" alt="Your Logo" />
+    </div>
+
+    <div class="form">
+      <div class="header">
+        <div class="header-parent">
+          <div class="parent">
+            <ion-icon name="person-outline" class="header-icon"></ion-icon>
+            <div class="header-text">Kids</div>
+          </div>
+        </div>
+        <h1 class="title">Get In</h1>
+      </div>
+
+      <form [formGroup]="regForm" novalidate>
+        <div class="ion-padding">
+          <ion-item>
+            <ion-icon class="icons" name="person-outline"></ion-icon>
+            <ion-input
+              formControlName="fullname"
+              placeholder="name"
+              class="input"
+            ></ion-input>
+          </ion-item>
+          <div
+            *ngIf="this.regForm.controls?.['fullname'].touched && this.regForm.controls?.['fullname'].invalid"
+          >
+            <ion-text
+              *ngIf="errorControl['fullname'].errors?.['required']"
+              color="danger"
+            >
+              <ion-icon name="warning"></ion-icon>Fullname is required
+            </ion-text>
+          </div>
+
+          <ion-item>
+            <ion-icon class="icons" name="person-outline"></ion-icon>
+            <ion-input
+              formControlName="email"
+              placeholder="Enter username"
+              class="input"
+              type="text"
+            ></ion-input>
+          </ion-item>
+          <div
+            *ngIf="regForm.get('email').dirty && regForm.get('email').errors"
+          >
+            <ion-text
+              *ngIf="regForm.get('email').errors.required"
+              color="danger"
+            >
+              <ion-icon name="warning"></ion-icon> Email is required
+            </ion-text>
+            <ion-text
+              *ngIf="regForm.get('email').errors.pattern"
+              color="danger"
+            >
+              <ion-icon name="warning"></ion-icon> Email should be valid
+            </ion-text>
+          </div>
+
+          <ion-item>
+            <ion-icon class="icons" name="lock-closed-outline"></ion-icon>
+            <ion-input
+              formControlName="password"
+              placeholder="password"
+              type="password"
+              class="input"
+            ></ion-input>
+          </ion-item>
+          <div
+            *ngIf="this.regForm.controls?.['password'].touched && this.regForm.controls?.['password'].invalid"
+          >
+            <ion-text
+              *ngIf="errorControl['password'].errors?.['required']"
+              color="danger"
+            >
+              <ion-icon name="warning"></ion-icon>Password is required
+            </ion-text>
+            <ion-text
+              *ngIf="errorControl['password'].errors?.['pattern']"
+              color="danger"
+            >
+              <ion-icon name="warning"></ion-icon>
+              Password must atleast have One Character One Capital One Number
+              Contain 8 digit
+            </ion-text>
+          </div>
+
+          <ion-item>
+            <ion-icon class="icons" name="calendar-outline"></ion-icon>
+            <ion-input
+              formControlName="age"
+              placeholder="Age"
+              type="number"
+              class="input"
+            ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon class="icons" name="calendar-outline"></ion-icon>
+            <ion-input
+              formControlName="birthday"
+              placeholder="Birthday"
+              type="date"
+              class="input"
+            ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon class="icons" name="paw-outline"></ion-icon>
+            <ion-input
+              formControlName="petName"
+              placeholder="Pet's Name"
+              class="input"
+            ></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-icon class="icons" name="person-outline"></ion-icon>
+            <ion-input
+              formControlName="parentEmail"
+              placeholder="Parent's Email"
+              class="input"
+              [value]="parentEmail ?? ''"
+            ></ion-input>
+          </ion-item>
+
+          <!-- <div class="signinLink">
+            <p>
+              Already a Member?<a
+                style="color: #57aba5"
+                [routerLink]="['/login']"
+                >Signin Now</a
+              >
+            </p>
+          </div> -->
+        </div>
+
+        <button class="center-button" (click)="signUp()">Add your kid</button>
+
+        <div class="line-shape"></div>
+      </form>
+    </div>
+  </div>
+</ion-content>

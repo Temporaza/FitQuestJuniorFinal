@@ -1,0 +1,168 @@
+
+//new css
+
+ion-content {
+  --background: url("/assets/newAssets/bg2.png") center/cover no-repeat; /* Set the background image */
+  overflow: hidden; /* Hide the scroll */
+}
+
+@media only screen and (max-width: 500px) {
+  ion-content {
+    --background: url("/assets/newAssets/bg3.png") center/cover no-repeat;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  ion-content {
+    --background: url("/assets/newAssets/bg-web4.png") center/cover no-repeat;
+  }
+
+  .container {
+    margin-top: 2vh;
+    max-width: 40%;
+    height: auto;
+  }
+
+  .logo {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.container {
+  margin-top: 2vh;
+  width: 80%;
+  height: auto;
+  animation: slideFromRight 0.8s ease forwards;
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.Logo {
+  background: #a1fff9;
+  border-top-right-radius: 80px 80px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .circle {
+    margin-top: 5vh;
+  }
+}
+
+.header-parent {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  left: 20%;
+}
+
+.parent {
+  background-color: #a1fff9;
+  display: flex;
+  border-radius: 5px;
+  position: absolute;
+  margin-top: 5vh;
+}
+
+.header-icon {
+  font-size: 24px;
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.header-text {
+  font-size: 18px;
+  font-weight: bold;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  color: #a1fff9;
+  font-family: "IntegralCF-Bold";
+  margin-top: 1vh;
+}
+
+.ion-padding {
+  margin-top: 3vh;
+}
+
+.form {
+  background: #7d695f;
+  padding: 10px;
+  border-bottom-right-radius: 30px 30px;
+}
+
+.icons {
+  padding-right: 20px;
+  color: #a1fff9;
+}
+
+ion-item {
+  --background: transparent;
+  --border-style: none;
+  border: 1px solid #a1fff9;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+ion-input {
+  --background: transparent;
+  color: #a1fff9;
+}
+
+.signinLink {
+  color: #fc8042;
+}
+
+p {
+  text-decoration: none;
+}
+
+.center-button {
+  background-color: #57aba5;
+  border: none;
+  color: white;
+  padding: 15px 60px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  margin: 0 auto;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: black 1px 2px 2px;
+ 
+}
+
+.line-shape {
+  height: 3px;
+  width: 100%;
+  width: calc(90% - 10px); /* Adjust the width as needed */
+  background-color: #a1fff9; /* Blue color */
+  margin-top: 10px; /* Adjust the margin as needed */
+}
+
+ion-icon {
+  font-size: 2rem;
+  margin: 5px;
+  color: #fc8042;
+}
+

@@ -1,0 +1,123 @@
+<!-- New UI -->
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="Logo">
+      <img
+        class="logo"
+        routerLink="/landing"
+        src="assets/newAssets/Likha.png"
+        alt="Your Logo"
+      />
+      <img
+        class="logo"
+        routerLink="/landing"
+        src="assets/icon/new.png"
+        alt="Your Logo"
+      />
+      <img class="circle" src="assets/newAssets/circle.png" alt="Your Logo" />
+    </div>
+
+    <div class="form">
+      <div class="header">
+        <div class="header-parent">
+          <div class="parent">
+            <ion-icon name="person-outline" class="header-icon"></ion-icon>
+            <div class="header-text">Parent</div>
+          </div>
+        </div>
+        <h1 class="title">Login</h1>
+        <p class="subTitle">Please sign in to continue.</p>
+      </div>
+
+      <form [formGroup]="logForm" novalidate>
+        <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+        <div class="ion-padding">
+          <ion-item>
+            <ion-input
+              formControlName="email"
+              placeholder="email"
+              class="input"
+            ></ion-input>
+            <ion-icon name="mail-outline"></ion-icon>
+          </ion-item>
+          <div
+            *ngIf="this.logForm.controls?.['email'].touched && this.logForm.controls?.['email'].invalid"
+          >
+            <ion-text
+              *ngIf="errorControl['email'].errors?.['required']"
+              color="danger"
+            >
+              <ion-icon name="warning"></ion-icon>Email is required
+            </ion-text>
+            <ion-text
+              *ngIf="errorControl['email'].errors?.['pattern']"
+              color="danger"
+            >
+              <ion-icon name="warning"></ion-icon>Email should be valid
+            </ion-text>
+          </div>
+
+          <ion-item>
+            <ion-input
+              formControlName="password"
+              placeholder="Password"
+              type="password"
+              class="input"
+            ></ion-input>
+            <ion-icon name="lock-closed-outline"></ion-icon>
+          </ion-item>
+          <div
+            *ngIf="this.logForm.controls?.['password'].touched && this.logForm.controls?.['password'].invalid"
+          >
+            <ion-text
+              *ngIf="errorControl['password'].errors?.['required']"
+              color="danger"
+            >
+              <ion-icon name="warning"></ion-icon> Password is required
+            </ion-text>
+            <ion-text
+              *ngIf="errorControl['password'].errors?.['pattern']"
+              color="danger"
+            >
+              <ion-icon name="warning"></ion-icon> Password should be at least 8
+              characters and include numbers and letters
+            </ion-text>
+          </div>
+
+          <div class="forgot-password-link">
+            <p>
+              Forgot Password?
+              <a [routerLink]="['/forgot-password']" style="color: #57aba5"
+                >Click Here</a
+              >
+            </p>
+          </div>
+
+          <div class="signupLink">
+            <p>
+              Don't Have an Account?
+              <a style="color: #57aba5" [routerLink]="['/parent-register']">
+                SignUp
+              </a>
+            </p>
+          </div>
+
+          <!-- Remember Me -->
+          <div class="remember-me">
+            <p class="remember-text">Remember Me</p>
+            <ion-checkbox
+              formControlName="rememberMe"
+              [(ngModel)]="rememberMe"
+              class="custom-checkbox"
+            ></ion-checkbox>
+          </div>
+        </div>
+
+        <button class="center-button" (click)="signUp()">Login</button>
+
+        <div class="line-shape"></div>
+      </form>
+    </div>
+  </div>
+</ion-content>

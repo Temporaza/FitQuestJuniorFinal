@@ -1,0 +1,135 @@
+ion-toolbar{
+    --background: #ff8200;
+}
+
+ion-item {
+    --background: transparent;
+}
+
+ion-grid{
+    height: auto;
+}
+
+ion-list{
+    margin: 5vh auto;
+    width: 80%;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+    
+}
+
+ion-label {
+    font-weight: bold;
+}
+
+ion-button{
+    color: black;
+}
+
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    background-color: #57ABA5;
+    padding: 10px;
+    border-radius: 10px 10px 61px 61px;
+}
+
+.image-container img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 1px solid black;
+    
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    padding: 6px 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+ 
+}
+
+.input:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.input ion-icon {
+    font-size: 24px;
+    color: #555;
+   
+}
+
+.input ion-icon:hover {
+    color: #333;
+}
+
+.edit {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background-color: #008CBA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ion-icon{
+        font-size: 30px;
+    }
+}
+
+.edit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.save {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    background-color: #4CAF50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.save ion-icon {
+    font-size: 30px;
+}
+
+.save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin: 1vh 0;
+}

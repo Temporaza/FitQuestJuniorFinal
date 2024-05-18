@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Add a back button to navigate to the home page -->
+      <ion-back-button defaultHref="/search-games"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Shape Match</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="giant-box">
+      <p class="shape-description">{{ currentShape.description }}</p>
+    </div>
+    <div class="box-typing">
+      <img class="img-shape" [src]="currentShape.image" alt="Shape Image" />
+    </div>
+
+    <div class="text-field-container">
+      <form (ngSubmit)="submitForm()">
+        <input
+          type="text"
+          placeholder="Enter text"
+          [(ngModel)]="textInput"
+          name="textInput"
+        />
+      </form>
+    </div>
+
+    <div class="submit-button-container">
+      <div class="center-button">
+        <!-- <ion-button type="submit" (click)="submitForm()" size="small">Submit</ion-button> -->
+      </div>
+    </div>
+
+    <div class="pagination-buttons">
+      <button
+        class="nextPrev"
+        (click)="prevShape()"
+        [disabled]="isPrevButtonDisabled()"
+      >
+        <img src="/assets/shapes/prev.png" alt="Previous" />
+      </button>
+      <button
+        class="nextPrev"
+        (click)="nextShape()"
+        [disabled]="isNextButtonDisabled()"
+      >
+        <img src="/assets/shapes/next.png" alt="Next" />
+      </button>
+    </div>
+  </div>
+</ion-content>

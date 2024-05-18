@@ -1,0 +1,80 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row class="head-btn">
+        <ion-col size="4" size-sm="4">
+          <ion-buttons class="avatar" (click)="openParentProfileModal()">
+            <div class="iconAva">
+              <ion-avatar>
+                <img
+                  [src]="profileImageUrl ? profileImageUrl : 'https://m.media-amazon.com/images/I/41jLBhDISxL.jpg'"
+                />
+              </ion-avatar>
+              <ion-label>
+                <h2>{{ parentFullName }}</h2>
+              </ion-label>
+            </div>
+          </ion-buttons>
+        </ion-col>
+        <ion-col size="4" size-sm="4" class="title">
+          <ion-title style="text-align: center">Dashboard</ion-title>
+        </ion-col>
+        <ion-col size="4" size-sm="4" class="btn-log">
+          <ion-buttons class="bordered" fill="solid" color="light">
+            <ion-button (click)="logout()">
+              <ion-icon color="primary" name="log-out" size="large"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col class="com-nav" size="12" size-md="6">
+        <app-custom-navigation class="stick"></app-custom-navigation>
+      </ion-col>
+      <ion-col class="second" size="12" size-md="6">
+        <ion-col class="outputs" size="12" size-md="6">
+          <div class="board">
+            <img alt="daily task" src="assets/ebook/board.png" />
+          </div>
+          <div class="parent-container">
+            <div class="container">
+              <h1>List of Kids</h1>
+              <ul class="kids-list">
+                <li
+                  *ngFor="let userData of usersData; let i = index"
+                  class="kid-item"
+                >
+                  <div class="kid-details">
+                    <span>Kid {{ i + 1 }}. {{ userData.fullname }}</span>
+                    <!-- <span>Email: {{ userData.email }}</span> -->
+                  </div>
+                  <button
+                    style="color: black"
+                    ion-button
+                    (click)="openTaskDoneModal(userData)"
+                  >
+                    Tasks Done
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </ion-col>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab class="fab-btn" slot="fixed" vertical="bottom" horizontal="start">
+    <div class="centered-wrapper">
+      <ion-fab-button class="larger-button" (click)="navigateToEBook()">
+        <img alt="daily task" src="assets/ebook/babyBook.png" />
+      </ion-fab-button>
+    </div>
+  </ion-fab>
+</ion-content>

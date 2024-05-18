@@ -1,0 +1,62 @@
+.title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  display: flex;
+  align-items: center;
+
+  h1 {
+    margin: auto;
+  }
+}
+
+ion-content {
+  --background: url("/assets/ebook/bg.png") center/cover no-repeat;
+  height: 100vh;
+}
+
+h1{
+    font-family: "IntegralCF-Bold";
+}
+
+.custom-card {
+  max-width: 400px; /* Set your desired maximum width */
+  width: 90%; /* Ensure the card takes full width if the content is smaller than max-width */
+  margin: 10px auto; /* Adjust margin as needed for spacing */
+  // margin-top: 20vh;
+  ion-card-title {
+    font-family: "IntegralCF-Bold";
+  }
+}
+
+@media (min-width: 680px) {
+  .custom-card {
+    max-width: 800px; /* Set your desired maximum width */
+    width: 80%; /* Ensure the card takes full width if the content is smaller than max-width */
+  }
+}
+
+.board1 {
+  display: flex;
+  justify-content: center;
+  img {
+    max-width: 80vh;
+  }
+}
+
+.board1 {
+  position: relative;
+}
+
+.parentProgress {
+  background-color: white;
+  height: auto;
+  border-radius: 20px;
+  border: #0080ff 15px solid;
+  width: 65vh;
+  margin-top: 10vh;
+}
+
+.subParent {
+  width: 90%;
+  margin: 0 auto;
+}

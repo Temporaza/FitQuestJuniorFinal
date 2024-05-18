@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/search-games"></ion-back-button>
+    </ion-buttons>
+    <ion-title>soundAnimals</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="whole">
+  <div class="container">
+    <div class="giant-box">
+      <img [src]="currentAnimalImage" *ngIf="showAnimalImage" alt="Identified Animal">
+
+    </div>
+    <div class="box-typing">
+      <!-- Display the speaker icon -->
+      <ion-icon class="speaker-icon" [name]="isAudioPlaying ? 'volume-high' : 'volume-mute'" (click)="playAnimalSound()"></ion-icon>
+    </div>
+    
+    <div class="text-field-container">
+      <input type="text" placeholder="Enter text" name="textInput">
+    </div>
+
+    <div class="submit-button-container">
+      <div class="center-button">
+        <ion-button type="submit" (click)="submitText()" size="small">Submit</ion-button>
+      </div>
+    </div>
+
+    <div class="pagination-buttons">
+      <button class="nextPrev" (click)="showPrevAnimal()">
+        <img src="/assets/shapes/prev.png" alt="Previous">
+      </button>
+      <button class="nextPrev" (click)="showNextAnimal()">
+        <img src="/assets/shapes/next.png" alt="Next">
+      </button>
+    </div>
+    <!-- Add audio element -->
+    <audio #audioPlayer></audio>
+  </div>
+</ion-content>

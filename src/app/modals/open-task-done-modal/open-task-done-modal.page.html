@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Task's Done</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <h1 class="fullname-label">Name: {{ userData.fullname }}</h1>
+
+  <h1 style="text-align: center">Task History</h1>
+
+  <ion-list>
+    <ion-item *ngFor="let task of tasks$ | async">
+      <ion-card class="card-tasks">
+        <ion-card-header>
+          <ion-card-subtitle>Description:</ion-card-subtitle>
+          <ion-card-title>{{ task.description }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>Points: {{ task.points }}</p>
+          <p>Status: {{ task.status }}</p>
+          <p>Other Tasks: {{ task.otherTasks }}</p>
+          <!-- Add other task properties as needed -->
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col>
+            <ion-button color="danger" fill="clear" (click)="deleteTask(task)">
+              <ion-icon name="trash-outline" size="large"></ion-icon>
+              Delete
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

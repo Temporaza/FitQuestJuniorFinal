@@ -1,0 +1,90 @@
+.activity-card {
+  background-color: #fff; 
+  border-radius: 10px; 
+  margin-bottom: 10px;
+}
+ion-content {
+  --background: url("/assets/ebook/bg.png") center/cover no-repeat;
+  height: 100vh;
+}
+
+.title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  display: flex;
+  align-items: center;
+
+  h1 {
+    margin: auto;
+  }
+}
+
+.activity-title {
+  font-size: 18px; 
+  font-weight: bold; 
+}
+
+.activity-content {
+  padding: 10px; 
+}
+
+.star-icon {
+  width: 32px; 
+  height: 32px;
+}
+
+.points-label {
+  font-size: 20px;
+}
+
+.icon-button {
+  font-size: 24px; 
+  color: #3498db; 
+}
+
+ion-card-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+ion-label{
+  margin-bottom: 4px;
+  font-weight: bold;
+  font-size: 20px !important;
+}
+
+ion-item {
+  margin-bottom: 10px; 
+  font-size: 20px;
+}
+
+.board {
+  display: flex;
+  justify-content: center;
+}
+
+.Tasks-container {
+  font-family: "IntegralCF-Bold";
+  background-color: white;
+  height: auto;
+  border-radius: 20px;
+  border: #0080ff 15px solid;
+  width: 65vh;
+  margin-top: 10vh;
+  padding-left: 10px;
+}
+
+.btn-task {
+  margin: 10px auto;
+}
+
+.Tasks {
+  h1 {
+    font-family: "IntegralCF-Bold";
+    text-align: center;
+  }
+  h2 {
+    text-align: center;
+  }
+  text-align: center;
+}

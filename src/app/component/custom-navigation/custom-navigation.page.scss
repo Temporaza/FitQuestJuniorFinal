@@ -1,0 +1,61 @@
+
+.component-container{
+  
+  
+}
+
+.rowParent{
+  // margin-top: -100vh;
+  position: fixed;
+  margin: 0 auto;
+  // box-shadow: 10px 10px 16px 0px rgba(0, 0, 0, 0.75);
+  width: 45%;
+  height: auto;
+ 
+}
+
+.quest{
+  margin: 0vh auto;
+}
+
+
+
+img{
+  margin: 2vh auto;
+  height: 250px;
+    width: 310px;
+}
+
+@media only screen and (max-width: 760px) {
+ .rowParent {
+    position: sticky;
+    width: 100%;
+    // height: auto;
+    // background: wheat;
+    // border-radius: 10px;
+  }
+  img {
+    min-width: 175px;
+    height: 155px;
+  }
+  .quest {
+    display: flex;
+    justify-content: center;
+  }
+
+  .component-container {
+    margin-top: 1vh;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .rowParent {
+    left: 80px;
+  }
+}
+
+ion-col{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

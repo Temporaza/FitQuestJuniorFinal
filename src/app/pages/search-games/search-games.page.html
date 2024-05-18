@@ -1,0 +1,98 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <!-- Add a back button to navigate to the home page -->
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Search Games</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <ion-card-title>Games for your age</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Age</ion-label>
+        <ion-input
+          type="number"
+          [(ngModel)]="agePreference"
+          readonly
+        ></ion-input>
+      </ion-item>
+
+      <ion-button (click)="findGames()" expand="full">Find Games</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <div
+    class="gamesFound"
+    *ngIf="buttonClicked && foundGames !== undefined && foundGames.length > 0"
+  >
+    <!-- Display matched games in card format -->
+
+    <h2>Found Games:</h2>
+    
+      <div *ngFor="let game of foundGames">
+        <ion-card color="warning" class="list-games">
+          <img alt="Silhouette of mountains" src="assets/icon/Normal.png" />
+          <ion-card-header>
+            <ion-card-title>{{ game.title }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content> {{ game.description }} </ion-card-content>
+          <ion-button
+            *ngIf="game.title === 'ShapeMatch'"
+            [routerLink]="['/shape-match']"
+          >
+            <p>Play</p>
+            <ion-icon name="shapes-sharp"></ion-icon>
+          </ion-button>
+  
+          <ion-button
+            *ngIf="game.title === 'Trash Game'"
+            [routerLink]="['/trash-game']"
+          >
+            <ion-icon name="trash-sharp"></ion-icon>
+            Play</ion-button
+          >
+          <ion-button
+            *ngIf="game.title === 'SoundsAnimals'"
+            [routerLink]="['/sound-animals']"
+          >
+            <ion-icon name="musical-note-sharp"></ion-icon>
+            Play</ion-button
+          >
+          <ion-button
+            *ngIf="game.title === 'Playing Numbers'"
+            [routerLink]="['/numbers']"
+          >
+            Play</ion-button
+          >
+          <ion-button
+            *ngIf="game.title === 'Playing Letters'"
+            [routerLink]="['/game-counting']"
+            >Play</ion-button
+          >
+          <ion-button
+          *ngIf="game.title === 'Guess The Animals'"
+          [routerLink]="['/guest-game']"
+          >Play</ion-button
+          >
+          <ion-button
+          *ngIf="game.title === 'Guess the Numbers'"
+          [routerLink]="['/guest-the-numbers']"
+          >Play</ion-button
+          >
+          <ion-button
+          *ngIf="game.title === 'Guess The Colors'"
+          [routerLink]="['/guest-the-colors']"
+          >Play</ion-button
+          >
+        </ion-card>
+      </div>
+  
+   
+  </div>
+</ion-content>

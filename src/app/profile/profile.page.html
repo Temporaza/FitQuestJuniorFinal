@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+    <ion-buttons>
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+ 
+  <div class="userProfile">
+    <div class="curved">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#3A9A47" fill-opacity="1" d="M0,288L1440,32L1440,0L0,0Z"></path>
+      </svg>
+    </div>
+    <ion-card class="UserCard" *ngIf="fullname">
+      <img class="userImg" alt="User Profile" src="assets/download.jpg"/>
+      <ion-card-header>
+        <ion-card-title>Hello, </ion-card-title>
+        <h2>{{ fullname }}</h2>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <div class="userInfo">
+    <ion-card>
+      <ion-card-header>
+        <ion-item>
+          <ion-card-subtitle>{{ email }}</ion-card-subtitle>
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-card-subtitle>San Jose Road</ion-card-subtitle>
+          <ion-icon name="business-outline" slot="start"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-card-subtitle>09810391315</ion-card-subtitle>
+          <ion-icon name="call-outline" slot="start"></ion-icon>
+        </ion-item>
+      </ion-card-header>
+    </ion-card>
+  </div>
+</ion-content>

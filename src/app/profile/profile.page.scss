@@ -1,0 +1,22 @@
+ion-card{
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px;
+   
+}
+
+
+.UserCard{
+   color: black;
+    text-align: center;
+    margin-top: -150px;
+    background: transparent;
+}
+.UserCard img {
+    object-fit: cover; /* Preserve the aspect ratio of the image */
+    border-radius: 50%; /* Create a circular shape */
+    height: 180px;
+    width: 180px;
+  }
+
+.curved{
+    width: 150vh;
+}

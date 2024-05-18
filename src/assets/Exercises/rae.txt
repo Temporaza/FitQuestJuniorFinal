@@ -1,0 +1,110 @@
+Generic Subprogram
+
+1. This allows the same subprogram to be used in multiple contexts without having to rewrite the code for each specific use case.
+
+2. That's correct! Overloaded subprograms provide ad hoc polymorphism, which means a single function name is pwede mo magamit to represent multiple functions na kayang mag perform ng different tasks depende sa types and/or number of parameters that are passed to them.
+
+Ito ay maganda for greater flexibility and readability ng code, as different versions of a function can be defined for different use cases, without needing to come up with new names for each variation. The compiler or interpreter will determine which version of the function to call based on the parameters that are passed at runtime.
+
+3.Sure! Parametric polymorphism is a type of polymorphism in which a subprogram or type is parameterized by one or more types. This allows the same subprogram or type to be used with different types of data, without having to write separate code for each type.
+
+
+Parameter Polymorphism: C++
+
+lexicographically
+
+In this example, we have a C++ function called max that takes two parameters of some generic type Type, and returns the maximum of the two values. Here's a breakdown of how the function works:
+
+As you can see, yung 'max' function ay nag wowork with parameters of different types (in this case, int, double, and string) by using a templated function with a generic type parameter (Type). The type of 'Type' will be determined at compile time, based on the types of the arguments passed to the function.
+
+By using a templated function like this, we can write a single function that works with different types of data, without having to write separate code for each specific type. This is a form of parametric polymorphism, as the function is parameterized by one or more types.
+
+
+Generic JAVA.50
+
+Generic parameters must be classes.
+
+One important thing to note is that generic parameters must be classes, not primitive types. This means that you cannot declare a generic parameter as "int", "double", "boolean", or any other primitive type. Instead, you must use the corresponding class types, such as "Integer", "Double", and "Boolean", respectively.
+
+example of generic parameters must be classess
+
+Here, the type parameter T represents the type of the objects that the Box class will store and retrieve. Without the type parameter, the Box class would be limited to storing and retrieving objects of a specific type, such as Object.
+
+By requiring that generic parameters must be classes, Java ensures that the types used as generic parameters are well-defined and can be verified at compile-time. This makes the code more robust and less error-prone, because the compiler can catch type-related errors before the code is executed.
+
+
+
+Only one copy of code is built
+
+In the main() method, we call the print() method with arguments of different types (String, Integer, Double, and Boolean). When the code is compiled, only one copy of the print() method is created, but it can be instantiated multiple times with different type arguments.
+
+When the method is called with actual type arguments, the compiler generates the appropriate code based on the argument types.
+
+Internally, when the method is called with an argument, the argument is treated as an Object class object because the type parameter T is replaced with Object during compilation. This allows the method to accept arguments of any type at runtime, while still providing compile-time type safety.
+
+
+
+Compiler inserts casts to proper types when needed
+
+For example, consider the following generic method that takes a list of any type and returns the first element of the list:
+
+As you can see, the compiler has inserted a cast to Integer to ensure that the return value has the correct type. This casting is necessary because the get() method of the List interface returns an Object type, so the actual type of the element in the list is not known at compile time.
+
+
+
+Bound Restrictions
+
+In this method, the type parameter T is restricted to be a subclass of the Number class. This is done using the extends keyword followed by the name of the class or interface that T must extend or implement.
+
+By placing this restriction, we can ensure that the elements of the list passed to the method are all instances of a number subclass (such as Integer, Double, Float, etc.), and thus can be safely cast to Number and used in arithmetic calculations.
+
+
+
+Example of side Effects
+
+In this example, the increment method takes an integer parameter num, but since it's a primitive type, it's passed by value, not by reference. Therefore, any changes made to num within the increment method will only affect the local copy of num, not the original variable a in the main method. As a result, the output of the program is still 10, even though we tried to increment the value of a within the increment method. This is an example of how using parameters in-mode can help reduce side effects.
+
+
+imperative language
+
+For example, in C, a function declared with the void return type cannot return a value, and in Java, methods declared with the void return type cannot return a value other than null.
+
+In some cases, these restrictions are intended to make the behavior of the program more predictable and easier to reason about. For example, if a function is declared with a void return type, it is clear that the function does not return a value, which can make it easier to understand its behavior.
+
+
+
+
+
+
+user define
+In this example, we define a Point class with two attributes x and y. We then define the __add__ method to overload the + operator, which takes another Point object as input, adds their x and y attributes together, and returns a new Point object with the sum of the x and y values.
+
+We create two Point objects p1 and p2, and add them together using the + operator, which calls the __add__ method that we defined. The resulting Point object is stored in p3, and we print its x and y values to verify that the operator overloading worked correctly.
+
+
+coroutines
+ In other words, coroutines allow you to write functions that can be paused and resumed at specific points in their execution, allowing other functions to run in the meantime.
+
+
+
+event loop
+event loop is nothing but a thread which can execute all the tasks which are passed to it
+
+
+
+Coroutine example
+
+In this example, we define two coroutine functions count_up() and count_down(), which simply count up from 1 to 10 and count down from 10 to 1, respectively. Both functions use the await asyncio.sleep() function to pause execution for half a second between each count.
+
+We then define a third coroutine function main(), which creates tasks for both count_up() and count_down() using the asyncio.create_task() function. We then use the await keyword to wait for both tasks to complete before exiting the main() function.
+
+
+
+subroutine
+
+A subroutine is a sequence of program instructions that performs a specific task and can be called multiple times from different parts of a program. When a subroutine is called, it executes from start to finish, and when it returns, the calling program continues from where it left off. Subroutines are generally used to break down complex tasks into smaller and more manageable subtasks.
+
+
+Coroutine
+
+A coroutine, on the other hand, is a type of function that can be paused and resumed during its execution. When a coroutine is called, it runs until it reaches a point where it needs to wait for some input/output operation to complete. At this point, it yields the control back to the calling program, which can perform other tasks while waiting for the coroutine to resume.

@@ -1,0 +1,50 @@
+/* babybook.page.scss */
+ion-toolbar{
+  --background: #ff8200;
+}
+ion-content{
+  --background: lightgreen;
+}
+.book-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh; /* Adjust as needed */
+}
+
+.book-page {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  .page-counter {
+    font-size: 18px;
+  }
+
+  ion-button {
+    --padding-start: 10px;
+    --padding-end: 10px;
+    font-size: 16px;
+  }
+}
+
+.nextPrev {
+  padding: 10px;
+  background: none; /* Remove default background */
+  border: none; /* Remove border */
+  animation: pulse 1.5s infinite;
+
+  img{
+    height: 100px;
+    width: 100px;
+  }
+}
+ 
+  

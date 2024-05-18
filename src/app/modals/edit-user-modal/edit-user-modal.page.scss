@@ -1,0 +1,55 @@
+
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+}
+
+ion-card-title {
+  font-family: "IntegralCF-Bold";
+}
+
+.bmiHistory {
+  margin-top: 5vh;
+}
+
+.editParent {
+  ion-label {
+    font-family: "IntegralCF-Bold";
+  }
+  ion-input {
+    text-align: end;
+  }
+}
+.add-btn {
+  text-align: center;
+  color: black;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: 2px solid black;
+  display: flex;
+  max-width: 250px;
+  background: rgba(252, 128, 66, 0.6);
+}
+
+.save-btn {
+  color: black;
+  justify-content: center;
+  margin: 0 20px;
+  background: rgba(
+    252,
+    128,
+    66,
+    0.6
+  ); /* Adjust the opacity by modifying the last value (0.6) */
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+.display-bmi {
+  margin-top: 10vh;
+  border: 1px solid black;
+  h1 {
+    text-align: center;
+    font-family: "IntegralCF-Bold";
+  }
+}

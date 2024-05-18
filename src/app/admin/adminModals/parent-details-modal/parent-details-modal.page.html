@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ parentDetails.fullname }} Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Display details for the selected parent -->
+  <ion-card class="details-container">
+    <ion-card-content>
+      <div>
+        <strong>Fullname:</strong> {{ parentDetails.fullname }}
+      </div>
+      <div>
+        <strong>Gender:</strong> {{ parentDetails.gender }}
+      </div>
+      
+      <!-- Display user information from the 'users' subcollection -->
+      <ion-card class="user-details" *ngFor="let user of parentDetails.users">
+        <ion-card-title>Kids</ion-card-title>
+        <ion-card-content>
+          <div>
+            <strong>Full Name:</strong> {{ user.fullname }}
+          </div>
+          <div>
+            <strong>User ID:</strong> {{ user.id }}
+          </div>
+          <div>
+            <strong>Email:</strong> {{ user.email }}
+          </div>
+          <div>
+            <strong>BMI:</strong> {{ user.bmi }}
+          </div>
+          <div>
+            <strong>Height:</strong> {{ user.height }} cm
+          </div>
+          <div>
+            <strong>Weight:</strong> {{ user.weight }} kg
+          </div>
+          <div>
+            <strong>Age:</strong> {{ user.age }}
+          </div>
+          <div>
+            <strong>Status:</strong> {{ user.status }}
+          </div>
+        </ion-card-content>
+      </ion-card>
+      
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

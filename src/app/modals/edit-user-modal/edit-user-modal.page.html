@@ -1,0 +1,117 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Edit Kid Info</ion-title>
+    <ion-buttons class="save-btn" slot="end">
+      <ion-button (click)="saveUser()">Save</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Name: {{ userData.fullname }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="editParent">
+        <ion-item>
+          <ion-label>Name: </ion-label>
+          <ion-input [(ngModel)]="userData.fullname"></ion-input>
+        </ion-item>
+        <!-- Input fields for editing user information -->
+        <ion-item>
+          <ion-label>Age: </ion-label>
+          <ion-input
+            type="number"
+            [(ngModel)]="userData.age"
+            (ionChange)="handleInputChange()"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Height (cm): </ion-label>
+          <ion-input
+            type="number"
+            [(ngModel)]="userData.height"
+            (ionChange)="handleInputChange()"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Weight (kg): </ion-label>
+          <ion-input
+            type="number"
+            [(ngModel)]="userData.weight"
+            (ionChange)="handleInputChange()"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>BMI: </ion-label>
+          <ion-input
+            type="number"
+            [(ngModel)]="userData.bmi"
+            readonly
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Status: </ion-label>
+          <ion-input [(ngModel)]="userData.status" readonly></ion-input>
+        </ion-item>
+      </div>
+
+      <ion-item>
+        <ion-label>Date: </ion-label>
+        <ion-datetime
+          display-format="MMM D, YYYY"
+          [(ngModel)]="userInputDate"
+          value="{{ userInputDate | date: 'yyyy-MM-dd' }}"
+        >
+        </ion-datetime>
+      </ion-item>
+
+      <div class="bmiHistory">
+        <ion-buttons class="add-btn">
+          <ion-button (click)="addManualBMI()"
+            >Add Manual BMI Record</ion-button
+          >
+        </ion-buttons>
+
+        <div class="display-bmi">
+          <h1>List of BMI</h1>
+          <ion-list
+            *ngIf="userData.bmiHistory && userData.bmiHistory.length > 0"
+          >
+            <ion-item *ngFor="let record of userData.bmiHistory">
+              <ion-grid>
+                <ion-row>
+                  <ion-col size="12" size-lg="4">
+                    <ion-label
+                      >Date: {{ record.date | date: 'yyyy-MM-dd' }}</ion-label
+                    >
+                  </ion-col>
+                  <ion-col size="12" size-lg="4">
+                    <ion-label>BMI: {{ record.bmi }}</ion-label>
+                  </ion-col>
+                  <ion-col size="12" size-lg="4">
+                    <ion-buttons class="save-btn">
+                      <ion-button (click)="deleteBMIRecord(i)"
+                        >Delete</ion-button
+                      >
+                    </ion-buttons>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

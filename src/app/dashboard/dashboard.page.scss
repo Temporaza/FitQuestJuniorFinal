@@ -1,0 +1,55 @@
+ion-title{
+    text-align: center;
+}
+
+.taskCards{
+    display: flex;
+    text-align: center;
+    font-size: 2px;
+    color: black;
+}
+
+.taskCards ion-card-subtitle{
+    font-size: 10px;
+    color: black;
+}
+
+.card1{
+    width: 50%;
+}
+.card2{
+    width: 50%;
+}
+.card3{
+    width: 50%;
+}
+
+.cardwImg{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.cardwImg2{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.cardImg1{
+    width: 50%;
+}
+.cardImg2{
+    width: 50%;
+}
+.cardImg3{
+    width: 50%;
+}
+.cardImg4{
+    width: 50%;
+}
+
+.text1{
+    margin-left: 50px;
+}

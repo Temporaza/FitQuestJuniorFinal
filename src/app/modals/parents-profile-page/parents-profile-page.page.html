@@ -1,0 +1,118 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title style="text-align: center">Parents Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="image-container" *ngIf="isEditMode">
+          <div>
+            <img
+              [src]="profileImageUrl ? profileImageUrl : 'https://m.media-amazon.com/images/I/41jLBhDISxL.jpg'"
+              alt="Profile Picture"
+              #previewImage
+            />
+          </div>
+          <div class="input">
+            <input
+              type="file"
+              accept="image/*"
+              (change)="onFileSelected($event)"
+              id="fileInput"
+              style="display: none"
+            />
+            <label for="fileInput" class="custom-file-upload">
+              <!-- Add a label for the file input -->
+              <ion-icon name="cloud-upload"></ion-icon>
+              Custom Upload
+            </label>
+          </div>
+        </div>
+        <div class="image-container" *ngIf="!isEditMode">
+          <img
+            [src]="profileImageUrl ? profileImageUrl : 'https://m.media-amazon.com/images/I/41jLBhDISxL.jpg'"
+            alt="Profile Picture"
+          />
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="12">
+        <ion-list *ngIf="isEditMode">
+          <ion-item>
+            <ion-label position="stacked">Full Name:</ion-label>
+            <ion-input
+              type="text"
+              [(ngModel)]="currentUser.fullname"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Gender:</ion-label>
+            <ion-select [(ngModel)]="currentUser.gender">
+              <ion-select-option value="male">Male</ion-select-option>
+              <ion-select-option value="female">Female</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+        <ion-list *ngIf="!isEditMode">
+          <ion-item>
+            <ion-label style="text-align: center;">Email:<br>
+              {{ currentUser.email }}
+            </ion-label>
+           
+          </ion-item>
+          <ion-item>
+            <ion-label>Full Name:</ion-label>
+            <ion-text>{{ currentUser.fullname }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Gender:</ion-label>
+            <ion-text>{{ currentUser.gender }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label>Role:</ion-label>
+            <ion-text>{{ currentUser.role }}</ion-text>
+          </ion-item>
+          <h1 style="text-align: center">Kids</h1>
+          <ion-item *ngFor="let user of parentUsers; let i = index">
+            <ion-label>Kid #{{ i + 1 }}</ion-label>
+            <ion-text>{{ user.fullname }}</ion-text>
+            <div>
+              <img
+                [src]="'https://m.media-amazon.com/images/I/41jLBhDISxL.jpg'"
+                alt="Profile Picture"
+                style="width: 50px; height: 50px; margin: 0 10px"
+              />
+            </div>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="btns" justify-content-center>
+      <ion-col class="edit" size="6">
+        <ion-buttons>
+          <ion-icon name="create-outline"></ion-icon>
+          <ion-button expand="block" (click)="toggleEditMode()"
+            >{{ isEditMode ? 'Cancel' : 'Edit' }}</ion-button
+          >
+        </ion-buttons>
+      </ion-col>
+      <ion-col class="save" size="6" *ngIf="isEditMode">
+        <ion-buttons>
+          <ion-icon name="save-outline"></ion-icon>
+          <ion-button expand="block" (click)="saveChanges()">Save</ion-button>
+        </ion-buttons>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

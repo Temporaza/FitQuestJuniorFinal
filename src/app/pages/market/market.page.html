@@ -1,0 +1,192 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>market</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background">
+  <div class="points-container">
+    <ion-icon name="star" class="points-icon"></ion-icon>
+    <span class="points">{{ totalPoints }}</span>
+  </div>
+
+  <div class="pet-container">
+    <!-- <img *ngIf="petHatUrl" [src]="petHatUrl" class="wizard-hat" /> -->
+    <img [src]="petEyesUrl" class="pet-eyes blinking" />
+    <img [src]="petMouthUrl" class="pet-mouth talking" />
+    <img [src]="petBodyUrl" class="pet-body" />
+  </div>
+
+  <!-- Save button centered below pet-container -->
+  <div class="save-button">
+    <ion-button (click)="save()">Select</ion-button>
+  </div>
+
+  <div class="pet_Bodies">
+    <div class="">
+      <div class="btn-prev">
+        <ion-button (click)="previousCategory('bodies')">Previous</ion-button>
+        <ion-button (click)="nextCategory('cosmetics')">Next</ion-button>
+      </div>
+      <h1
+        style="text-align: center; color: white; font-family: IntegralCF-Bold"
+      >
+        {{ currentCategory === 'bodies' ? 'Pet Bodies' : 'Pet Cosmetics Coming
+        Soon' }}
+      </h1>
+      <div class="closet-container" *ngIf="currentCategory === 'bodies'">
+        <div class="duzzy" [class.owned]="isDuzzyOwned">
+          <img [src]="duzzyUrl" alt="Duzzy" />
+          <div class="pet-info">
+            <button *ngIf="!isDuzzyOwned" (click)="buyPetBody('Duzzy', 50)">
+              Buy
+              <span class="pet-price" *ngIf="!isDuzzyOwned"
+                >Price: 50 Points</span
+              >
+            </button>
+            <button
+              *ngIf="isDuzzyOwned"
+              (click)="equipPetBody(duzzyUrl, 'Duzzy')"
+            >
+              Equip
+            </button>
+            <span class="pet-name">Duzzy</span>
+            <span class="pet-price" *ngIf="isDuzzyOwned">Owned</span>
+          </div>
+        </div>
+
+        <div class="duzzy" [class.owned]="isBigYakOwned">
+          <img [src]="big_YakUrl" alt="BigYak" />
+          <div class="pet-info">
+            <button *ngIf="!isBigYakOwned" (click)="buyPetBody('BigYak', 50)">
+              Buy
+              <span class="pet-price" *ngIf="!isBigYakOwned"
+                >Price: 50 Points</span
+              >
+            </button>
+            <button
+              *ngIf="isBigYakOwned"
+              (click)="equipPetBody(big_YakUrl, 'BigYak')"
+            >
+              Equip
+            </button>
+            <span class="pet-name">Big Yak</span>
+            <span class="pet-price" *ngIf="isBigYakOwned">Owned</span>
+          </div>
+        </div>
+
+        <div class="duzzy" [class.owned]="isCurlyOwned">
+          <img [src]="curlyUrl" alt="curly" />
+          <div class="pet-info">
+            <button *ngIf="!isCurlyOwned" (click)="buyPetBody('Curly', 50)">
+              Buy
+              <span class="pet-price" *ngIf="!isCurlyOwned"
+                >Price: 50 Points</span
+              >
+            </button>
+            <button
+              *ngIf="isCurlyOwned"
+              (click)="equipPetBody(curlyUrl, 'Curly')"
+            >
+              Equip
+            </button>
+            <span class="pet-name">Curly</span>
+            <span class="pet-price" *ngIf="isCurlyOwned">Owned</span>
+          </div>
+        </div>
+
+        <div class="duzzy" [class.owned]="isSpikeyOwned">
+          <img [src]="spikeyUrl" alt="curly" />
+          <div class="pet-info">
+            <button *ngIf="!isSpikeyOwned" (click)="buyPetBody('Spikey', 100)">
+              Buy
+              <span class="pet-price" *ngIf="!isSpikeyOwned"
+                >Price: 100 Points</span
+              >
+            </button>
+            <button
+              *ngIf="isSpikeyOwned"
+              (click)="equipPetBody(spikeyUrl, 'Spikey')"
+            >
+              Equip
+            </button>
+            <span class="pet-name">Big Yak</span>
+            <span class="pet-price" *ngIf="isSpikeyOwned">Owned</span>
+          </div>
+        </div>
+
+        <div class="duzzy">
+          <img [src]="sumoUrl" alt="Sumo" />
+          <div class="pet-info">
+            <button *ngIf="!isSumoOwned" (click)="buyPetBody('Sumo', 100)">
+              Buy
+              <span class="pet-price" *ngIf="!isSumoOwned"
+                >Price: 100 Points</span
+              >
+            </button>
+            <button *ngIf="isSumoOwned" (click)="equipPetBody(sumoUrl, 'Sumo')">
+              Equip
+            </button>
+            <span class="pet-name">Sumo</span>
+            <span class="pet-price" *ngIf="isSumoOwned">Owned</span>
+          </div>
+        </div>
+
+        <div class="duzzy">
+          <img [src]="wet_dogUrl" alt="Sumo" />
+          <div class="pet-info">
+            <button *ngIf="!isWetDogOwned" (click)="buyPetBody('wetDog', 100)">
+              Buy
+              <span class="pet-price" *ngIf="!isWetDogOwned"
+                >Price: 100 Points</span
+              >
+            </button>
+            <button
+              *ngIf="isWetDogOwned"
+              (click)="equipPetBody(wet_dogUrl, 'wetDog')"
+            >
+              Equip
+            </button>
+            <span class="pet-name">Wet Dog</span>
+            <span class="pet-price" *ngIf="isWetDogOwned">Owned</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cosmetics section -->
+      <div class="pet-cosmetics">
+        <!-- <div class="closet-container" *ngIf="currentCategory === 'cosmetics'">
+          <div class="cosmetic-item">
+            <img [src]="wizardPurpleUrl" alt="Wizard Hat" />
+            <ng-container *ngIf="!isWizardHatOwned; else hatOwned">
+              <button (click)="buyHat('wizardHat', 50)">Buy Wizard Hat</button>
+              <span class="pet-price">Price: 50 Points</span>
+            </ng-container>
+            <ng-template #hatOwned>
+              <button (click)="equipWizardHat()" [disabled]="!isWizardHatOwned">
+                Equip Wizard Hat
+              </button>
+              <span>Owned</span>
+            </ng-template>
+          </div>
+          <div class="cosmetic-item">
+            <img [src]="santaUrl" alt="Santa Hat" />
+            <ng-container *ngIf="!isSantaHatOwned; else santaHatOwned">
+              <button (click)="buyHat('santaHat', 50)">Buy Santa Hat</button>
+              <span class="pet-price">Price: 50 Points</span>
+            </ng-container>
+            <ng-template #santaHatOwned>
+              <button (click)="equipSantaHat()" [disabled]="!isSantaHatOwned">
+                Equip Santa Hat
+              </button>
+              <span>Owned</span>
+            </ng-template>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">FitQuestJunior</string>
+    <string name="title_activity_main">FitQuestJunior</string>
+    <string name="package_name">com.fitQuestJunior.app</string>
+    <string name="custom_url_scheme">com.fitQuestJunior.app</string>
+    <string name="choose_file">Choose File</string>
+</resources>

@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+ 
+    <ion-title>Admin Home</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">Logout</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="parent-container">
+    <ion-card-header>
+      <ion-card-title>Parents List</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let parent of parents">
+          <ion-label>{{ parent.fullname }}</ion-label>
+          <ion-button (click)="openDetailsModal(parent.id)">
+            Show Details
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+   <!-- Users Container -->
+   <ion-card class="users-container">
+    <ion-card-header>
+      <ion-card-title>Users List</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let user of users">
+          <ion-label>{{ user.fullname }}</ion-label>
+          <ion-button (click)="openUserDetailsModal(user.id)">
+            Show Details
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Appointment</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <h2>Choose Appointment Time</h2>
+  
+  <!-- Check if 'doctor' exists before accessing its properties -->
+  <ng-container *ngIf="doctor && availableTimeSlots.length > 0">
+    <p>Opening Time: {{ doctor.preferredDayAvailability?.openingTime }}</p>
+    <p>Closing Time: {{ doctor.preferredDayAvailability?.closingTime }}</p>
+
+    <!-- Display available time slots -->
+    <p>Status: {{ appointment?.status || 'Pending' }}</p>
+    <ion-button *ngFor="let timeRange of availableTimeSlots" (click)="selectTime(timeRange)">
+      {{ timeRange.startTime }} - {{ timeRange.endTime }}
+    </ion-button>
+  </ng-container>
+</ion-content>

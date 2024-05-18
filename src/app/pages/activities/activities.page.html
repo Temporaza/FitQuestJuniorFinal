@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Activities</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="nav-tasks">
+    <ion-buttons class="btns" slot="start">
+      <ion-button
+        (click)="showOngoingTasks()"
+        [class.active]="isOngoingTasksSelected"
+        [color]="isOngoingTasksSelected ? 'primary' : 'medium'"
+        >Ongoing Tasks</ion-button
+      >
+    </ion-buttons>
+    <ion-buttons class="btns" slot="end">
+      <ion-button
+        (click)="showCompletedTasks()"
+        [class.active]="!isOngoingTasksSelected"
+        [color]="!isOngoingTasksSelected ? 'primary' : 'medium'"
+        >Completed Tasks</ion-button
+      >
+    </ion-buttons>
+  </div>
+  <!-- Loading spinner -->
+  <ion-loading
+    *ngIf="isLoading"
+    message="Loading tasks..."
+    duration="5000"
+  ></ion-loading>
+
+  <!-- Display Created Tasks with Slide-In Animation -->
+  <ion-card *ngFor="let task of filteredTasks" class="task-card">
+    <img
+      alt="Silhouette of mountains"
+      src="https://st.depositphotos.com/1008336/2977/v/450/depositphotos_29779329-stock-illustration-jump-and-joy.jpg"
+    />
+    <ion-card-header>
+      <ion-card-title class="task-title"
+        >Other Tasks: {{ task.otherTasks }}</ion-card-title
+      >
+      <ion-card-title class="task-subtitle"
+        >{{ task.description }}</ion-card-title
+      >
+    </ion-card-header>
+    <ion-card-content class="task-content">
+      <!-- Add other task details as needed -->
+
+      <ion-row class="ion-align-items-center">
+        <ion-col size="auto">
+          <!-- Set a specific size for the image -->
+          <ion-img
+            src="assets/Star.png"
+            alt="Star Icon"
+            class="star-icon"
+            style="width: 24px; height: 24px"
+          ></ion-img>
+        </ion-col>
+        <ion-col size="auto">
+          <!-- Display the points text next to the star image -->
+          <ion-label class="points-label">{{ task.points }} points</ion-label>
+        </ion-col>
+
+        <ion-col class="ion-text-end">
+          <!-- Button for task status -->
+          <ion-button
+            *ngIf="task.status !== 'Completed'"
+            (click)="updateTaskStatus(task)"
+            [color]="task.status === 'Pending' ? 'success' : 'warning'"
+          >
+            {{ task.status }}
+          </ion-button>
+          <!-- Display "Done!!" label when the task is completed -->
+          <ion-label *ngIf="task.status === 'Completed'">Done!!</ion-label>
+        </ion-col>
+      </ion-row>
+
+      <ion-label>Status: {{ task.status }}</ion-label><br />
+      <!-- Add a button to delete the task -->
+      <ion-button color="danger" (click)="deleteTask(task)"
+        >Delete Task</ion-button
+      >
+      <ion-button color="primary" (click)="openExerciseExplanationModal(task)"
+        >View Explanation</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
+</ion-content>

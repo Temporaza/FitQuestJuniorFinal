@@ -1,0 +1,101 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon> Logout
+      </ion-button>
+    </ion-buttons>
+    <div class="ion-page" id="main-content">
+      <ion-buttons slot="start">
+        <ion-menu-button autoHide="false"></ion-menu-button>
+      </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu Content</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <div class="footer-buttons">
+      <button ion-button class="custom-button" routerLink="/market">
+        <img alt="Market" src="assets/Shopping.png" />
+        <div class="button-text">Market</div>
+      </button>
+      <button ion-button class="custom-button" routerLink="/activities">
+        <img alt="Activities" src="assets/Mission.png" />
+        <div class="button-text">Quests</div>
+      </button>
+      <button ion-button class="custom-button" routerLink="/search-games">
+        <img alt="Search Games" src="assets/Games.png" />
+        <div class="button-text">Games</div>
+      </button>
+    </div>
+  </ion-content>
+</ion-menu>
+
+<ion-content [fullscreen]="true" class="background">
+  <div class="top-btns">
+    <div class="options">
+      <audio id="backgroundMusic" autoplay loop controls style="display: none">
+        <source src="/assets/Happy Short 1.wav" type="audio/wav" />
+        Your browser does not support the audio element.
+      </audio>
+      <!-- Toggle button for audio control -->
+      <div class="audio">
+        <ion-button class="music" (click)="toggleAudio()">
+          <ion-icon name="volume-mute" *ngIf="!isAudioPlaying"></ion-icon>
+          <ion-icon name="volume-high" *ngIf="isAudioPlaying"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+    <div class="petName">
+      <div class="pet">
+        <h3>{{ petName }}</h3>
+      </div>
+      <div class="birthday" (click)="openBirthdayModal()">
+        <img src="assets/gift.webp" alt="Birthday" />
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="points-container">
+      <ion-icon name="star" class="points-icon"></ion-icon>
+      <span class="points">{{ totalPoints }}</span>
+    </div> -->
+<!-- 
+  <div class="yum" *ngIf="showYumImage">
+    <img src="assets/yum.png" alt="Food" />
+  </div> -->
+
+  <div class="attitude" *ngIf="showHmmImage">
+    <img src="assets/hmm.png" alt="attitude" />
+  </div>
+
+  <div class="pet-container" (click)="handlePetClick()">
+    <!-- <img [src]="petHatUrl" class="pet-hat" /> -->
+    <img [src]="petEyesUrl" class="pet-eyes" />
+    <img [src]="petMouthUrl" class="pet-mouth" />
+    <img [src]="petBodyUrl" class="pet-body" />
+  </div>
+
+  <div class="health-bar" (click)="updatePetHealth(petHealth - 10)">
+    <div class="health-bar-inner" [style.width]="petHealth + '%'"></div>
+  </div>
+
+  <div class="food" (click)="handleSaladClick()">
+    <img src="assets/salad.png" alt="Food" />
+  </div>
+
+  <div
+    class="cookie-image"
+    *ngIf="showCookieImage"
+    cdkDrag
+    (cdkDragEnded)="handleCookieDragged($event)"
+  >
+    <img src="assets/newAssets/cookie.png" alt="Cookie" />
+  </div>
+</ion-content>

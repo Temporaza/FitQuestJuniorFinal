@@ -1,0 +1,39 @@
+ion-content {
+  --background: #003366;
+}
+
+* {
+  font-family: "IntegralCF-Bold";
+}
+
+ion-toolbar {
+  --background: #ff8200;
+}
+
+.nav-tasks {
+  display: flex;
+  justify-content: center;
+  margin: 10vh;
+  color: black;
+}
+
+.btns ion-button.active {
+  background-color: #ffdc82;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.task-title {
+  font-size: 15px;
+}
+
+ion-card {
+  max-width: 90%;
+  margin: 2vh auto;
+}
+
+@media screen and (min-width: 666px) {
+  ion-card {
+    max-width: 600px;
+  }
+}

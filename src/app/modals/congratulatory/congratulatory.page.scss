@@ -1,0 +1,19 @@
+*{
+    font-family: 'Patrick Hand SC', cursive;
+}
+
+ion-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  ion-title {
+    text-align: center;
+  }
+  
+  ion-content .ion-padding {
+    text-align: center;
+  }

@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Doctor Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-content>
+      <ion-card-title>{{ doctorDetails?.fullname }}</ion-card-title>
+      <p>Date: {{ doctorDetails?.availability?.date }}</p>
+      <p>Opening Time: {{ doctorDetails?.availability?.openingTime }}</p>
+      <p>Closing Time: {{ doctorDetails?.availability?.closingTime }}</p>
+      <!-- Add more details as needed -->
+    </ion-card-content>
+  </ion-card>
+</ion-content>

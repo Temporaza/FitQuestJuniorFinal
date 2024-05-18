@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="parent">
+    <div class="bday">
+      <div class="remaining-time">
+        <p>Remaining Days:</p>
+        <h4>{{ remainingTime }}</h4>
+      </div>
+      <h1>{{ bday?.birthday }}</h1>
+      <p>Birthday</p>
+      <div class="cake-container">
+        <img src="/assets/newAssets/cake.webp" alt="Birthday Cake">
+      </div>
+     <div class="button-container">
+      <ion-button expand="block" [disabled]="isRewardReceived || totalRemainingDays > 0" (click)="receiveRewards()">Received Rewards</ion-button>
+
+    </div>
+    </div>
+   
+     
+  </div>
+ 
+
+</ion-content>
