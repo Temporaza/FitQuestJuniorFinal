@@ -16,6 +16,18 @@
   flex-direction: column;
 }
 
+ion-title {
+  font-size: 1rem;
+}
+
+p {
+  color: black;
+}
+
+ion-toolbar {
+  --background: #bd7f60;
+}
+
 // ion-list {
 //   display: flex;
 //   flex-direction: column;

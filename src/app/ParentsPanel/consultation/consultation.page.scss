@@ -1,20 +1,39 @@
-.title {
+ion-toolbar {
+  --background: #bd7f60;
+}
+
+ion-title {
   text-align: center;
   font-family: "IntegralCF-Bold";
-  display: flex;
-  align-items: center;
-  h1{
-    margin: auto;
-  }
+  color: white;
 }
 
 ion-list {
   background-color: transparent !important;
 }
 
+.back-btn {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  margin: 0 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 15px;
+  }
+}
+
+.dash {
+  margin-bottom: 10px;
+  font-family: "IntegralCF-Bold";
+}
+
 ion-content {
   --background: url("/assets/ebook/bg.png") center/cover no-repeat;
-    height: 100vh;
+  height: 100vh;
 }
 
 .custom-card {
@@ -53,7 +72,7 @@ ion-content {
   font-weight: bold;
   margin: 30px 10px;
   border-radius: 10px;
-  background: #f1eedc;
+  border: 1px solid;
   box-shadow: 10px 9px 21px -10px rgba(0, 0, 0, 0.78);
   transition: all 0.3s ease;
   animation: slideFromRight 0.8s ease forwards;
@@ -81,7 +100,7 @@ ion-content {
   margin: 20px 10px;
   padding: 10px;
   border-radius: 10px;
-  background: #f1eedc;
+  border: 1px solid;
   box-shadow: 10px 9px 21px -10px rgba(0, 0, 0, 0.78);
   transition: all 0.3s ease;
   animation: slideFromRight 0.8s ease forwards;
@@ -114,15 +133,17 @@ ion-content {
 }
 
 .card-header {
+  margin: 10px;
   text-align: center;
   font-family: "IntegralCF-Bold";
 }
 
-.pie-graph{
-  width: 200px;
+.pie-graph {
+  width: 180px;
+  margin: 0 auto;
 }
 
-.task-table{
+.task-table {
   margin: 10px auto;
   border: solid lightblue;
 }
@@ -142,18 +163,13 @@ ion-content {
 }
 
 @media only screen and (min-width: 550px) {
-  .pie-graph-container {
-     
-      display: flex;
-      align-items: center;
-    }
 }
 
 @media only screen and (max-width: 549px) {
   .pie-graph {
-      width: 300px;
-      margin: 0 auto;
-    }
+    width: 300px;
+    margin: 0 auto;
+  }
 }
 
 .bmi-table {
@@ -184,21 +200,21 @@ ion-content {
   text-align: center;
 }
 
-.dropD{
-border: 1px solid;
-border-radius: 10px;
-margin: 30px;
-display: flex;
-justify-content: center;
-align-items: center;
+.dropD {
+  border: 1px solid;
+  border-radius: 10px;
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.select{
+.select {
   --font-family: "IntegralCF-Bold";
   font-size: 1.5em;
   font-weight: bold;
 }
 
-.bmiHistory{
+.bmiHistory {
   padding: 10px;
 }

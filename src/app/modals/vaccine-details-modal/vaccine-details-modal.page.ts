@@ -48,10 +48,12 @@ export class VaccineDetailsModalPage {
   }
 
   closeModal() {
+    this.playButtonClickSound();
     this.modalController.dismiss();
   }
 
   openVaccineDetailsModal(vaccineName: string) {
+    this.playButtonClickSound();
     let details = '';
     switch (vaccineName) {
       case 'BCG':
@@ -96,6 +98,7 @@ export class VaccineDetailsModalPage {
 
   saveVaccines() {
     // Save the checked vaccines to Firestore under the user's document
+    this.playButtonClickSound();
     this.firestore
       .collection('users')
       .doc(this.userUID)
@@ -118,5 +121,12 @@ export class VaccineDetailsModalPage {
     });
 
     await alert.present();
+  }
+
+  playButtonClickSound() {
+    const audio = new Audio();
+    audio.src = 'assets/btn-sound.mp3';
+    audio.load();
+    audio.play();
   }
 }

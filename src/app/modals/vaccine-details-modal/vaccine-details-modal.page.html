@@ -2,7 +2,9 @@
   <ion-toolbar>
     <ion-title>Vaccine Details</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="closeModal()">Close</ion-button>
+      <ion-button class="close" (click)="closeModal()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -10,13 +12,13 @@
 <ion-content>
   <!-- Display vaccine details using baby data -->
   <ion-card>
-    <ion-card-header>
+    <!-- <ion-card-header>
       <ion-card-title>Vaccine Details</ion-card-title>
-    </ion-card-header>
+    </ion-card-header> -->
 
     <ion-card-content id="vaccineDetailsContent">
       <ion-item>
-        <ion-label>BCG</ion-label>
+        <ion-label style="font-family: IntegralCf-Bold">BCG</ion-label>
         <ion-checkbox [(ngModel)]="vaccines.BCG"></ion-checkbox>
         <ion-button slot="end" (click)="openVaccineDetailsModal('BCG')"
           >Details</ion-button
@@ -24,7 +26,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>Hepatitis B</ion-label>
+        <ion-label style="font-family: IntegralCf-Bold">Hepatitis B</ion-label>
         <ion-checkbox [(ngModel)]="vaccines['Hepatitis B']"></ion-checkbox>
         <ion-button slot="end" (click)="openVaccineDetailsModal('Hepatitis B')"
           >Details</ion-button
@@ -32,7 +34,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>DPT/TdaP/Td</ion-label>
+        <ion-label style="font-family: IntegralCf-Bold">DPT/TdaP/Td</ion-label>
         <ion-checkbox [(ngModel)]="vaccines['DPT/TdaP/Td']"></ion-checkbox>
         <ion-button slot="end" (click)="openVaccineDetailsModal('DPT/TdaP/Td')"
           >Details</ion-button
@@ -40,7 +42,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>IPV</ion-label>
+        <ion-label style="font-family: IntegralCf-Bold">IPV</ion-label>
         <ion-checkbox [(ngModel)]="vaccines.IPV"></ion-checkbox>
         <ion-button slot="end" (click)="openVaccineDetailsModal('IPV')"
           >Details</ion-button
@@ -48,7 +50,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>HiB</ion-label>
+        <ion-label style="font-family: IntegralCf-Bold">HiB</ion-label>
         <ion-checkbox [(ngModel)]="vaccines.HiB"></ion-checkbox>
         <ion-button slot="end" (click)="openVaccineDetailsModal('HiB')"
           >Details</ion-button
@@ -56,7 +58,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>PCV</ion-label>
+        <ion-label style="font-family: IntegralCf-Bold">PCV</ion-label>
         <ion-checkbox [(ngModel)]="vaccines.PCV"></ion-checkbox>
         <ion-button slot="end" (click)="openVaccineDetailsModal('PCV')"
           >Details</ion-button
@@ -64,7 +66,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>Measles/MMR</ion-label>
+        <ion-label style="font-family: IntegralCf-Bold">Measles/MMR</ion-label>
         <ion-checkbox [(ngModel)]="vaccines['Measles/MMR']"></ion-checkbox>
         <ion-button slot="end" (click)="openVaccineDetailsModal('Measles/MMR')"
           >Details</ion-button
@@ -72,7 +74,7 @@
       </ion-item>
 
       <ion-item>
-        <ion-label>Varicella</ion-label>
+        <ion-label style="font-family: IntegralCf-Bold">Varicella</ion-label>
         <ion-checkbox [(ngModel)]="vaccines.Varicella"></ion-checkbox>
         <ion-button slot="end" (click)="openVaccineDetailsModal('Varicella')"
           >Details</ion-button
@@ -85,7 +87,7 @@
 <ion-footer>
   <div class="foot-btn">
     <ion-row>
-      <ion-col class="save" size="auto">
+      <ion-col class="save">
         <ion-button color="secondary" (click)="saveVaccines()">
           Save
         </ion-button>

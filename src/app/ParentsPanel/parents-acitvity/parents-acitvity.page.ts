@@ -3,7 +3,11 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, combineLatest, of } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { catchError, map, switchMap, tap } from 'rxjs/operators';
-import { LoadingController, AlertController } from '@ionic/angular';
+import {
+  LoadingController,
+  AlertController,
+  NavController,
+} from '@ionic/angular';
 import { TaskStatusService } from 'src/app/services/task-status.service';
 import { Subscription } from 'rxjs';
 import { CustomNavigationPage } from 'src/app/component/custom-navigation/custom-navigation.page';
@@ -36,7 +40,8 @@ export class ParentsAcitvityPage implements OnInit {
     private loadingController: LoadingController,
     private alertController: AlertController,
     private taskStatusService: TaskStatusService,
-    private location: Location
+    private location: Location,
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {
@@ -59,6 +64,18 @@ export class ParentsAcitvityPage implements OnInit {
     if (this.authSubscription) {
       this.authSubscription.unsubscribe();
     }
+  }
+
+  navigateToDashboard() {
+    this.navCtrl.navigateForward('/home-parent', { animated: false });
+    this.playButtonClickSound();
+  }
+
+  playButtonClickSound() {
+    const audio = new Audio();
+    audio.src = 'assets/btn-sound.mp3';
+    audio.load();
+    audio.play();
   }
 
   getExercisesForStatus(userStatus: string): string[] {

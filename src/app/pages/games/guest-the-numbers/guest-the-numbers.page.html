@@ -10,54 +10,145 @@
 <ion-content [fullscreen]="true">
   <!-- Welcome message -->
   <div *ngIf="showWelcomeMessage" class="welcome-content">
-    <div class="welcome-pic">
+    <!-- <div class="welcome-pic">
       <img src="https://png.pngtree.com/png-vector/20230815/ourmid/pngtree-welcome-badge-with-cartoon-boy-clipart-vector-png-image_6908811.png"
         alt="welcome image">
+    </div> -->
+
+    <div class="container">
+      <h1 style="font-family: IntegralCf-Bold">
+        Guess the Numbers: Game Instructions
+      </h1>
+      <p>
+        <strong>Objective:</strong> Match each Numbers to its correct name
+        within the limited lives.
+      </p>
+
+      <h2 style="font-family: IntegralCf-Bold">How to Play:</h2>
+      <ol>
+        <li>
+          <strong style="font-family: IntegralCf-Bold">Start the Game:</strong>
+          <br />
+          Begin a new round where a list of Numbers is displayed.
+        </li>
+        <li>
+          <strong style="font-family: IntegralCf-Bold"
+            >Match Numbers to Names:</strong
+          >
+          <br />
+          Below each animal, there is a shuffled list of names. Click on the
+          correct name for each animal.
+        </li>
+        <li>
+          <strong style="font-family: IntegralCf-Bold"
+            >Lives and Hearts:</strong
+          >
+          <br />
+          You have <strong>3 lives</strong> displayed as hearts. If you click
+          the wrong name, you lose a heart. The game ends when all hearts are
+          lost.
+        </li>
+        <li>
+          <strong style="font-family: IntegralCf-Bold"
+            >Continue Matching:</strong
+          >
+          <br />
+          Continue matching Numbers to their correct names until the round is
+          complete or you run out of lives.
+        </li>
+      </ol>
+
+      <h2 style="font-family: IntegralCf-Bold">Winning the Game:</h2>
+      <p>
+        Successfully match all Numbers to their correct names without losing all
+        hearts.
+      </p>
+
+      <div class="tips">
+        <h3 style="font-family: IntegralCf-Bold">Tips:</h3>
+        <ul>
+          <li>Take your time to observe the Numbers carefully.</li>
+          <li>Think before you click to avoid losing hearts.</li>
+        </ul>
+      </div>
+
+      <p style="font-family: IntegralCf-Bold">
+        Enjoy the game and have fun guessing the correct names!
+      </p>
     </div>
+
     <div class="welcome-btn">
-      <ion-button (click)="startGame()">OK</ion-button>
+      <div (click)="startGame()">Lets Play</div>
     </div>
   </div>
 
   <!-- Game content -->
- <!-- Hearts -->
+  <!-- Hearts -->
 
+  <div
+    *ngIf="!showWelcomeMessage && !showWinPopup && !showLosePopup"
+    class="game-content"
+  >
+    <div class="tv">
+      <div class="hearts">
+        <ion-icon
+          *ngFor="let _ of generateArray(hearts); let i = index"
+          name="heart"
+        ></ion-icon>
+      </div>
 
-  <div *ngIf="!showWelcomeMessage && !showWinPopup && !showLosePopup" class="game-content">
-    <div class="hearts">
-      <ion-icon *ngFor="let _ of generateArray(hearts); let i = index" name="heart"></ion-icon>
-    </div>
-
-    <div class="animal-pic">
-      <img [src]="animals[currentAnimalIndex].image" [alt]="animals[currentAnimalIndex].name">
+      <div class="animal-pic">
+        <img
+          [src]="animals[currentAnimalIndex].image"
+          [alt]="animals[currentAnimalIndex].name"
+        />
+      </div>
     </div>
 
     <div class="animal-names">
-      <ion-button *ngFor="let name of shuffledNames" (click)="checkAnswer(name)">{{ name }}</ion-button>
+      <ion-button
+        color="dark"
+        *ngFor="let name of shuffledNames"
+        (click)="checkAnswer(name)"
+        >{{ name }}</ion-button
+      >
     </div>
   </div>
 
   <div *ngIf="showWinPopup" class="win-popup">
     <div class="confetti">
-      <img src="https://media.tenor.com/IW5jiF1BZHQAAAAi/confetti-glitter.gif" class="confetti-gif" alt="Confetti">
-      <h1 style="text-align: center;">Congratulations!!<br>
-          You Won!!!
+      <img
+        src="https://media.tenor.com/IW5jiF1BZHQAAAAi/confetti-glitter.gif"
+        class="confetti-gif"
+        alt="Confetti"
+      />
+      <h1 style="text-align: center">
+        Congratulations<br />
+        You Won
       </h1>
-      <img src="https://www.icegif.com/wp-content/uploads/2023/05/icegif-1109.gif" class="confetti-gif" alt="Confetti">
+      <img
+        src="https://www.icegif.com/wp-content/uploads/2023/05/icegif-1109.gif"
+        class="confetti-gif"
+        alt="Confetti"
+      />
     </div>
     <div class="win-btns">
-      <img src="assets/retry.png" (click)="retry()" alt="Retry">
-      <img src="assets/quit.png" (click)="quit()" alt="Quit">
+      <img src="assets/retry.png" (click)="retry()" alt="Retry" />
+      <img src="assets/quit.png" (click)="quit()" alt="Quit" />
     </div>
   </div>
 
   <div *ngIf="showLosePopup" class="win-popup">
     <div class="youLose">
-      <img src="https://data.textstudio.com/output/sample/animated/3/4/4/5/loss-27-5443.gif" class="confetti-gif" alt="Confetti">
+      <img
+        src="https://data.textstudio.com/output/sample/animated/3/4/4/5/loss-27-5443.gif"
+        class="confetti-gif"
+        alt="Confetti"
+      />
     </div>
     <div class="win-btns">
-      <img src="assets/retry.png" (click)="retry()" alt="Retry">
-      <img src="assets/quit.png" (click)="quit()" alt="Quit">
+      <img src="assets/retry.png" (click)="retry()" alt="Retry" />
+      <img src="assets/quit.png" (click)="quit()" alt="Quit" />
     </div>
   </div>
 </ion-content>

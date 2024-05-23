@@ -1,97 +1,161 @@
-ion-content{
-    --background: lightgreen;
+ion-content {
+  --background: lightgreen;
 }
-ion-toolbar{
-    --background: #ff8200;
-}
-
-
-.welcome-pic{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15vh;
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  color: white;
 }
 
-.welcome-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+ion-toolbar {
+  --background: #bd7f60;
 }
 
-.animal-names, .animal-pic{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10vh;
+.welcome-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.animal-pic{
-    img{
-        height: 200px;
-        width: 200px;
-    }
+.welcome-btn {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+  align-items: center;
+  font-family: "IntegralCf-Bold";
 }
 
-.hearts{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3vh;
-    color: red;
-    font-size: larger;
+.animal-names,
+.animal-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
 }
 
-.animal-names{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 10px;
-    margin: 0 auto;
-    max-width: 500px;
-    margin-top: 5vh;
+.animal-pic {
+  img {
+    height: 200px;
+    width: 200px;
+  }
+}
+
+.hearts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3vh;
+  color: red;
+  font-size: larger;
+}
+
+.animal-names {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  padding: 10px;
+  margin: 0 auto;
+  max-width: 500px;
+  margin-top: 5vh;
 }
 
 .win-popup {
-    font-family: 'Comic Sans MS';
-    color: #ff6600;
-    font-size: 2.5em;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
-    padding: 50px;
-    border-radius: 10px;
-    img {
-      width: 70px; // Adjust the width of the buttons
-      height: 70px; // Adjust the height of the buttons
-      margin: 10px;
-      cursor: pointer;
-    }
+  font-family: "IntegralCf-Bold";
+  color: black;
+  font-size: 2.5em;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: cyan;
+  padding: 50px;
+  border-radius: 10px;
+  img {
+    width: 70px; // Adjust the width of the buttons
+    height: 70px; // Adjust the height of the buttons
+    margin: 10px;
+    cursor: pointer;
+  }
 }
 
-.win-btns{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.win-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.confetti{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.confetti {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
 }
 
-.youLose{
-    display: flex;
-    justify-content: center;
-    img {
-        width: 100px; // Adjust the width of the buttons
-        height: 100px; // Adjust the height of the buttons
-        margin: 10px;
-        cursor: pointer;
-      }
-
+.youLose {
+  display: flex;
+  justify-content: center;
+  img {
+    width: 100px; // Adjust the width of the buttons
+    height: 100px; // Adjust the height of the buttons
+    margin: 10px;
+    cursor: pointer;
+  }
 }
 
+// .instruction {
+//   display: flex;
+//   justify-content: center;
+// }
+
+.container {
+  max-width: 600px;
+  margin: 15px auto;
+  border-radius: 20px;
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+  text-align: center;
+  color: #333;
+}
+ol {
+  padding-left: 20px;
+}
+.tips {
+  background-color: #e7f3fe;
+  border-left: 6px solid #2196f3;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+li {
+  margin: 10px 0;
+}
+
+.game-content {
+  border: 1px solid;
+  width: 600px;
+  border-radius: 30px;
+  padding: 50px;
+  margin: 10px auto;
+  background: darkorange;
+}
+
+.tv {
+  border: 20px solid;
+  border-radius: 20px;
+  background: url(/assets/shapes/forest-bg.gif) center / contain no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: 765px) {
+  .game-content {
+    width: 95%;
+    margin: 10px auto;
+  }
+}

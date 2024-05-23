@@ -1,10 +1,17 @@
 /* babybook.page.scss */
-ion-toolbar{
-  --background: #ff8200;
+ion-toolbar {
+  --background: #bd7f60;
 }
-ion-content{
-  --background: lightgreen;
+
+ion-title {
+  font-family: "IntegralCF-Bold";
+  color: white;
 }
+
+ion-content {
+  --background: #57aba5;
+}
+
 .book-page-container {
   display: flex;
   justify-content: center;
@@ -20,7 +27,7 @@ ion-content{
 
 .pagination {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
   text-align: center;
 
@@ -41,10 +48,8 @@ ion-content{
   border: none; /* Remove border */
   animation: pulse 1.5s infinite;
 
-  img{
+  img {
     height: 100px;
     width: 100px;
   }
 }
- 
-  

@@ -3,7 +3,11 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, combineLatest } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { map, switchMap } from 'rxjs/operators';
-import { LoadingController, AlertController } from '@ionic/angular';
+import {
+  LoadingController,
+  AlertController,
+  NavController,
+} from '@ionic/angular';
 import { TaskStatusService } from 'src/app/services/task-status.service';
 import { Location } from '@angular/common';
 
@@ -23,11 +27,17 @@ export class KidsProgressPage implements OnInit {
     private loadingController: LoadingController,
     private alertController: AlertController,
     private taskStatusService: TaskStatusService,
-    private location: Location
+    private location: Location,
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {
     this.loadTasks();
+  }
+
+  navigateToDashboard() {
+    this.navCtrl.navigateForward('/home-parent', { animated: false });
+    this.playButtonClickSound();
   }
 
   async loadTasks() {

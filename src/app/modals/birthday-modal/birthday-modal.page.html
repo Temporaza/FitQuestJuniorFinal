@@ -5,30 +5,30 @@
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
+    <ion-title>Birthday Reward</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
   <div class="parent">
     <div class="bday">
       <div class="remaining-time">
-        <p>Remaining Days:</p>
+        <p>Remaining Days and Months:</p>
         <h4>{{ remainingTime }}</h4>
       </div>
       <h1>{{ bday?.birthday }}</h1>
       <p>Birthday</p>
       <div class="cake-container">
-        <img src="/assets/newAssets/cake.webp" alt="Birthday Cake">
+        <img src="/assets/newAssets/cake.webp" alt="Birthday Cake" />
       </div>
-     <div class="button-container">
-      <ion-button expand="block" [disabled]="isRewardReceived || totalRemainingDays > 0" (click)="receiveRewards()">Received Rewards</ion-button>
-
+      <div class="button-container">
+        <ion-button
+          expand="block"
+          [disabled]="!isCurrentBirthday || isRewardReceived"
+          (click)="receiveRewards()"
+          >Receive Rewards</ion-button
+        >
+      </div>
     </div>
-    </div>
-   
-     
   </div>
- 
-
 </ion-content>

@@ -149,4 +149,17 @@ export class AuthenticationForParentsService {
       throw error;
     }
   }
+
+  async isEmailRegistered(email: string): Promise<boolean> {
+    try {
+      const snapshot = await this.firestore
+        .collection('parents', (ref) => ref.where('email', '==', email))
+        .get()
+        .toPromise();
+      return !snapshot.empty;
+    } catch (error) {
+      console.error('Error checking if email is registered:', error);
+      throw error;
+    }
+  }
 }

@@ -1,43 +1,85 @@
-
-.component-container{
-  
-  
+.quest1 {
+  background: url("/assets/ebook/progress.png") center/cover no-repeat;
 }
 
-.rowParent{
+.quest2 {
+  background: url("/assets/ebook/kids1.png") center/cover no-repeat;
+}
+
+.quest3 {
+  background: url("/assets/ebook/activity.png") center/cover no-repeat;
+}
+
+.quest4 {
+  background: url("/assets/ebook/quest.png") center/cover no-repeat;
+}
+
+.quest1,
+.quest2,
+.quest3,
+.quest4 {
+  position: relative; /* Ensure that the children elements are positioned relative to this container */
+  background-size: contain;
+  background-position: center;
+  height: 200px;
+  width: 250px;
+  display: flex; /* Use flexbox to center the text */
+  justify-content: center; /* Center the text horizontally */
+  align-items: flex-end; /* Center the text vertically */
+  text-align: center; /* Center the text within its container */
+}
+
+.questPending {
+  border-radius: 20px;
+  background: rgba(87, 171, 165, 0.8);
+}
+
+.btn-txt {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  font-family: "IntegralCF-Bold";
+  font-size: 23px;
+  color: black;
+  text-align: center;
+}
+
+.rowParent {
   // margin-top: -100vh;
   position: fixed;
-  margin: 0 auto;
+  margin-top: 8vh;
   // box-shadow: 10px 10px 16px 0px rgba(0, 0, 0, 0.75);
   width: 45%;
   height: auto;
- 
 }
 
-.quest{
+.quest {
   margin: 0vh auto;
 }
 
-
-
-img{
-  margin: 2vh auto;
-  height: 250px;
-    width: 310px;
-}
-
 @media only screen and (max-width: 760px) {
- .rowParent {
+  .rowParent {
     position: sticky;
     width: 100%;
-    // height: auto;
-    // background: wheat;
-    // border-radius: 10px;
+    margin-top: 1vh;
   }
-  img {
-    min-width: 175px;
-    height: 155px;
+  .quest1,
+  .quest2,
+  .quest3,
+  .quest4 {
+    height: 100px;
+    width: 140px;
   }
+
+  .btn-txt {
+    font-size: 15px;
+    height: 30px;
+  }
+
   .quest {
     display: flex;
     justify-content: center;
@@ -54,7 +96,7 @@ img{
   }
 }
 
-ion-col{
+ion-col {
   display: flex;
   justify-content: center;
   align-items: center;

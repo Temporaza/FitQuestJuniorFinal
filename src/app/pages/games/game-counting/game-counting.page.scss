@@ -1,119 +1,124 @@
-ion-toolbar{
-    --background: #ff8200;
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  color: white;
 }
 
-ion-content{
-    --background: #003366;
+ion-toolbar {
+  --background: #bd7f60;
 }
 
-.balloonContent{
-    margin-top: 10vh;
+ion-content {
+  --background: #003366;
+}
+
+.balloonContent {
+  margin-top: 10vh;
 }
 
 @media screen and (min-width: 620px) {
-    .balloonContent{
-        margin-left: 15vh;
-    }
-
+  .balloonContent {
+    margin-left: 15vh;
+  }
 }
 
 .balloon {
-    position: relative;
-    width: 50px;
-    height: 80px; /* Adjust the height to make room for the rope */
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-    cursor: pointer;
-    margin: 10px 5px; /* Adjust the top and bottom margins */
-    animation: float 2s ease-in-out infinite; /* Floating animation */
+  position: relative;
+  width: 50px;
+  height: 80px; /* Adjust the height to make room for the rope */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  cursor: pointer;
+  margin: 10px 5px; /* Adjust the top and bottom margins */
+  animation: float 2s ease-in-out infinite; /* Floating animation */
 
-    &:before {
-        content: '';
-        position: absolute;
-        width: 4px; /* Adjust the thickness of the rope */
-        height: 20px; /* Adjust the length of the rope */
-        background-color: #000;
-        bottom: -20px; /* Adjust the position below the balloons */
-        left: 50%;
-        transform: translateX(-50%);
-        border-radius: 50%;
-      }
-
-    &.popped {
-        animation: pop 0.5s ease forwards, fadeOut 0.5s ease forwards;
-        pointer-events: none; /* Disable clicking on popped balloons */
-    }
-
-    &[style] {
-        background-color: var(--balloon-color);
-      }
-}
-    
-  
-  .popped {
-    background-color: #e74c3c;
-  }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  @keyframes pop {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(0);
-    }
-  }
-  
-  @keyframes fadeOut {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  .win-popup {
-    font-family: 'Comic Sans MS';
-    color: #ff6600;
-    font-size: 2.5em;
-    position: fixed;
-    top: 50%;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 4px; /* Adjust the thickness of the rope */
+    height: 20px; /* Adjust the length of the rope */
+    background-color: #000;
+    bottom: -20px; /* Adjust the position below the balloons */
     left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
-    padding: 20px;
-    border-radius: 10px;
-  
-    img {
-      width: 70px; // Adjust the width of the buttons
-      height: 70px; // Adjust the height of the buttons
-      margin: 10px;
-      cursor: pointer;
-    }
+    transform: translateX(-50%);
+    border-radius: 50%;
   }
 
-  .win-btns{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  &.popped {
+    animation: pop 0.5s ease forwards, fadeOut 0.5s ease forwards;
+    pointer-events: none; /* Disable clicking on popped balloons */
+  }
+
+  &[style] {
+    background-color: var(--balloon-color);
+  }
 }
 
-.confetti{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.popped {
+  background-color: #e74c3c;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.win-popup {
+  font-family: "Comic Sans MS";
+  color: #ff6600;
+  font-size: 2.5em;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+
+  img {
+    width: 70px; // Adjust the width of the buttons
+    height: 70px; // Adjust the height of the buttons
+    margin: 10px;
+    cursor: pointer;
+  }
+}
+
+.win-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confetti {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -1,13 +1,19 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="toolbar">
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
-        <ion-icon name="log-out"></ion-icon> Logout
+        <ion-icon
+          style="font-size: 35px; color: black"
+          name="log-out"
+        ></ion-icon>
       </ion-button>
     </ion-buttons>
     <div class="ion-page" id="main-content">
       <ion-buttons slot="start">
-        <ion-menu-button autoHide="false"></ion-menu-button>
+        <ion-menu-button
+          style="color: black; font-size: 35px"
+          autoHide="false"
+        ></ion-menu-button>
       </ion-buttons>
     </div>
   </ion-toolbar>
@@ -66,10 +72,10 @@
       <ion-icon name="star" class="points-icon"></ion-icon>
       <span class="points">{{ totalPoints }}</span>
     </div> -->
-<!-- 
+
   <div class="yum" *ngIf="showYumImage">
     <img src="assets/yum.png" alt="Food" />
-  </div> -->
+  </div>
 
   <div class="attitude" *ngIf="showHmmImage">
     <img src="assets/hmm.png" alt="attitude" />
@@ -82,7 +88,8 @@
     <img [src]="petBodyUrl" class="pet-body" />
   </div>
 
-  <div class="health-bar" (click)="updatePetHealth(petHealth - 10)">
+  <!-- <div class="health-bar" (click)="updatePetHealth(petHealth - 10)"> -->
+  <div class="health-bar">
     <div class="health-bar-inner" [style.width]="petHealth + '%'"></div>
   </div>
 

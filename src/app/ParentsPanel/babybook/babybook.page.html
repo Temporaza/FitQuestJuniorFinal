@@ -5,7 +5,7 @@
     <ion-buttons slot="start">
       <ion-back-button [defaultHref]="'/home-parent'"></ion-back-button>
     </ion-buttons>
-    <ion-title>babybook</ion-title>
+    <ion-title style="text-align: center">Baby Book</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,8 +21,8 @@
       color="primary"
       [disabled]="currentPage === 0"
     >
-      <ion-label  class="nextPrev">
-        <img src="/assets/shapes/prev.png" alt="Previous">
+      <ion-label class="nextPrev">
+        <img src="/assets/shapes/prev.png" alt="Previous" />
       </ion-label>
     </ion-button>
     <span class="page-counter"
@@ -35,7 +35,7 @@
       [disabled]="currentPage === images.length - 1"
     >
       <ion-label class="nextPrev">
-        <img src="/assets/shapes/next.png" alt="Next">
+        <img src="/assets/shapes/next.png" alt="Next" />
       </ion-label>
     </ion-button>
   </div>

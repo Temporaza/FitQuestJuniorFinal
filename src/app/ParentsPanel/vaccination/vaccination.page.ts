@@ -6,6 +6,7 @@ import {
   LoadingController,
   ModalController,
   AlertController,
+  NavController,
 } from '@ionic/angular';
 import { VaccineDetailsModalPage } from 'src/app/modals/vaccine-details-modal/vaccine-details-modal.page';
 import { EditUserModalPage } from 'src/app/modals/edit-user-modal/edit-user-modal.page';
@@ -52,11 +53,17 @@ export class VaccinationPage implements OnInit {
     private modalController: ModalController,
     private afAuth: AngularFireAuth,
     private alertController: AlertController,
-    private location: Location
+    private location: Location,
+    private navCtrl: NavController
   ) {}
 
   async ngOnInit() {
     this.subscribeToUserLogin();
+  }
+
+  navigateToDashboard() {
+    this.navCtrl.navigateForward('/home-parent', { animated: false });
+    this.playButtonClickSound();
   }
 
   playButtonClickSound() {

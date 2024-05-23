@@ -54,7 +54,7 @@ export class ForgotPasswordPage implements OnInit {
         await this.presentResetSuccessAlert();
       } catch (error) {
         console.error('Error sending reset link:', error);
-        this.errorMessage = 'Error sending reset link. Please try again later.';
+        this.errorMessage = 'Email does not exist, please enter valid email';
       }
     } else {
       this.errorMessage = 'Please enter a valid email address.';

@@ -48,7 +48,6 @@ export class ParentRegisterPage implements OnInit {
   async openDataPrivacyModal() {
     const modal = await this.modalController.create({
       component: DataPrivacyPage,
-      
     });
     return await modal.present();
   }
@@ -62,7 +61,7 @@ export class ParentRegisterPage implements OnInit {
         buttons: ['OK'],
       });
       await alert.present();
-      return; 
+      return;
     }
 
     const loading = await this.loadingCtrl.create();
@@ -70,21 +69,33 @@ export class ParentRegisterPage implements OnInit {
 
     if (this.regisForm?.valid) {
       try {
+        const email = this.regisForm.value.email;
+
+        // Check if the email is already registered
+        const emailExists = await this.authService.isEmailRegistered(email);
+        if (emailExists) {
+          loading.dismiss();
+          this.presentAlert(
+            'Email is already registered. Please use a different email.'
+          );
+          return;
+        }
+
+        // If email is not registered, proceed with registration
         const user = await this.authService.registerParent(
-          this.regisForm.value.email,
+          email,
           this.regisForm.value.password,
           this.regisForm.value.sex,
           this.regisForm.value.fullname
         );
 
         if (user) {
-         
           await this.authService.sendEmailVerification();
 
           loading.dismiss();
           this.router.navigate(['/email-verification-required']);
         } else {
-          console.log('provide correct values');
+          console.log('Provide correct values');
           loading.dismiss();
         }
       } catch (error) {

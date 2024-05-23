@@ -1,19 +1,36 @@
-
-
-.title {
+ion-title {
   text-align: center;
   font-family: "IntegralCF-Bold";
-  display: flex;
-  align-items: center;
+  color: white;
+}
 
-  h1 {
-    margin: auto;
-  }
+ion-toolbar {
+  --background: #bd7f60;
 }
 
 ion-content {
   --background: url("/assets/ebook/bg.png") center/cover no-repeat;
   height: 100vh;
+}
+
+.back-btn {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  margin: 0 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+}
+
+.dash {
+  margin-bottom: 10px;
+  font-family: "IntegralCF-Bold";
 }
 
 .Users {
@@ -24,7 +41,7 @@ ion-content {
 }
 
 ion-card {
-  width: 90%;
+  width: 95%;
   margin: 20px auto;
   border: 1px solid;
   box-shadow: 10px 14px 22px -9px rgba(0, 0, 0, 0.71);
@@ -48,12 +65,12 @@ ion-card-title {
   border-radius: 20px;
   border: #0080ff 15px solid;
   margin-top: 10vh;
-    width: 65vh;
+  width: 65vh;
 }
 
-@media (min-width: 700px) {
+@media (max-width: 765px) {
   ion-card {
-    width: 80%;
+    width: 90%;
   }
 }
 
@@ -66,21 +83,27 @@ ion-card-title {
   font-size: 20px;
 }
 
-
 .edit-btn {
-  color: black;
+  // color: black;
+  // justify-content: center;
+  // margin: 20px;
+  // margin: 0 auto;
+  // background: rgba(
+  //   252,
+  //   128,
+  //   66,
+  //   0.6
+  // );
+  // border-radius: 10px;
+  // border: 2px solid black;
+  // max-width: 100px;
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  display: flex;
   justify-content: center;
-  margin: 20px;
-  margin: 0 auto;
-  background: rgba(
-    252,
-    128,
-    66,
-    0.6
-  ); /* Adjust the opacity by modifying the last value (0.6) */
-  border-radius: 10px;
-  border: 2px solid black;
-  max-width: 100px;
+  align-items: center;
 }
 
 ion-card-footer {
@@ -90,7 +113,7 @@ ion-card-footer {
   margin: 20px;
 }
 
-.parent{
+.parent {
   display: flex;
   justify-content: center;
 }
@@ -98,28 +121,50 @@ ion-card-footer {
 .healthy-weight {
   background-color: green;
   padding: 5px;
-    border-radius: 10px;
-    color: white;
+  border-radius: 10px;
+  color: white;
 }
 
 .underweight {
   background-color: lightblue;
   padding: 5px;
-    border-radius: 10px;
-    color: black;
+  border-radius: 10px;
+  color: black;
 }
 
 .overweight {
   background-color: yellow;
   padding: 5px;
-    border-radius: 10px;
-    color: black;
+  border-radius: 10px;
+  color: black;
 }
 
 .obesity {
   background-color: red;
   padding: 5px;
-    border-radius: 10px;
-    color: white;
+  border-radius: 10px;
+  color: white;
 }
 
+.add-btn {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 15px;
+  }
+}
+
+.kid-add {
+  margin-bottom: 10px;
+}
+
+.character {
+  display: flex;
+  justify-content: center;
+}

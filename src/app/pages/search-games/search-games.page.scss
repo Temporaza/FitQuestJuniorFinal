@@ -1,69 +1,103 @@
+ion-content {
+  --background: url("/assets/newAssets/bg-games.png") center/cover no-repeat; /* Set the background image */
+  overflow: hidden; /* Hide the scroll */
+}
 
-ion-content{
-  --background: #003366;
- }
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  color: white;
+}
 
- ion-card{
-  img{
+ion-toolbar {
+  --background: #bd7f60;
+}
+
+ion-card {
+  img {
     height: 100px;
     width: 100px;
     margin: 20px;
   }
- }
+}
 
 .custom-card {
-    max-width: 700px; 
-    width: 100%; 
-    margin: 5vh auto; 
-    overflow: hidden; 
-  }
-  
- 
-  @media (max-width: 700px) {
+  max-width: 700px;
+  width: 100%;
+  margin: 5vh auto;
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
   .custom-card {
-    max-width: none; 
-    width: 100%; 
+    max-width: none;
+    width: 100%;
   }
-  
-  .list-games{
+
+  .list-games {
     width: 90%;
   }
+}
 
-  }
-  
-  h2{
-    max-width: 90%;
-  }
- 
-  .list-games{
-    max-width: 400px;
-  }
+h2 {
+  max-width: 90%;
+}
 
-  .gamesFound{
-  
-    margin: 5vh auto;
-    h2{
-      text-align: center;
-      font-family: "IntegralCF-Bold";
-      color: black;
-    }
-  }
+.list-games {
+  max-width: 400px;
+}
 
-  .list-games{
-    margin: 3vh auto;
+.gamesFound {
+  margin: 5vh auto;
+  h2 {
     text-align: center;
+    font-family: "IntegralCF-Bold";
+    color: black;
+  }
+}
+
+.list-games {
+  margin: 3vh auto;
+  text-align: center;
+}
+
+h2 {
+  border: solid 1px;
+  background: lightseagreen;
+  width: 400px;
+  padding: 20px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+ion-button {
+  width: 150px;
+  margin: 10px auto;
+}
+
+.age-display {
+  color: black;
+  font-family: "IntegralCF-Bold";
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.game-head {
+  img {
+    height: 100px;
+    width: 100px;
   }
 
-  h2{
-    border: solid 1px;
-    background: lightseagreen;
-    width: 400px;
-    padding: 20px;
-    margin: 0 auto;
-    border-radius: 10px;
+  h1 {
+    font-family: "IntegralCF-Bold";
+    font-size: 1.2rem;
   }
+}
 
-  ion-button{
-      width: 150px;
-      margin: 10px auto;
-  }
+.parent {
+  border: 1px solid;
+  margin: 20px auto;
+  max-width: 350px;
+  background: #ff8200;
+  border-radius: 80px;
+}

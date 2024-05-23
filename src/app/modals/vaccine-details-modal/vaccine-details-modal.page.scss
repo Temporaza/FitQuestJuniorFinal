@@ -1,0 +1,28 @@
+ion-toolbar {
+  --background: #bd7f60;
+}
+
+ion-content {
+  --background: rgba(87, 171, 165, 0.6);
+}
+
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  color: white;
+}
+
+ion-button {
+  font-family: "IntegralCF-Bold";
+  color: black;
+}
+
+ion-label {
+  font-family: "IntegralCF-Bold";
+}
+
+.save {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

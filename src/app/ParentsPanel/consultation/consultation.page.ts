@@ -12,6 +12,8 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Chart } from 'chart.js/auto';
 import { Observable, map } from 'rxjs';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
+import { NavController } from '@ionic/angular';
 
 interface BMIRecord {
   date: string;
@@ -54,7 +56,8 @@ export class ConsultationPage implements OnInit, AfterViewInit {
   constructor(
     private firestore: AngularFirestore,
     private authFire: AngularFireAuth,
-    private location: Location
+    private location: Location,
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {
@@ -67,6 +70,18 @@ export class ConsultationPage implements OnInit, AfterViewInit {
         this.createLineGraphs();
       }
     });
+  }
+
+  navigateToDashboard() {
+    this.navCtrl.navigateForward('/home-parent', { animated: false });
+    this.playButtonClickSound();
+  }
+
+  playButtonClickSound() {
+    const audio = new Audio();
+    audio.src = 'assets/btn-sound.mp3';
+    audio.load();
+    audio.play();
   }
 
   ngAfterViewInit() {

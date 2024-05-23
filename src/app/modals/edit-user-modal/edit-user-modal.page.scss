@@ -1,15 +1,23 @@
-
 ion-title {
   text-align: center;
   font-family: "IntegralCF-Bold";
+  color: white;
+}
+
+ion-content {
+  --background: rgba(87, 171, 165, 0.6);
 }
 
 ion-card-title {
   font-family: "IntegralCF-Bold";
 }
 
+ion-toolbar {
+  --background: #bd7f60;
+}
+
 .bmiHistory {
-  margin-top: 5vh;
+  margin: 20px;
 }
 
 .editParent {
@@ -23,11 +31,11 @@ ion-card-title {
 .add-btn {
   text-align: center;
   color: black;
-  margin: 0 auto;
+  margin: 10px auto;
   border-radius: 10px;
   border: 2px solid black;
   display: flex;
-  max-width: 250px;
+  max-width: fit-content;
   background: rgba(252, 128, 66, 0.6);
 }
 
@@ -45,11 +53,33 @@ ion-card-title {
   border: 2px solid black;
 }
 
+.delete-btn {
+  color: black;
+  justify-content: center;
+  margin: 0 20px;
+  background: rgb(255 44 81 / 60%);
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
 .display-bmi {
-  margin-top: 10vh;
-  border: 1px solid black;
+  color: black;
   h1 {
     text-align: center;
     font-family: "IntegralCF-Bold";
   }
+}
+
+.each-bmi {
+  border: 1px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background: lightcyan;
+}
+
+.grand {
+  width: 90%;
+  margin: 20px auto;
 }

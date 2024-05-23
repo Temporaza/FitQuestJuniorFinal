@@ -1,12 +1,11 @@
-.title {
+ion-toolbar {
+  --background: #bd7f60;
+}
+
+ion-title {
   text-align: center;
   font-family: "IntegralCF-Bold";
-  display: flex;
-  align-items: center;
-
-  h1 {
-    margin: auto;
-  }
+  color: white;
 }
 
 ion-content {
@@ -14,8 +13,27 @@ ion-content {
   height: 100vh;
 }
 
-h1{
-    font-family: "IntegralCF-Bold";
+.back-btn {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  margin: 0 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 15px;
+  }
+}
+
+.dash {
+  margin-bottom: 10px;
+  font-family: "IntegralCF-Bold";
+}
+
+h1 {
+  font-family: "IntegralCF-Bold";
 }
 
 .custom-card {

@@ -1,21 +1,18 @@
 <ion-header [translucent]="true">
   <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-grid>
-        <ion-row style="text-align: center">
-          <ion-col size="6">
-            <ion-button routerLink="/home-parent">Dashboard</ion-button>
-          </ion-col>
-          <ion-col size="6" class="title">
-            <h1>Activity</h1>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <ion-title style="text-align: center">Activity</ion-title>
     </ion-toolbar>
   </ion-header>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div class="back-btn" (click)="navigateToDashboard()">
+    <div class="dash">
+      <h1>Dashboard</h1>
+    </div>
+  </div>
+
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-md="6">
@@ -27,7 +24,11 @@
             <div class="Tasks">
               <h1>List of Kids</h1>
               <ion-item>
-                <ion-label position="stacked">Select Kids</ion-label>
+                <ion-label
+                  style="font-family: IntegralCf-Bold"
+                  position="stacked"
+                  >Select Kids</ion-label
+                >
                 <ion-select
                   [(ngModel)]="selectedUserId"
                   (ionChange)="onUserSelected(selectedUserId)"
@@ -35,6 +36,7 @@
                   <ion-select-option
                     *ngFor="let user of usersData"
                     [value]="user.id"
+                    style="font-family: IntegralCf-Bold"
                   >
                     {{ user.fullname }}
                   </ion-select-option>
@@ -43,11 +45,15 @@
               <!-- Display Selected User's Status -->
               <div *ngIf="selectedUserId">
                 <h3>Status:</h3>
-                <h4>{{ userStatus || 'N/A' }}</h4>
+                <p>{{ userStatus || 'N/A' }}</p>
               </div>
 
               <ion-item *ngIf="userStatus">
-                <ion-label position="stacked">Select Exercise</ion-label>
+                <ion-label
+                  style="font-family: IntegralCf-Bold"
+                  position="stacked"
+                  >Select Exercise</ion-label
+                >
                 <ion-select
                   [(ngModel)]="selectedExercise"
                   (ionChange)="onExerciseSelected(selectedExercise)"
@@ -61,7 +67,11 @@
               </ion-item>
 
               <ion-item>
-                <ion-label position="stacked">Other Tasks</ion-label>
+                <ion-label
+                  style="font-family: IntegralCf-Bold"
+                  position="stacked"
+                  >Other Tasks</ion-label
+                >
                 <ion-input
                   [(ngModel)]="otherTasks"
                   placeholder="Enter other tasks"
@@ -69,14 +79,21 @@
               </ion-item>
 
               <ion-item>
-                <ion-label position="stacked">Points</ion-label>
+                <ion-label
+                  style="font-family: IntegralCf-Bold"
+                  position="stacked"
+                  >Points</ion-label
+                >
                 <ion-select [(ngModel)]="points">
                   <ion-select-option value="50">50 points</ion-select-option>
                   <ion-select-option value="100">100 points</ion-select-option>
                 </ion-select>
               </ion-item>
 
-              <ion-button class="btn-tsk" (click)="createTask()"
+              <ion-button
+                class="btn-task"
+                (click)="createTask()"
+                style="font-family: IntegralCF-Bold; color: black"
                 >Create Task</ion-button
               >
             </div>

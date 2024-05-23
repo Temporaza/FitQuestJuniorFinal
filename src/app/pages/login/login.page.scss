@@ -1,5 +1,7 @@
-
 //new UI
+ion-toolbar {
+  --background: #bd7f60;
+}
 
 ion-content {
   --background: url("/assets/newAssets/bg2.png") center/cover no-repeat; /* Set the background image */
@@ -143,7 +145,6 @@ ion-input {
   cursor: pointer;
   border-radius: 20px;
   box-shadow: black 1px 2px 2px;
-
 }
 
 p {
@@ -157,7 +158,6 @@ p {
   background-color: #a1fff9; /* Blue color */
   margin-top: 10px; /* Adjust the margin as needed */
 }
-
 
 .kids {
   display: flex;

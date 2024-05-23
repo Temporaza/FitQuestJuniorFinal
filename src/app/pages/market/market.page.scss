@@ -3,8 +3,18 @@ ion-content {
     center center / cover no-repeat;
 }
 
+ion-toolbar {
+  --background: #bd7f60;
+}
+
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  color: white;
+}
+
 * {
-  font-family: "Patrick Hand SC";
+  font-family: "IntegralCF-Bold";
 }
 
 .background {
@@ -31,7 +41,7 @@ ion-content {
   // border: 2px solid green;
 }
 
-.wizard-hat{
+.wizard-hat {
   width: 150px;
   position: absolute;
   height: auto;
@@ -70,13 +80,11 @@ ion-content {
 }
 
 @media screen and (min-width: 422px) {
-  .wizard-hat{
+  .wizard-hat {
     margin-bottom: 22vh;
     height: fit-content;
   }
-
 }
-
 
 //save
 .save-button {
@@ -154,7 +162,8 @@ button {
     ); // Adjust the width of each column as needed
     gap: 20px; // Adjust the gap between items
 
-    .duzzy, .cosmetic-item {
+    .duzzy,
+    .cosmetic-item {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -199,10 +208,10 @@ button {
   color: #333; // Adjust the text color
 }
 
-.btn-prev{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin: 10px;
+.btn-prev {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 10px;
 }
