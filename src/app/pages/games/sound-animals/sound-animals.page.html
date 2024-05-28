@@ -8,32 +8,50 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="whole">
-  <div class="container">
-    <div class="giant-box">
-      <img [src]="currentAnimalImage" *ngIf="showAnimalImage" alt="Identified Animal">
+  <div *ngIf="showWelcomeMessage" class="welcome-content">
+    <div class="welcome-pic">
+      <img src="assets/Instruction/SoundAnimal.jpg" alt="welcome image" />
+    </div>
+    <div class="welcome-btn">
+      <div (click)="startGame()">Lets Play</div>
+    </div>
+  </div>
 
+  <div *ngIf="!showWelcomeMessage" class="container">
+    <div class="giant-box">
+      <img
+        [src]="currentAnimalImage"
+        *ngIf="showAnimalImage"
+        alt="Identified Animal"
+      />
     </div>
     <div class="box-typing">
       <!-- Display the speaker icon -->
-      <ion-icon class="speaker-icon" [name]="isAudioPlaying ? 'volume-high' : 'volume-mute'" (click)="playAnimalSound()"></ion-icon>
+      <ion-icon
+        class="speaker-icon"
+        [name]="isAudioPlaying ? 'volume-high' : 'volume-mute'"
+        (click)="playAnimalSound()"
+      ></ion-icon>
     </div>
-    
+
     <div class="text-field-container">
-      <input type="text" placeholder="Enter text" name="textInput">
+      <input type="text" placeholder="Enter text" name="textInput" />
     </div>
 
     <div class="submit-button-container">
       <div class="center-button">
-        <ion-button type="submit" (click)="submitText()" size="small">Submit</ion-button>
+        <button type="submit" (click)="submitText()" size="small">
+          Submit
+        </button>
       </div>
     </div>
 
     <div class="pagination-buttons">
       <button class="nextPrev" (click)="showPrevAnimal()">
-        <img src="/assets/shapes/prev.png" alt="Previous">
+        <img src="/assets/shapes/prev.png" alt="Previous" />
       </button>
       <button class="nextPrev" (click)="showNextAnimal()">
-        <img src="/assets/shapes/next.png" alt="Next">
+        <img src="/assets/shapes/next.png" alt="Next" />
       </button>
     </div>
     <!-- Add audio element -->

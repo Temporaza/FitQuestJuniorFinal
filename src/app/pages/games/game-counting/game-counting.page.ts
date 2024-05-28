@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./game-counting.page.scss'],
 })
 export class GameCountingPage implements OnInit {
-
   @ViewChild('popSound', { static: false }) popSound: ElementRef;
 
   balloonRows: { letter: string; popped: boolean; color: string }[][] = [];
@@ -16,17 +15,21 @@ export class GameCountingPage implements OnInit {
   totalBalloons: number = 0;
   showWinPopup: boolean = false;
   totalAlphabets: number = 26;
-
+  showWelcomeMessage: boolean = true;
 
   constructor(
     private modalController: ModalController,
     private router: Router
   ) {
     this.initializeBalloons();
-   }
+  }
 
+  ngOnInit() {}
 
-  ngOnInit() {
+  startGame() {
+    this.showWelcomeMessage = false;
+    this.yaySound();
+    this.playButtonClickSound();
   }
 
   initializeBalloons() {
@@ -35,12 +38,17 @@ export class GameCountingPage implements OnInit {
     const totalRows = 7;
 
     // Create an array with alphabets (A to Z)
-    const alphabets = Array.from({ length: this.totalAlphabets }, (_, index) => String.fromCharCode(65 + index));
+    const alphabets = Array.from({ length: this.totalAlphabets }, (_, index) =>
+      String.fromCharCode(65 + index)
+    );
 
     // Shuffle the array of alphabets
     for (let i = alphabets.length - 1; i > 0; i--) {
       const randomIndex = Math.floor(Math.random() * (i + 1));
-      [alphabets[i], alphabets[randomIndex]] = [alphabets[randomIndex], alphabets[i]];
+      [alphabets[i], alphabets[randomIndex]] = [
+        alphabets[randomIndex],
+        alphabets[i],
+      ];
     }
 
     // Assign the shuffled alphabets to the balloons in all rows
@@ -50,7 +58,11 @@ export class GameCountingPage implements OnInit {
       for (let j = 0; j < balloonsPerRow; j++) {
         if (currentIndex < this.totalAlphabets) {
           const randomColor = colors[Math.floor(Math.random() * colors.length)];
-          const balloon = { letter: alphabets[currentIndex++], popped: false, color: randomColor };
+          const balloon = {
+            letter: alphabets[currentIndex++],
+            popped: false,
+            color: randomColor,
+          };
           row.push(balloon);
           this.totalBalloons++;
         }
@@ -58,7 +70,6 @@ export class GameCountingPage implements OnInit {
       this.balloonRows.push(row);
     }
   }
-  
 
   popBalloon(balloon: { letter: string; popped: boolean; color: string }) {
     if (!balloon.popped && balloon.letter === this.expectedNextLetter) {
@@ -70,10 +81,13 @@ export class GameCountingPage implements OnInit {
       audio.play();
 
       // Increment the expected next letter
-      this.expectedNextLetter = String.fromCharCode(this.expectedNextLetter.charCodeAt(0) + 1);
+      this.expectedNextLetter = String.fromCharCode(
+        this.expectedNextLetter.charCodeAt(0) + 1
+      );
 
       // Check if the player has won the game
-      if (this.expectedNextLetter > 'Z') { // All alphabets popped
+      if (this.expectedNextLetter > 'Z') {
+        // All alphabets popped
         this.gameWon();
       }
     }
@@ -116,4 +130,10 @@ export class GameCountingPage implements OnInit {
     audio.play();
   }
 
+  playButtonClickSound() {
+    const audio = new Audio();
+    audio.src = 'assets/btn-sound.mp3';
+    audio.load();
+    audio.play();
+  }
 }

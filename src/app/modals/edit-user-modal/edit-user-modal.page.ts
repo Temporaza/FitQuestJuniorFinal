@@ -38,8 +38,11 @@ export class EditUserModalPage implements OnInit {
   @Input() userData: UserData;
   userInputDate: string;
   unsavedChanges: boolean = false;
- isCloseButtonDisabled: boolean = true;
- manualBMIDeleted: boolean = false;
+  isCloseButtonDisabled: boolean = true;
+  manualBMIDeleted: boolean = false;
+  today: string;
+  minDate: string; // Declare the minDate property
+  maxDate: string; // Declare the maxDate property
 
   constructor(
     private modalController: ModalController,
@@ -51,15 +54,35 @@ export class EditUserModalPage implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.initializeUserData(); 
-    await this.getUserData(); 
-    this.calculateBMI(); 
+    this.setTodayDate();
+    this.initializeUserData();
+    await this.getUserData();
+    this.calculateBMI();
   }
 
   private initializeUserData() {
-   
     this.userData = this.userData || {};
     this.userData.bmiHistory = this.userData.bmiHistory || [];
+  }
+
+  private setTodayDate() {
+    const today = new Date();
+    this.today = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+    const minDate = new Date(
+      today.getFullYear() - 1,
+      today.getMonth(),
+      today.getDate()
+    );
+    this.minDate = minDate.toISOString().split('T')[0]; // Setting minDate to one year ago
+
+    const tomorrow = new Date(today);
+    tomorrow.setDate(today.getDate() + 1);
+    this.maxDate = tomorrow.toISOString().split('T')[0]; // Setting maxDate to tomorrow
+
+    console.log("Today's date:", this.today); // Log today's date
+    console.log('Min date:', this.minDate); // Log minimum date
+    console.log('Max date:', this.maxDate); // Log maximum date
+    this.userInputDate = this.today; // Set the default date to today
   }
 
   playButtonClickSound() {
@@ -117,7 +140,7 @@ export class EditUserModalPage implements OnInit {
         return;
       }
 
-         // Check if manual BMI was deleted without saving
+      // Check if manual BMI was deleted without saving
       // if (this.manualBMIDeleted) {
       //   this.presentToast('Please save changes after deleting a manual BMI.');
       //   return;
@@ -235,8 +258,7 @@ export class EditUserModalPage implements OnInit {
     if (this.unsavedChanges) {
       const alert = await this.alertController.create({
         header: 'Unsaved Changes',
-        message:
-          'You have unsaved changes. Saved it',
+        message: 'You have unsaved changes. Saved it',
         buttons: [
           {
             text: 'Go Back',
@@ -282,12 +304,12 @@ export class EditUserModalPage implements OnInit {
       } else if (bmi < 30) {
         this.userData.status = 'Overweight';
       } else {
-        this.userData.status = 'Obesity';
+        this.userData.status = 'Obese';
       }
     }
   }
 
-   handleInputChange() {
+  handleInputChange() {
     this.calculateBMI();
     this.unsavedChanges = true;
     this.isCloseButtonDisabled = false; // Enable close button after input change
@@ -295,11 +317,11 @@ export class EditUserModalPage implements OnInit {
 
   async closeModal() {
     this.playButtonClickSound();
-  if (this.unsavedChanges) {
-    await this.confirmCloseModal();
-  } else {
-    this.modalController.dismiss();
-  }
+    if (this.unsavedChanges) {
+      await this.confirmCloseModal();
+    } else {
+      this.modalController.dismiss();
+    }
   }
 
   async deleteBMIRecord(index: number) {
@@ -328,7 +350,7 @@ export class EditUserModalPage implements OnInit {
               this.userData.bmiHistory.splice(index, 1);
 
               this.manualBMIDeleted = true;
-                this.unsavedChanges = true;
+              this.unsavedChanges = true;
 
               // Update the Firestore document without the deleted BMI record
               const parentUID = await this.authService.getCurrentParentUID();

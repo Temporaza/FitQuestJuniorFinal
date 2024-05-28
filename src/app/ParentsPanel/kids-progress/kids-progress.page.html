@@ -31,8 +31,15 @@
                     >{{ task.description }}</ion-card-title
                   >
                   <ion-card-subtitle class="task-title"
-                    >Other Tasks: {{ task.otherTasks }}</ion-card-subtitle
+                    >Tasks Description: {{ task.otherTasks }}</ion-card-subtitle
                   >
+
+                  <ion-card-subtitle
+                    *ngIf="task.additionalTasks"
+                    class="task-title"
+                  >
+                    Additional Tasks {{ task.additionalTasks }}
+                  </ion-card-subtitle>
                 </ion-card-header>
 
                 <ion-card-content class="task-content">

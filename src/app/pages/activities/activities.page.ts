@@ -86,7 +86,11 @@ export class ActivitiesPage implements OnInit {
         );
 
       this.userTasks$.subscribe((tasks) => {
-        this.filteredTasks = tasks;
+        // Map additional tasks field to each task
+        this.filteredTasks = tasks.map((task) => ({
+          ...task,
+          additionalTasks: task.additionalTasks || '', // Ensure additionalTasks field exists in each task
+        }));
         this.isLoading = false;
       });
     }
@@ -136,7 +140,7 @@ export class ActivitiesPage implements OnInit {
         task.points,
         userId,
         task.otherTasks,
-        false
+        task.additionalTasks
       );
     }
   }

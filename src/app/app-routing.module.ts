@@ -277,11 +277,6 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'trash',
-    loadChildren: () =>
-      import('./pages/trash/trash.module').then((m) => m.TrashPageModule),
-  },
-  {
     path: 'email-verification-required',
     loadChildren: () =>
       import(
@@ -311,19 +306,35 @@ const routes: Routes = [
   },
   {
     path: 'guest-game',
-    loadChildren: () => import('./pages/games/guest-game/guest-game.module').then( m => m.GuestGamePageModule)
+    loadChildren: () =>
+      import('./pages/games/guest-game/guest-game.module').then(
+        (m) => m.GuestGamePageModule
+      ),
   },
   {
     path: 'guest-the-numbers',
-    loadChildren: () => import('./pages/games/guest-the-numbers/guest-the-numbers.module').then( m => m.GuestTheNumbersPageModule)
+    loadChildren: () =>
+      import('./pages/games/guest-the-numbers/guest-the-numbers.module').then(
+        (m) => m.GuestTheNumbersPageModule
+      ),
   },
   {
     path: 'guest-the-colors',
-    loadChildren: () => import('./pages/games/guest-the-colors/guest-the-colors.module').then( m => m.GuestTheColorsPageModule)
+    loadChildren: () =>
+      import('./pages/games/guest-the-colors/guest-the-colors.module').then(
+        (m) => m.GuestTheColorsPageModule
+      ),
   },
   {
     path: 'birthday-modal',
-    loadChildren: () => import('./modals/birthday-modal/birthday-modal.module').then( m => m.BirthdayModalPageModule)
+    loadChildren: () =>
+      import('./modals/birthday-modal/birthday-modal.module').then(
+        (m) => m.BirthdayModalPageModule
+      ),
+  },
+  {
+    path: 'activity-log-modal',
+    loadChildren: () => import('./modals/activity-log-modal/activity-log-modal.module').then( m => m.ActivityLogModalPageModule)
   },
 ];
 

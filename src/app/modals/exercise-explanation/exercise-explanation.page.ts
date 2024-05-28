@@ -48,7 +48,7 @@ export class ExerciseExplanationPage implements OnInit {
           'Stretching helps improve flexibility and range of motion, and can reduce the risk of injury during physical activity.';
         this.task.imageFilename = 'stretch.jpg';
         break;
-      case 'dance':
+      case 'Dance':
         this.explanation =
           'Dancing is a fun way to stay active and can help improve cardiovascular health, coordination, and mood.';
         this.task.imageFilename = 'dance.jpg';
@@ -127,6 +127,11 @@ export class ExerciseExplanationPage implements OnInit {
         this.explanation =
           'Balance exercises can help improve stability, coordination, and proprioception, reducing the risk of falls and injuries.';
         this.task.imageFilename = 'balance.jpg';
+        break;
+      case 'Ball Toss':
+        this.explanation =
+          'Ball toss is an active and engaging activity that allows learners to practice their speaking skills and reinforce vocabulary.';
+        this.task.imageFilename = 'ballToss.jpg';
         break;
       default:
         this.explanation =

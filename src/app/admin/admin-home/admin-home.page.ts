@@ -11,14 +11,16 @@ interface Parent {
   id: string;
   fullname: string;
   gender: string;
+  email: string;
+  premium: boolean;
   // Add other fields as needed
 }
 
 interface ParentDetails {
   fullname: string;
   gender: string;
-  users: any[]; // Adjust the type based on the actual structure of your 'users' subcollection
-  // Add other fields as needed
+  users: any[];
+  email: string;
 }
 
 interface User {
@@ -125,6 +127,8 @@ export class AdminHomePage implements OnInit {
       return {
         fullname: parentData.fullname,
         gender: parentData.gender,
+        email: parentData.email,
+
         users: usersData
       };
     } else {

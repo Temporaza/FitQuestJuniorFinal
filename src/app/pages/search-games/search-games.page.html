@@ -16,7 +16,7 @@
       >
     </ion-card-header>
     <ion-card-content>
-      <ion-button (click)="findGames()" expand="full">Find Games</ion-button>
+      <button (click)="findGames()" expand="full">Find Games</button>
     </ion-card-content>
   </ion-card>
 
@@ -37,54 +37,58 @@
         </div>
 
         <div class="btn-play">
-          <ion-button
+          <button
             *ngIf="game.title === 'Naming Shapes'"
             [routerLink]="['/shape-match']"
           >
             <p>Play</p>
             <ion-icon name="shapes-sharp"></ion-icon>
-          </ion-button>
+          </button>
 
-          <ion-button
+          <button
             *ngIf="game.title === 'Trash Game'"
             [routerLink]="['/trash-game']"
           >
             <ion-icon name="trash-sharp"></ion-icon>
-            Play</ion-button
-          >
-          <ion-button
+            Play
+          </button>
+          <button
             *ngIf="game.title === 'Sounds Animals'"
             [routerLink]="['/sound-animals']"
           >
             <ion-icon name="musical-note-sharp"></ion-icon>
-            Play</ion-button
-          >
-          <ion-button
+            Play
+          </button>
+          <button
             *ngIf="game.title === 'Counting Balloons'"
             [routerLink]="['/numbers']"
           >
-            Play</ion-button
-          >
-          <ion-button
+            Play
+          </button>
+          <button
             *ngIf="game.title === 'Playing Letters'"
             [routerLink]="['/game-counting']"
-            >Play</ion-button
           >
-          <ion-button
+            Play
+          </button>
+          <button
             *ngIf="game.title === 'Guess The Animals'"
             [routerLink]="['/guest-game']"
-            >Play</ion-button
           >
-          <ion-button
+            Play
+          </button>
+          <button
             *ngIf="game.title === 'Guess the Numbers'"
             [routerLink]="['/guest-the-numbers']"
-            >Play</ion-button
           >
-          <ion-button
+            Play
+          </button>
+          <button
             *ngIf="game.title === 'Guess The Colors'"
             [routerLink]="['/guest-the-colors']"
-            >Play</ion-button
           >
+            Play
+          </button>
         </div>
       </div>
     </div>

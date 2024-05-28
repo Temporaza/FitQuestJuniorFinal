@@ -10,11 +10,16 @@ ion-title {
 ion-toolbar {
   --background: #bd7f60;
 }
+
+.welcome-content {
+  margin: 10px;
+  margin-top: 10px;
+}
+
 .welcome-pic {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15vh;
 }
 
 .welcome-btn {

@@ -30,7 +30,7 @@ ion-content {
 }
 
 * {
-  font-family: 'IntegralCF-Bold';
+  font-family: "IntegralCF-Bold";
 }
 
 ion-grid,
@@ -88,4 +88,9 @@ ion-button:hover {
 ion-button {
   font-weight: bold;
   font-size: 0.5 em;
+}
+
+.topBar {
+  display: flex;
+  align-items: center;
 }

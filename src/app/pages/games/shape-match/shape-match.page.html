@@ -9,7 +9,16 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="container">
+  <div *ngIf="showWelcomeMessage" class="welcome-content">
+    <div class="welcome-pic">
+      <img src="assets/Instruction/NameShape.jpg" alt="welcome image" />
+    </div>
+    <div class="welcome-btn">
+      <div (click)="startGame()">Lets Play</div>
+    </div>
+  </div>
+
+  <div *ngIf="!showWelcomeMessage" class="container">
     <div class="giant-box">
       <p class="shape-description">{{ currentShape.description }}</p>
     </div>

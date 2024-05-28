@@ -32,6 +32,7 @@ export class AuthenticationForParentsService {
         gender: gender,
         fullname: fullname,
         role: 'parent',
+        premium: false,
       };
 
       await this.addUserDataToFirestore(user.uid, userData);

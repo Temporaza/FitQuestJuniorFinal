@@ -6,9 +6,6 @@ ion-content {
   padding: 0;
   margin: 0;
 }
-// * {
-//   font-family: "IntegralCF-Bold";
-// }
 
 ion-title {
   text-align: center;
@@ -130,48 +127,68 @@ ion-card {
   align-items: center;
   justify-content: center;
   z-index: 1;
-  margin-top: 10vh;
-
   margin-bottom: 20px;
+  margin-top: 15vh;
 }
 
 .pet-body {
-  width: 240px; /* Adjust the size as needed */
-  // border: 2px solid green;
-}
-
-.pet-hat {
-  width: 150px;
-  position: absolute;
-  height: auto;
-  margin-bottom: 67%;
-}
-
-@media screen and (min-width: 422px) {
-  .pet-hat {
-    margin-bottom: 22vh;
-    height: fit-content;
-  }
+  width: 240px;
 }
 
 .pet-eyes {
-  // border: 2px solid red;
-  width: 300px; /* Adjust the size as needed */
-  height: auto; /* Maintain aspect ratio */
+  width: 300px;
+  height: auto;
   position: absolute;
   margin-bottom: 3vh;
   // margin-left: 2vh;
-  transition: height 2s ease-in-out; /* Smooth transition for height changes */
+  transition: height 2s ease-in-out;
 }
 
 .pet-mouth {
-  // border: 2px solid blue;
-  width: 300px; /* Adjust the size as needed */
+  width: 300px;
   height: auto; /* Maintain aspect ratio */
   position: absolute;
   margin-top: 4vh;
   margin-left: 2vh;
   transition: height 2s ease-in-out;
+}
+
+.food {
+  display: flex;
+  flex-direction: column;
+  img {
+    height: 130px;
+    width: 130px;
+    margin: 0 auto;
+  }
+  // z-index: 1;
+  cursor: grab;
+}
+
+.food-add {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "IntegralCf-Bold";
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.birthday {
+  width: fit-content;
+  position: absolute;
+  left: 80%;
+  filter: drop-shadow(0px -5px 26px rgba(242, 255, 66, 1));
+  img {
+    height: 80px;
+    width: 80px;
+  }
 }
 
 @keyframes floatAnimation {
@@ -206,18 +223,6 @@ ion-card {
   transition: width 0.3s ease-in-out;
 }
 
-.food {
-  display: flex;
-  justify-content: center; /* Center the content horizontally */
-  img {
-    height: 130px;
-    width: 130px;
-  }
-  // z-index: 1;
-  cursor: grab;
-  position: relative;
-}
-
 .yum {
   z-index: 3;
   position: absolute;
@@ -228,17 +233,6 @@ ion-card {
     width: 140px;
   }
 }
-
-// .foodCount {
-//   display: flex;
-//   justify-content: center; /* Center the content horizontally */
-//   margin-bottom: 2vh;
-
-//   h1 {
-//     font-size: 40px;
-//   }
-
-// }
 
 .attitude {
   z-index: 3;
@@ -314,50 +308,74 @@ ion-card {
   width: 70px;
 }
 
-.petName {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.birthday {
-  filter: drop-shadow(0px -5px 26px rgba(242, 255, 66, 1));
-  margin: 0 auto;
-  img {
-    height: 80px;
-    width: 80px;
-  }
-}
-
 .top-btns {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 10px;
+  position: absolute;
+  left: 20px;
+  margin-top: 2vh;
+}
+
+.with-background {
+  background: url(/assets/name-brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 42px;
 }
 
 .pet {
-  text-align: center;
-  margin-top: 10px;
-  padding: 10px;
-  display: inline-block;
-  border: 3px solid #333333;
-  font-size: 2.5rem;
-  border-radius: 50%;
-  text-transform: uppercase;
-  letter-spacing: 0.3ch;
-  background: #ffffff;
-  position: relative;
-
-  &::before {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(0.5deg);
-    border-radius: 1% 1% 2% 4% / 2% 6% 5% 4%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "IntegralCf-Bold";
+  h1 {
+    margin-bottom: 10px;
   }
+
+  ion-input {
+    font-family: "IntegralCF-Bold";
+    text-align: center;
+    font-size: 25px;
+    background: wheat;
+    width: 180px;
+    border-radius: 20px;
+    margin: 10px;
+  }
+}
+
+@media (min-width: 780px) {
+  .pet-body {
+    width: 400px;
+  }
+
+  .pet-mouth {
+    width: 500px;
+    margin-left: 4vh;
+  }
+
+  .pet-eyes {
+    width: 500px;
+  }
+
+  .birthday {
+    img {
+      height: 120px;
+      width: 120px;
+    }
+  }
+}
+
+.parent-edit {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.editable,
+.enable-edit {
+  font-size: 30px;
+  color: dodgerblue;
+}
+
+.deletable {
+  font-size: 30px;
+  color: #ff6347;
 }

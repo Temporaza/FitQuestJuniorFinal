@@ -136,7 +136,34 @@ export class AuthenticationService {
   }
 
   async loginUser(email: string, password: string) {
-    return await this.ngFireAuth.signInWithEmailAndPassword(email, password);
+    const userCredential = await this.ngFireAuth.signInWithEmailAndPassword(
+      email,
+      password
+    );
+    const user = userCredential.user;
+
+    if (user) {
+      const loginTime = new Date();
+      localStorage.setItem('loginTime', loginTime.toISOString());
+
+      // Update user document with login information
+      await this.updateUserActivity(user.uid, {
+        lastLogin: loginTime.toISOString(),
+      });
+    }
+
+    return userCredential;
+  }
+
+  private async updateUserActivity(uid: string, data: any) {
+    try {
+      // Update user document with login information
+      const userDocRef = this.firestore.collection('users').doc(uid);
+      await userDocRef.collection('activityLogs').add(data);
+    } catch (error) {
+      console.error('Error updating user activity:', error);
+      throw error;
+    }
   }
 
   async resetPassword(email: string) {
@@ -144,6 +171,19 @@ export class AuthenticationService {
   }
 
   async signOut() {
+    const user = await this.ngFireAuth.currentUser;
+    if (user) {
+      const loginTime = new Date(localStorage.getItem('loginTime'));
+      const logoutTime = new Date();
+      const duration = (logoutTime.getTime() - loginTime.getTime()) / 1000;
+
+      // Update user document with logout information
+      await this.updateUserActivity(user.uid, {
+        lastLogout: logoutTime.toISOString(),
+        duration: duration,
+      });
+    }
+
     return await this.ngFireAuth.signOut();
   }
 
@@ -197,4 +237,10 @@ export class AuthenticationService {
       throw error;
     }
   }
+
+  // getActivityLogs(): Observable<any[]> {
+  //   return this.firestore
+  //     .collection('activityLogs', (ref) => ref.orderBy('loginTime', 'desc'))
+  //     .valueChanges();
+  // }
 }

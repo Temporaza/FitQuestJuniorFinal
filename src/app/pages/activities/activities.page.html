@@ -41,7 +41,10 @@
     />
     <ion-card-header>
       <ion-card-title class="task-title"
-        >Other Tasks: {{ task.otherTasks }}</ion-card-title
+        >Tasks Description: {{ task.otherTasks }}</ion-card-title
+      >
+      <ion-card-title class="task-title"
+        >Additional Tasks: {{ task.additionalTasks }}</ion-card-title
       >
       <ion-card-title class="task-subtitle"
         >{{ task.description }}</ion-card-title
@@ -85,7 +88,7 @@
         >Delete Task</ion-button
       >
       <ion-button color="primary" (click)="openExerciseExplanationModal(task)"
-        >Details</ion-button
+        >Instruction</ion-button
       >
     </ion-card-content>
   </ion-card>

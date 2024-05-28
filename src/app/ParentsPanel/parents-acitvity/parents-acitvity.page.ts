@@ -31,6 +31,7 @@ export class ParentsAcitvityPage implements OnInit {
 
   selectedExercise: string = '';
   otherTasks: string = '';
+  additionalTasks: string = '';
 
   authSubscription: Subscription;
 
@@ -82,12 +83,12 @@ export class ParentsAcitvityPage implements OnInit {
     switch (userStatus) {
       case 'Underweight':
         return [
-          'Jumping Jacks',
-          'Climbing Stairs',
-          'Hula Hooping',
-          'Chair Squats',
+          'Gentle Yoga',
           'Stretching',
-          'dance',
+          'Dance',
+          'Leg Stretch',
+          'Neck Stretch',
+          'Ball Toss',
         ];
       case 'Healthy Weight':
         return [
@@ -96,23 +97,26 @@ export class ParentsAcitvityPage implements OnInit {
           'Dance Routines',
           'Arm Circles',
           'Squats',
+          'Walking',
         ];
       case 'Overweight':
         return [
-          'Brisk Walking',
           'Hula Hooping',
           'Balancing Exercise One Leg',
-          'Neck Stretch',
-          'Leg Stretch',
+          'Climbing Stairs',
+          'Running',
+          'Walking',
+          'Chair Squats',
         ];
-      case 'Obesity':
+      case 'Obese':
         return [
           'Chair Exercise',
           'Run',
           'Bunny Hops',
-          'Gentle Yoga',
           'Walking',
           'Balance Exercise',
+          'Jumping Jacks',
+          'Brisk Walking',
         ];
       // Add more cases for different statuses
       default:
@@ -239,7 +243,12 @@ export class ParentsAcitvityPage implements OnInit {
         return;
       }
 
-      if (!this.selectedUserId || !this.selectedExercise || !this.points) {
+      // Check if selectedExercise is empty, set a default value or handle the case
+      if (
+        !this.selectedUserId ||
+        (!this.selectedExercise && !this.additionalTasks) ||
+        !this.points
+      ) {
         this.showErrorAlert('Please fill in all required fields.');
         return;
       }
@@ -262,8 +271,9 @@ export class ParentsAcitvityPage implements OnInit {
         const task = {
           userId: userId,
           parentId: parentId,
-          description: this.selectedExercise,
+          description: this.selectedExercise || 'No exercise', // Set a default value or handle the case
           otherTasks: this.otherTasks,
+          additionalTasks: this.additionalTasks,
           status: 'pending',
           points: parseInt(this.points, 10),
           timestamp: new Date(),

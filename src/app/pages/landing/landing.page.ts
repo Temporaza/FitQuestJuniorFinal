@@ -1,20 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.page.html',
   styleUrls: ['./landing.page.scss'],
 })
 export class LandingPage implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor(
-    private router: Router
-  ) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   navigateToLogin() {
     this.router.navigate(['/login']); // Replace '/login' with the actual route path
@@ -22,5 +17,9 @@ export class LandingPage implements OnInit {
 
   navigateToParentLogin() {
     this.router.navigate(['/parent-login']); // Replace '/parent-login' with the actual route path
+  }
+
+  navigateToAdmin() {
+    this.router.navigate(['/admin-panel']); // Replace '/parent-login' with the actual route path
   }
 }

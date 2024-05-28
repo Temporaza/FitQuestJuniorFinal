@@ -16,16 +16,23 @@
         <p>Remaining Days and Months:</p>
         <h4>{{ remainingTime }}</h4>
       </div>
-      <h1>{{ bday?.birthday }}</h1>
+      <div class="date">
+        <h1>{{ bday?.birthday }}</h1>
+      </div>
+
       <p>Birthday</p>
       <div class="cake-container">
         <img src="/assets/newAssets/cake.webp" alt="Birthday Cake" />
       </div>
       <div class="button-container">
         <ion-button
-          expand="block"
           [disabled]="!isCurrentBirthday || isRewardReceived"
           (click)="receiveRewards()"
+          style="
+            font-family: IntegralCF-Bold;
+            color: black;
+            --background: transparent;
+          "
           >Receive Rewards</ion-button
         >
       </div>

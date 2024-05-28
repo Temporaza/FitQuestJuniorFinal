@@ -1,20 +1,57 @@
-
-  
 ion-content {
-    padding: 16px;
+  padding: 16px;
+}
+
+.details-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.user-details {
+  margin-top: 16px; /* Add some spacing between user details */
+}
+
+.user-details div {
+  margin-bottom: 8px; /* Add spacing between individual user details */
+}
+
+ion-card-title {
+  text-align: center;
+  margin: 10px;
+  font-family: "IntegralCf-Bold";
+  font-size: 20px;
+}
+
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  color: white;
+}
+
+ion-toolbar {
+  --background: #bd7f60;
+}
+
+.premium {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-prem {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "IntegralCf-Bold";
+  h1 {
+    font-size: 15px;
+    color: black;
   }
-  
-  .details-container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 16px;
-  }
-  
-  .user-details {
-    margin-top: 16px; /* Add some spacing between user details */
-  }
-  
-  .user-details div {
-    margin-bottom: 8px; /* Add spacing between individual user details */
-  }
+}

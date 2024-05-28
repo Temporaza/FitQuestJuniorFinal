@@ -8,7 +8,11 @@ import {
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
 import { AngularFireStorage } from '@angular/fire/compat/storage';
-import { AlertController, LoadingController, ModalController } from '@ionic/angular';
+import {
+  AlertController,
+  LoadingController,
+  ModalController,
+} from '@ionic/angular';
 import { PetBodyServiceService } from '../services/pet-body.service.service';
 import { TaskStatusService } from '../services/task-status.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -37,8 +41,6 @@ interface UserData {
   birthday: string;
   // Add other properties as needed
 }
-
-
 
 @Component({
   selector: 'app-home',
@@ -108,9 +110,12 @@ export class HomePage {
     },
   ];
 
+  editMode: boolean = false;
+  newPetName: string = '';
+  originalPetName: string = '';
+
   private healthUpdateSubscription: Subscription;
   private authSubscription: Subscription;
-
 
   constructor(
     public authService: AuthenticationService,
@@ -167,6 +172,40 @@ export class HomePage {
   @HostListener('window:popstate', ['$event'])
   onPopState(event) {
     this.location.forward();
+  }
+
+  enableEditNameMode() {
+    this.newPetName = this.petName; // Initialize the input with the current pet name
+    this.editMode = true;
+    this.playButtonClickSound();
+  }
+
+  async saveNewPetName() {
+    const currentUser = await this.authService.getCurrentUser();
+    this.playButtonClickSound();
+    if (currentUser) {
+      try {
+        const userId = currentUser.uid;
+        await this.firestore.collection('users').doc(userId).update({
+          petName: this.newPetName,
+        });
+        this.petName = this.newPetName; // Update the displayed pet name
+        this.editMode = false; // Exit edit mode
+      } catch (error) {
+        console.error('Error updating pet name:', error);
+      }
+    }
+  }
+
+  cancelEditNameMode() {
+    // Cancel edit mode and revert changes
+    this.editMode = false;
+    this.newPetName = this.originalPetName;
+    this.playButtonClickSound();
+  }
+
+  isBackgroundEnabled(): boolean {
+    return !this.editMode;
   }
 
   async ionViewDidEnter() {
@@ -610,7 +649,6 @@ export class HomePage {
     }
   }
 
-
   playButtonClickSound() {
     const audio = new Audio();
     audio.src = 'assets/btn-sound.mp3';
@@ -630,24 +668,23 @@ export class HomePage {
       const user = await this.authService.getCurrentUser();
       // console.log('User object:', user);
 
-      const userData = await this.authService.getUserDataByUid(user.uid) as UserData;
+      const userData = (await this.authService.getUserDataByUid(
+        user.uid
+      )) as UserData;
       console.log('User Data from Firestore:', userData);
 
       const userWithBirthday = { ...user, ...userData };
-      
 
       const modal = await this.modalController.create({
         component: BirthdayModalPage,
         componentProps: {
           user: user,
-          bday: userWithBirthday
-        }
+          bday: userWithBirthday,
+        },
       });
       return await modal.present();
     } catch (error) {
       console.error('Error fetching user:', error);
     }
   }
-
-
 }

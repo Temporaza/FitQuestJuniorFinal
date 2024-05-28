@@ -27,6 +27,7 @@ export class SoundAnimalsPage implements OnInit {
   isAudioPlaying: boolean = false; // Track the audio playing state
   showAnimalImage: boolean = false;
   isSoundIdentified: boolean = false;
+  showWelcomeMessage: boolean = true;
 
   constructor(
     private toastController: ToastController
@@ -34,6 +35,13 @@ export class SoundAnimalsPage implements OnInit {
 
   ngOnInit() {
     console.log('Initial Displayed Animal:', this.getCurrentAnimal());
+  }
+
+  
+  startGame() {
+    this.showWelcomeMessage = false;
+    this.yaySound();
+    this.playButtonClickSound();
   }
 
   showNextAnimal() {
@@ -168,5 +176,19 @@ export class SoundAnimalsPage implements OnInit {
     // Extract the animal name from the path (assuming the last part of the path is the name)
     const parts = this.animalList[this.currentIndex].split('/');
     return parts[parts.length - 1].replace('.png', '');
+  }
+
+  yaySound() {
+    const audio = new Audio();
+    audio.src = 'assets/yay.mp3';
+    audio.load();
+    audio.play();
+  }
+
+  playButtonClickSound() {
+    const audio = new Audio();
+    audio.src = 'assets/btn-sound.mp3';
+    audio.load();
+    audio.play();
   }
 }

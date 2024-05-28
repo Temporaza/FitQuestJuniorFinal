@@ -27,6 +27,9 @@
           <p>Status: {{ task.status }}</p>
           <p>Other Tasks: {{ task.otherTasks }}</p>
           <!-- Add other task properties as needed -->
+          <p *ngIf="task.additionalTasks">
+            Additional Tasks: {{ task.additionalTasks }}
+          </p>
         </ion-card-content>
 
         <ion-row>

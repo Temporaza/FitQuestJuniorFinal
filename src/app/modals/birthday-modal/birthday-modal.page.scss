@@ -31,7 +31,7 @@ ion-title {
 .parent {
   display: flex;
   justify-content: center;
-  margin-top: 20%;
+  margin-top: 10%;
 }
 
 .cake-container {
@@ -44,4 +44,34 @@ ion-title {
 .remaining-time {
   text-align: center;
   color: red;
+}
+
+.date {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 250px;
+  height: 100px;
+  margin: 0 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+}
+
+.button-container {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 250px;
+  height: 100px;
+  margin: 0 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
 }

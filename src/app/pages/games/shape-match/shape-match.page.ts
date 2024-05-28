@@ -8,29 +8,53 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./shape-match.page.scss'],
 })
 export class ShapeMatchPage implements OnInit {
-
   shapes: { image: string; description: string }[] = [
     { image: '/assets/shapes/circle.png', description: 'A round shape' },
-    { image: '/assets/shapes/triangle.png', description: 'A three-sided shape' },
-    { image: '/assets/shapes/rectangle.png', description: 'A four-sided shape with opposite sides equal' },
-    { image: '/assets/shapes/star.png', description: 'A shape with many points like a star' },
-    { image: '/assets/shapes/oval.png', description: 'An elongated, rounded shape' },
+    {
+      image: '/assets/shapes/triangle.png',
+      description: 'A three-sided shape',
+    },
+    {
+      image: '/assets/shapes/rectangle.png',
+      description: 'A four-sided shape with opposite sides equal',
+    },
+    {
+      image: '/assets/shapes/star.png',
+      description: 'A shape with many points like a star',
+    },
+    {
+      image: '/assets/shapes/oval.png',
+      description: 'An elongated, rounded shape',
+    },
     { image: '/assets/shapes/hexagon.png', description: 'A six-sided shape' },
-    { image: '/assets/shapes/heart.png', description: 'A shape that looks like a heart' },
-    { image: '/assets/shapes/diamond.png', description: 'A four-sided shape with equal sides and opposite angles' }
+    {
+      image: '/assets/shapes/heart.png',
+      description: 'A shape that looks like a heart',
+    },
+    {
+      image: '/assets/shapes/diamond.png',
+      description: 'A four-sided shape with equal sides and opposite angles',
+    },
   ];
 
   currentShapeIndex: number = 0;
-  currentShape: { image: string; description: string } = this.shapes[this.currentShapeIndex];
+  currentShape: { image: string; description: string } =
+    this.shapes[this.currentShapeIndex];
   textInput: string = '';
+  showWelcomeMessage: boolean = true;
 
   constructor(
     private alertController: AlertController,
-    private toastController: ToastController,
-  ) { }
+    private toastController: ToastController
+  ) {}
 
   ngOnInit() {
     console.log('Current Display Shape:', this.getCurrentShapeName());
+  }
+  startGame() {
+    this.showWelcomeMessage = false;
+    this.yaySound();
+    this.playButtonClickSound();
   }
 
   submitForm() {
@@ -43,20 +67,20 @@ export class ShapeMatchPage implements OnInit {
       await this.presentToast('Please enter the shape name.');
       return; // Prevent advancing to the next shape
     }
-  
+
     const expectedShapeName = this.getCurrentShapeName().toLowerCase();
     if (this.textInput.toLowerCase() !== expectedShapeName) {
       await this.presentToast('Incorrect shape name. Please try again.');
       return; // Prevent advancing to the next shape
     }
-  
+
     this.currentShapeIndex++;
     this.currentShape = this.shapes[this.currentShapeIndex];
     console.log('Current Display Shape:', this.getCurrentShapeName());
-  
+
     // Clear the text input for the next shape
     this.textInput = '';
-  
+
     if (this.currentShapeIndex === this.shapes.length - 1) {
       // If it's the last shape (diamond), show the congratulatory alert
       this.presentCongratulatoryAlert();
@@ -82,7 +106,7 @@ export class ShapeMatchPage implements OnInit {
   async presentCongratulatoryAlert() {
     const alert = await this.alertController.create({
       header: 'Congratulations!',
-      message: 'You\'ve completed the game!',
+      message: "You've completed the game!",
       buttons: [
         {
           text: 'Restart',
@@ -90,9 +114,9 @@ export class ShapeMatchPage implements OnInit {
             // Handle restart logic (e.g., reset to the circle)
             this.currentShapeIndex = 0;
             this.currentShape = this.shapes[this.currentShapeIndex];
-          }
-        }
-      ]
+          },
+        },
+      ],
     });
 
     await alert.present();
@@ -107,7 +131,9 @@ export class ShapeMatchPage implements OnInit {
   }
 
   getCurrentShapeName(): string {
-    return this.currentShape.image.split('/').pop()?.split('.')[0] || 'Unknown Shape';
+    return (
+      this.currentShape.image.split('/').pop()?.split('.')[0] || 'Unknown Shape'
+    );
   }
 
   getCurrentShapeDescription(): string {
@@ -120,5 +146,19 @@ export class ShapeMatchPage implements OnInit {
 
   isNextButtonDisabled(): boolean {
     return this.currentShapeIndex === this.shapes.length - 1;
+  }
+
+  yaySound() {
+    const audio = new Audio();
+    audio.src = 'assets/yay.mp3';
+    audio.load();
+    audio.play();
+  }
+
+  playButtonClickSound() {
+    const audio = new Audio();
+    audio.src = 'assets/btn-sound.mp3';
+    audio.load();
+    audio.play();
   }
 }

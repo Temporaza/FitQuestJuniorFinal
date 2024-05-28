@@ -10,80 +10,13 @@
 <ion-content [fullscreen]="true">
   <!-- Welcome message -->
   <div *ngIf="showWelcomeMessage" class="welcome-content">
-    <!-- <div class="welcome-pic">
-      <img
-        src="https://png.pngtree.com/png-vector/20230815/ourmid/pngtree-welcome-badge-with-cartoon-boy-clipart-vector-png-image_6908811.png"
-        alt="welcome image"
-      />
-    </div> -->
-    <div class="container">
-      <h1 style="font-family: IntegralCf-Bold">
-        Guess the Color: Game Instructions
-      </h1>
-      <p>
-        <strong>Objective:</strong> Match each Color to its correct name within
-        the limited lives.
-      </p>
-
-      <h2 style="font-family: IntegralCf-Bold">How to Play:</h2>
-      <ol>
-        <li>
-          <strong style="font-family: IntegralCf-Bold">Start the Game:</strong>
-          <br />
-          Begin a new round where a list of colors is displayed.
-        </li>
-        <li>
-          <strong style="font-family: IntegralCf-Bold"
-            >Match colors to Names:</strong
-          >
-          <br />
-          Below each animal, there is a shuffled list of names. Click on the
-          correct name for each animal.
-        </li>
-        <li>
-          <strong style="font-family: IntegralCf-Bold"
-            >Lives and Hearts:</strong
-          >
-          <br />
-          You have <strong>3 lives</strong> displayed as hearts. If you click
-          the wrong name, you lose a heart. The game ends when all hearts are
-          lost.
-        </li>
-        <li>
-          <strong style="font-family: IntegralCf-Bold"
-            >Continue Matching:</strong
-          >
-          <br />
-          Continue matching colors to their correct names until the round is
-          complete or you run out of lives.
-        </li>
-      </ol>
-
-      <h2 style="font-family: IntegralCf-Bold">Winning the Game:</h2>
-      <p>
-        Successfully match all colors to their correct names without losing all
-        hearts.
-      </p>
-
-      <div class="tips">
-        <h3 style="font-family: IntegralCf-Bold">Tips:</h3>
-        <ul>
-          <li>Take your time to observe the colors carefully.</li>
-          <li>Think before you click to avoid losing hearts.</li>
-        </ul>
-      </div>
-
-      <p style="font-family: IntegralCf-Bold">
-        Enjoy the game and have fun guessing the correct names!
-      </p>
+    <div class="welcome-pic">
+      <img src="assets/Instruction/GuessColor.jpg" alt="welcome image" />
     </div>
     <div class="welcome-btn">
       <div (click)="startGame()">Lets Play</div>
     </div>
   </div>
-
-  <!-- Game content -->
-  <!-- Hearts -->
 
   <div
     *ngIf="!showWelcomeMessage && !showWinPopup && !showLosePopup"

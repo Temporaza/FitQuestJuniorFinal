@@ -120,3 +120,26 @@ ion-content {
   justify-content: center;
   align-items: center;
 }
+
+.welcome-content {
+  margin: 10px;
+  margin-top: 10px;
+}
+
+.welcome-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-btn {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+  align-items: center;
+  font-family: "IntegralCf-Bold";
+}

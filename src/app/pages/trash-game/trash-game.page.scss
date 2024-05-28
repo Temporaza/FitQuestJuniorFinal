@@ -1,87 +1,90 @@
-.ion-padding{
-    --background: orange;
+.ion-padding {
+  --background: orange;
 }
-*{
-    font-family: 'Patrick Hand SC';
-  }
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  color: white;
+}
+
+ion-toolbar {
+  --background: #bd7f60;
+}
 
 #recycleImage {
-    position: absolute;
-    top: 80px;
-    right: 0;
+  position: absolute;
+  top: 80px;
+  right: 0;
 }
 #wasteImage {
-    position: absolute;
-    top: 80px;
-    right: 0;
-    left: 0vh;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  left: 0vh;
 }
 
 #hazardImage {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 160px; /* adjust as needed */
-    
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px; /* adjust as needed */
 }
 
-ion-img{
-    display: block;
-    width: 130px;
-    // border: solid;
-    &.dragging {
-        opacity: 0.7; // Optional: Reduce opacity when dragging
-        transition: none;
-      }
+ion-img {
+  display: block;
+  width: 130px;
+  // border: solid;
+  &.dragging {
+    opacity: 0.7; // Optional: Reduce opacity when dragging
+    transition: none;
+  }
 }
 
 #draggableImage {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-100%, -100%);
-    width: 90px; /* adjust as needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -100%);
+  width: 90px; /* adjust as needed */
 }
 
 #draggableBanana {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-80%, -50%);
-    width: 90px; /* adjust as needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-80%, -50%);
+  width: 90px; /* adjust as needed */
 }
 
 #draggablePaint {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(40%, -50%);
-    width: 90px; /* adjust as needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(40%, -50%);
+  width: 90px; /* adjust as needed */
 }
 
 #draggableSpray {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(10%, -100%);
-    width: 90px; /* adjust as needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(10%, -100%);
+  width: 90px; /* adjust as needed */
 }
 
-
 #draggableBottle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-100%, -30%);
-    width: 90px; /* adjust as needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-100%, -30%);
+  width: 90px; /* adjust as needed */
 }
 
 #draggableApple {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-10%, 50%);
-    width: 60px; /* adjust as needed */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-10%, 50%);
+  width: 60px; /* adjust as needed */
 }
-

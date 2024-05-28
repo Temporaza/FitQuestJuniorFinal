@@ -70,11 +70,23 @@
                 <ion-label
                   style="font-family: IntegralCf-Bold"
                   position="stacked"
-                  >Other Tasks</ion-label
+                  >Task Description</ion-label
                 >
                 <ion-input
                   [(ngModel)]="otherTasks"
-                  placeholder="Enter other tasks"
+                  placeholder="Enter Task Description"
+                ></ion-input>
+              </ion-item>
+
+              <ion-item>
+                <ion-label
+                  style="font-family: IntegralCf-Bold"
+                  position="stacked"
+                  >Additional Tasks</ion-label
+                >
+                <ion-input
+                  [(ngModel)]="additionalTasks"
+                  placeholder="Enter Additional Tasks"
                 ></ion-input>
               </ion-item>
 
@@ -90,12 +102,13 @@
                 </ion-select>
               </ion-item>
 
-              <ion-button
+              <button
                 class="btn-task"
                 (click)="createTask()"
                 style="font-family: IntegralCF-Bold; color: black"
-                >Create Task</ion-button
               >
+                Create Task
+              </button>
             </div>
           </div>
           <!-- <img class="board1" alt="daily task" src="assets/ebook/board.png"/> -->

@@ -41,13 +41,6 @@ ion-title {
   // border: 2px solid green;
 }
 
-.wizard-hat {
-  width: 150px;
-  position: absolute;
-  height: auto;
-  margin-bottom: 60%;
-}
-
 .pet-eyes {
   // border: 2px solid red;
   width: 250px; /* Adjust the size as needed */
@@ -79,13 +72,6 @@ ion-title {
   }
 }
 
-@media screen and (min-width: 422px) {
-  .wizard-hat {
-    margin-bottom: 22vh;
-    height: fit-content;
-  }
-}
-
 //save
 .save-button {
   display: flex;
@@ -94,94 +80,16 @@ ion-title {
 }
 
 ion-button {
-  width: 30%; /* Adjust the width as needed */
+  width: 50%; /* Adjust the width as needed */
 }
 
 //pet bodies
 
-button {
-  width: 100%; // Make the buttons take the full width of the container
-  padding: 15px; // Increase the padding for the buttons
-  font-size: 16px; // Adjust the font size as needed
-  border-radius: 15px; // Add rounded corners to the buttons
-  background-color: #4285f4; // Change the button background color
-  color: #ffffff; // Change the button text color
-  margin-top: 10px; // Add margin between buttons and other elements
-
-  &:first-child {
-    margin-bottom: 10px; // Add margin below the first button
-  }
-}
-
 .pet-price {
   font-family: "Comic Sans MS";
   display: block;
-  font-size: 12px; // Adjust the font size as needed
+  font-size: 12px; // Adjust the font size as neede
   margin-top: 5px; // Add margin between button text and price text
-}
-
-// @media screen and (min-width: 620px) {
-
-//   .save-button{
-//     max-width: 40%;
-//     margin-left: auto;
-//     margin-right: auto;
-//   }
-
-//   .pet_Bodies img{
-//     padding: 30px;
-//   }
-
-//   .pet-info button{
-//     padding: 15px; // Increase the padding for the button
-//       font-size: 16px;
-//       border-radius: 15px;
-//   }
-//   .pet-name{
-//     font-size: 20px;
-//   }
-
-//   .duzzy {
-//     border-radius: 0px 70px 0 70px;
-
-//   }
-// }
-
-.pet_Bodies {
-  background-color: #003366; // Set pet bodies background color
-  padding: 20px; // Add padding for better visibility
-  width: 90%;
-  margin: 6vh auto;
-  border-radius: 15px;
-
-  .closet-container {
-    display: grid;
-    grid-template-columns: repeat(
-      auto-fit,
-      minmax(120px, 1fr)
-    ); // Adjust the width of each column as needed
-    gap: 20px; // Adjust the gap between items
-
-    .duzzy,
-    .cosmetic-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 10px;
-      background-color: #fff; // Set each pet body's background color
-      border-radius: 8px; // Add rounded corners for a neat look
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Add a subtle shadow
-    }
-
-    .pet-info {
-      margin-top: 10px;
-      text-align: center;
-      font-family: "Comic Sans MS";
-    }
-
-    // Add additional styles as needed
-  }
 }
 
 .points-container {
@@ -204,7 +112,7 @@ button {
 }
 
 .points {
-  font-size: 2.4rem; // Adjust the font size
+  font-size: 1.4rem; // Adjust the font size
   color: #333; // Adjust the text color
 }
 
@@ -214,4 +122,90 @@ button {
   align-items: center;
   gap: 20px;
   margin: 10px;
+}
+
+.closet-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 16px; /* Adjust the gap between items as needed */
+}
+
+.duzzy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 10px;
+  background: white;
+  img {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+.all {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.pet-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 10px;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.pet-info button {
+  margin-top: 5px;
+}
+
+button {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 250px;
+  height: 60px;
+  margin: 0 auto;
+  h1 {
+    font-size: 15px;
+  }
+  color: black;
+}
+
+.pet_Bodies {
+  display: flex;
+  overflow-x: auto; /* Enable horizontal scrolling */
+  padding: 10px; /* Optional padding for better appearance */
+  background: #003366;
+}
+
+.owned {
+  background-color: rgba(0, 255, 0, 0.1); /* Optional: Highlight owned items */
+}
+
+.header {
+  border: 1px solid;
+  height: 100%;
+  border-radius: 20px;
+  background: bisque;
+  margin: 10px;
+}
+
+@media (max-width: 765px) {
+  .all {
+    display: flex;
+    flex-direction: column;
+  }
+  .closet-container {
+    grid-template-columns: 1fr; /* Switch to 1 column */
+    gap: 16px; /* Adjust the gap between items as needed */
+  }
+
+  .pet_Bodies {
+    margin: 0 auto;
+  }
 }

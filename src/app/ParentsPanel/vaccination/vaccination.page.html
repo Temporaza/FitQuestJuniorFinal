@@ -22,6 +22,12 @@
             <h1 style="text-align: center">Kids</h1>
             <!-- <ion-card class="Kids" *ngIf="usersData.length > 0"> -->
             <ion-card *ngFor="let userData of usersData">
+              <div class="activityLog">
+                <!-- Pass userData to the openActivityLog method -->
+                <div class="actLog" (click)="openActivityLog(userData)">
+                  <h1>Activity Log</h1>
+                </div>
+              </div>
               <ion-card-header>
                 <ion-item>
                   <ion-label style="text-align: center"

@@ -78,7 +78,11 @@ export class KidsProgressPage implements OnInit {
                         .valueChanges()
                         .pipe(
                           map((parentTask: any) => {
-                            return { ...task, points: parentTask.points };
+                            return {
+                              ...task,
+                              points: parentTask.points,
+                              additionalTasks: parentTask.additionalTasks,
+                            };
                           })
                         )
                     )
@@ -155,6 +159,7 @@ export class KidsProgressPage implements OnInit {
             taskPoints,
             task.userId,
             task.otherTasks,
+            task.additionalTasks,
             true
           );
 

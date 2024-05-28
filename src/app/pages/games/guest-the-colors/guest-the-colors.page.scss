@@ -1,5 +1,6 @@
 ion-content {
   --background: lightgreen;
+  height: 100%;
 }
 ion-title {
   text-align: center;
@@ -9,6 +10,11 @@ ion-title {
 
 ion-toolbar {
   --background: #bd7f60;
+}
+
+.welcome-content {
+  margin: 10px;
+  margin-top: 10px;
 }
 
 .welcome-pic {

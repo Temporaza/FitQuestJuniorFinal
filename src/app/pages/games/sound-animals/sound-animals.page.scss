@@ -3,10 +3,6 @@ ion-content {
     center center / cover no-repeat;
 }
 
-* {
-  font-family: "Comic Sans MS";
-}
-
 ion-title {
   text-align: center;
   font-family: "IntegralCF-Bold";
@@ -133,4 +129,41 @@ input[type="text"]:focus {
 .speaker-icon {
   font-size: 6em; /* Adjust the font size as needed for the desired icon size */
   height: 80%;
+}
+
+.welcome-content {
+  margin: 10px;
+  margin-top: 10px;
+}
+
+.welcome-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-btn {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  margin: 10px auto;
+  align-items: center;
+  font-family: "IntegralCf-Bold";
+}
+
+button {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  color: black;
+  font-family: "IntegralCf-Bold";
+  margin: 5px;
 }

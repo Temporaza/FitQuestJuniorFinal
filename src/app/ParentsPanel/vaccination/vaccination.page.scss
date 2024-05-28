@@ -66,37 +66,29 @@ ion-card-title {
   border: #0080ff 15px solid;
   margin-top: 10vh;
   width: 65vh;
+  ion-label {
+    font-family: "IntegralCF-Bold";
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 765px) {
   ion-card {
-    width: 90%;
+    width: 85%;
+    margin: 0 auto;
   }
 }
 
 .plain-button {
-  cursor: pointer; /* Add pointer cursor for interaction */
-  display: flex; /* Use flex to align icon and text horizontally */
-  align-items: center; /* Align items in the center */
-  color: #007bff; /* Set the color as needed */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #007bff;
   margin: 0 auto;
   font-size: 20px;
 }
 
 .edit-btn {
-  // color: black;
-  // justify-content: center;
-  // margin: 20px;
-  // margin: 0 auto;
-  // background: rgba(
-  //   252,
-  //   128,
-  //   66,
-  //   0.6
-  // );
-  // border-radius: 10px;
-  // border: 2px solid black;
-  // max-width: 100px;
   background: url(/assets/ebook/brd.png) center / contain no-repeat;
   position: relative;
   width: 150px;
@@ -139,7 +131,7 @@ ion-card-footer {
   color: black;
 }
 
-.obesity {
+.obese {
   background-color: red;
   padding: 5px;
   border-radius: 10px;
@@ -167,4 +159,21 @@ ion-card-footer {
 .character {
   display: flex;
   justify-content: center;
+}
+
+.actLog {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "IntegralCf-Bold";
+  h1 {
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: black;
+  }
 }

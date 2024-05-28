@@ -16,6 +16,7 @@ import { Subscription } from 'rxjs';
 import { LoginPage } from 'src/app/pages/login/login.page';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Location } from '@angular/common';
+import { ActivityLogModalPage } from 'src/app/modals/activity-log-modal/activity-log-modal.page';
 
 interface ParentData {
   users?: string[];
@@ -31,6 +32,9 @@ interface UserData {
   bmi?: number;
   status?: string;
   usersUID?: string;
+  lastLogin?: string;
+  lastLogout?: string;
+  duration?: string;
   // Add other properties as needed
 }
 
@@ -354,10 +358,19 @@ export class VaccinationPage implements OnInit {
         return 'underweight';
       case 'Overweight':
         return 'overweight';
-      case 'Obesity':
-        return 'obesity';
+      case 'Obese':
+        return 'obese';
       default:
         return ''; // Default class
     }
+  }
+
+  async openActivityLog(userData: UserData) {
+    console.log('User ID:', userData);
+    const modal = await this.modalController.create({
+      component: ActivityLogModalPage,
+      componentProps: { userData: { ...userData } },
+    });
+    return await modal.present();
   }
 }

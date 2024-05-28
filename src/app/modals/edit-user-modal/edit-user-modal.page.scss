@@ -83,3 +83,28 @@ ion-toolbar {
   width: 90%;
   margin: 20px auto;
 }
+
+.legend {
+  color: black;
+  text-align: center;
+  border: 1px solid;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+  background: lightcyan;
+  h1 {
+    font-size: 15px;
+  }
+}
+
+th {
+  font-size: 20px;
+  text-align: center;
+  padding: 10px;
+}
+
+td {
+  padding: 10px;
+  font-size: 15px;
+  text-align: center;
+}

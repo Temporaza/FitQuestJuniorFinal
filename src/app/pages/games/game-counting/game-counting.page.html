@@ -9,13 +9,28 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="balloonContent">
+  <div *ngIf="showWelcomeMessage" class="welcome-content">
+    <div class="welcome-pic">
+      <img src="assets/Instruction/balloon.jpg" alt="welcome image" />
+    </div>
+    <div class="welcome-btn">
+      <div (click)="startGame()">Lets Play</div>
+    </div>
+  </div>
+
+  <div *ngIf="!showWelcomeMessage" class="balloonContent">
     <ion-grid>
       <ion-row *ngFor="let row of balloonRows">
         <ion-col *ngFor="let balloon of row" (click)="popBalloon(balloon)">
-          <div class="balloon" [ngClass]="{ 'popped': balloon.popped }" [style]="{'--balloon-color': balloon.color}">{{ balloon.letter }}</div>
+          <div
+            class="balloon"
+            [ngClass]="{ 'popped': balloon.popped }"
+            [style]="{'--balloon-color': balloon.color}"
+          >
+            {{ balloon.letter }}
+          </div>
           <audio #popSound>
-            <source src="assets/balloonPop.mp3" type="audio/mpeg">
+            <source src="assets/balloonPop.mp3" type="audio/mpeg" />
           </audio>
         </ion-col>
       </ion-row>
@@ -25,15 +40,24 @@
   <!-- Win Pop-up -->
   <div *ngIf="showWinPopup" class="win-popup">
     <div class="confetti">
-      <img src="https://media.tenor.com/IW5jiF1BZHQAAAAi/confetti-glitter.gif" class="confetti-gif" alt="Confetti">
-      <h1 style="text-align: center;">Congratulations!!<br>
-          You Won!!!
+      <img
+        src="https://media.tenor.com/IW5jiF1BZHQAAAAi/confetti-glitter.gif"
+        class="confetti-gif"
+        alt="Confetti"
+      />
+      <h1 style="text-align: center">
+        Congratulations!!<br />
+        You Won!!!
       </h1>
-      <img src="https://www.icegif.com/wp-content/uploads/2023/05/icegif-1109.gif" class="confetti-gif" alt="Confetti">
+      <img
+        src="https://www.icegif.com/wp-content/uploads/2023/05/icegif-1109.gif"
+        class="confetti-gif"
+        alt="Confetti"
+      />
     </div>
     <div class="win-btns">
-      <img src="assets/retry.png" (click)="retry()" alt="Retry">
-      <img src="assets/quit.png" (click)="quit()" alt="Quit">
+      <img src="assets/retry.png" (click)="retry()" alt="Retry" />
+      <img src="assets/quit.png" (click)="quit()" alt="Quit" />
     </div>
   </div>
 </ion-content>

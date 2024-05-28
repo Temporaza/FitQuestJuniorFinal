@@ -14,17 +14,22 @@ export class NumbersPage implements OnInit {
   expectedNextNumber: number = 1; // Initialize with the first expected number
   totalBalloons: number = 0;
   showWinPopup: boolean = false;
-
+  showWelcomeMessage: boolean = true;
 
   constructor(
     private modalController: ModalController,
     private router: Router
   ) {
     this.initializeBalloons();
-   }
-
-  ngOnInit() {
   }
+
+  startGame() {
+    this.showWelcomeMessage = false;
+    this.yaySound();
+    this.playButtonClickSound();
+  }
+
+  ngOnInit() {}
 
   initializeBalloons() {
     const colors = ['#f39c12', '#e74c3c', '#3498db', '#e67e22']; // Yellow, Red, Blue, Orange
@@ -32,7 +37,10 @@ export class NumbersPage implements OnInit {
     const balloonsPerRow = 5;
 
     // Create an array with numbers 1 to (totalRows * balloonsPerRow)
-    const numbers = Array.from({ length: totalRows * balloonsPerRow }, (_, index) => index + 1);
+    const numbers = Array.from(
+      { length: totalRows * balloonsPerRow },
+      (_, index) => index + 1
+    );
 
     // Shuffle the array of numbers
     for (let i = numbers.length - 1; i > 0; i--) {
@@ -40,20 +48,24 @@ export class NumbersPage implements OnInit {
       [numbers[i], numbers[randomIndex]] = [numbers[randomIndex], numbers[i]];
     }
 
-  // Assign the shuffled numbers to the balloons in all rows
-  let currentIndex = 0;
-  for (let i = 0; i < totalRows; i++) {
-    const row: { number: number; popped: boolean; color: string }[] = [];
-    for (let j = 0; j < balloonsPerRow; j++) {
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      const balloon = { number: numbers[currentIndex++], popped: false, color: randomColor };
-      row.push(balloon);
+    // Assign the shuffled numbers to the balloons in all rows
+    let currentIndex = 0;
+    for (let i = 0; i < totalRows; i++) {
+      const row: { number: number; popped: boolean; color: string }[] = [];
+      for (let j = 0; j < balloonsPerRow; j++) {
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        const balloon = {
+          number: numbers[currentIndex++],
+          popped: false,
+          color: randomColor,
+        };
+        row.push(balloon);
 
-      // Increment the total number of balloons
-      this.totalBalloons++;
+        // Increment the total number of balloons
+        this.totalBalloons++;
+      }
+      this.balloonRows.push(row);
     }
-    this.balloonRows.push(row);
-  }
   }
 
   popBalloon(balloon: { number: number; popped: boolean; color: string }) {
@@ -93,7 +105,7 @@ export class NumbersPage implements OnInit {
     // Add logic for quitting the game
     console.log('Quitting the game');
     this.showWinPopup = false;
-    
+
     // Navigate to the search-games page
     this.router.navigate(['/search-games']); // Replace '/search-games' with your actual route
   }
@@ -113,6 +125,10 @@ export class NumbersPage implements OnInit {
     audio.play();
   }
 
-
-
+  playButtonClickSound() {
+    const audio = new Audio();
+    audio.src = 'assets/btn-sound.mp3';
+    audio.load();
+    audio.play();
+  }
 }

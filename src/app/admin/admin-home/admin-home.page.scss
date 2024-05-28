@@ -1,4 +1,3 @@
-
 ion-card {
   max-width: 600px; /* Set your desired maximum width */
   margin: 0 auto; /* Center the card horizontally */
@@ -11,4 +10,13 @@ ion-card {
 
 ion-button {
   margin-top: 8px; /* Add margin between the button and the parent label */
+}
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  color: white;
+}
+
+ion-toolbar {
+  --background: #bd7f60;
 }

@@ -22,14 +22,14 @@
 <ion-menu contentId="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu Content</ion-title>
+      <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
     <div class="footer-buttons">
       <button ion-button class="custom-button" routerLink="/market">
         <img alt="Market" src="assets/Shopping.png" />
-        <div class="button-text">Market</div>
+        <div class="button-text">Store</div>
       </button>
       <button ion-button class="custom-button" routerLink="/activities">
         <img alt="Activities" src="assets/Mission.png" />
@@ -58,14 +58,40 @@
         </ion-button>
       </div>
     </div>
-    <div class="petName">
-      <div class="pet">
-        <h3>{{ petName }}</h3>
-      </div>
-      <div class="birthday" (click)="openBirthdayModal()">
-        <img src="assets/gift.webp" alt="Birthday" />
-      </div>
+  </div>
+
+  <div class="pet" [ngClass]="{ 'with-background': isBackgroundEnabled() }">
+    <ion-input
+      [(ngModel)]="newPetName"
+      *ngIf="editMode; else petNameDisplay"
+      placeholder="Enter new name"
+    >
+    </ion-input>
+    <ng-template #petNameDisplay>
+      <h1>{{ petName }}</h1>
+    </ng-template>
+
+    <div class="edit-name">
+      <ng-container *ngIf="!editMode; else editModeButtons">
+        <div class="enable-edit" size="small" (click)="enableEditNameMode()">
+          <ion-icon name="create"></ion-icon>
+        </div>
+      </ng-container>
+      <ng-template #editModeButtons>
+        <div class="parent-edit">
+          <div class="editable" size="small" (click)="saveNewPetName()">
+            <ion-icon name="save"></ion-icon>
+          </div>
+          <div class="deletable" size="small" (click)="cancelEditNameMode()">
+            <ion-icon name="close-circle"></ion-icon>
+          </div>
+        </div>
+      </ng-template>
     </div>
+  </div>
+
+  <div class="birthday" (click)="openBirthdayModal()">
+    <img src="assets/gift.png" alt="Birthday" />
   </div>
 
   <!-- <div class="points-container">
@@ -94,7 +120,10 @@
   </div>
 
   <div class="food" (click)="handleSaladClick()">
-    <img src="assets/salad.png" alt="Food" />
+    <img src="assets/food.png" alt="Food" />
+    <div class="food-add">
+      <h1>Food</h1>
+    </div>
   </div>
 
   <div

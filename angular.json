@@ -31,13 +31,9 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-              "src/theme/variables.scss",
-              "src/global.scss"
-            ],
-            "scripts": [
-              "node_modules/interactjs/dist/interact.min.js"
-            ]
+            "styles": ["src/theme/variables.scss", "src/global.scss"],
+            "scripts": ["node_modules/interactjs/dist/interact.min.js"],
+            "allowedCommonJsDependencies": ["localforage"]
           },
           "configurations": {
             "production": {
@@ -49,7 +45,7 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
+                  "maximumWarning": "7kb",
                   "maximumError": "10kb"
                 }
               ],
@@ -116,13 +112,8 @@
                 "output": "./svg"
               }
             ],
-            "styles": [
-              "src/theme/variables.scss",
-              "src/global.scss"
-            ],
-            "scripts": [
-              "node_modules/interactjs/dist/interact.min.js"
-            ]
+            "styles": ["src/theme/variables.scss", "src/global.scss"],
+            "scripts": ["node_modules/interactjs/dist/interact.min.js"]
           },
           "configurations": {
             "ci": {
@@ -134,10 +125,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         },
         "deploy": {
@@ -151,9 +139,7 @@
     }
   },
   "cli": {
-    "schematicCollections": [
-      "@ionic/angular-toolkit"
-    ],
+    "schematicCollections": ["@ionic/angular-toolkit"],
     "analytics": false
   },
   "schematics": {
