@@ -2,9 +2,25 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ModalController, ToastController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
-interface ParentData {
-  premium: boolean;
+interface User {
+  id: string;
+  fullname: string;
+  email: string;
+  bmi: number;
+  height: number;
+  weight: number;
+  age: number;
+  status: string;
   // Add other fields if needed
+}
+
+interface ParentData {
+  id: string;
+  fullname: string;
+  gender: string;
+  email: string;
+  premium: boolean;
+  users: User[];
 }
 
 @Component({
@@ -30,6 +46,15 @@ export class ParentDetailsModalPage implements OnInit {
   }
 
   async togglePremiumStatus() {
+    if (!this.parentDetails || !this.parentDetails.id) {
+      const toast = await this.toastController.create({
+        message: 'Invalid parent details. Cannot update premium status.',
+        duration: 2000,
+      });
+      toast.present();
+      return;
+    }
+
     try {
       const newPremiumStatus = !this.parentDetails.premium;
       const docRef = this.firestore
@@ -49,7 +74,7 @@ export class ParentDetailsModalPage implements OnInit {
       console.error('Error updating premium status:', error);
 
       const toast = await this.toastController.create({
-        message: 'Error updating premium status. Please try again.',
+        message: `Error updating premium status. Please try again. ${error.message}`,
         duration: 2000,
       });
       toast.present();

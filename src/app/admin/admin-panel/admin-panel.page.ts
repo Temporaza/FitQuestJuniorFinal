@@ -9,20 +9,27 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./admin-panel.page.scss'],
 })
 export class AdminPanelPage implements OnInit {
-
   username: string;
   password: string;
 
   constructor(
     private afAuth: AngularFireAuth,
-     private router: Router,
-     private alertController: AlertController
+    private router: Router,
+    private alertController: AlertController
   ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   async login() {
+    if (!this.username || !this.password) {
+      // If either username or password is empty, show alert
+      this.presentErrorAlert(
+        'Login Failed',
+        'Please provide both username and password.'
+      );
+      return;
+    }
+
     try {
       const userCredential = await this.afAuth.signInWithEmailAndPassword(
         this.username,
@@ -34,7 +41,19 @@ export class AdminPanelPage implements OnInit {
     } catch (error) {
       // Handle login error (display a message, log, etc.)
       console.error('Login error:', error);
-      this.presentErrorAlert('Login Failed', 'Invalid username or password.');
+      // Check if error is due to invalid credentials
+      if (
+        error.code === 'auth/wrong-password' ||
+        error.code === 'auth/user-not-found'
+      ) {
+        this.presentErrorAlert('Login Failed', 'Invalid username or password.');
+      } else {
+        // Handle other authentication errors
+        this.presentErrorAlert(
+          'Login Failed',
+          'An unexpected error occurred. Please try again later.'
+        );
+      }
     }
   }
 
@@ -47,6 +66,4 @@ export class AdminPanelPage implements OnInit {
 
     await alert.present();
   }
-
-
 }

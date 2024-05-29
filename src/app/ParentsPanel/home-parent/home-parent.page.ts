@@ -23,6 +23,7 @@ interface BMIRecord {
 
 interface ParentData {
   users?: string[];
+  premium?: boolean;
 }
 
 interface UserData {
@@ -198,7 +199,6 @@ export class HomeParentPage implements OnInit {
   }
 
   isActivityLocked(): boolean {
-    
     return this.checkedVaccines.length !== 8;
   }
 
@@ -228,7 +228,6 @@ export class HomeParentPage implements OnInit {
               })
               .catch((error) => {
                 console.error('Error logging out:', error);
-             
               });
           },
         },
@@ -253,7 +252,6 @@ export class HomeParentPage implements OnInit {
       },
     });
     return await modal.present();
-   
   }
 
   getConfirmedTasks(tasks: any[]): any[] {
@@ -264,18 +262,47 @@ export class HomeParentPage implements OnInit {
 
   async openBmiDiffModal() {
     const modal = await this.modalController.create({
-      component: BmiDiffPage, 
+      component: BmiDiffPage,
       componentProps: {
-        userData: this.usersData, 
+        userData: this.usersData,
       },
     });
 
     await modal.present();
   }
 
-  navigateToEBook() {
-    this.playButtonClickSound();
-    this.router.navigate(['/babybook']);
+  async navigateToEBook() {
+    // Check premium status
+    const user = await this.authService.getProfile();
+    if (user) {
+      const userId = user.uid;
+      const parentDoc = await this.firestore
+        .collection('parents')
+        .doc(userId)
+        .get()
+        .toPromise();
+      if (parentDoc.exists) {
+        const parentData = parentDoc.data() as ParentData; // Cast to ParentData interface
+        const premiumStatus = parentData?.premium || false;
+
+        // If premium status is true, navigate to eBook
+        if (premiumStatus) {
+          this.playButtonClickSound();
+          this.router.navigate(['/babybook']);
+        } else {
+          // If premium status is false, display an alert
+          const alert = await this.alertController.create({
+            header: 'Upgrade Required',
+            message:
+              'To access the Baby Book feature, please upgrade to premium.',
+            buttons: ['OK'],
+          });
+          await alert.present();
+        }
+      }
+    } else {
+      console.error('User not logged in.');
+    }
   }
 
   async openParentProfileModal() {
@@ -283,7 +310,7 @@ export class HomeParentPage implements OnInit {
     const modal = await this.modalController.create({
       component: ParentsProfilePagePage,
       componentProps: {
-        currentUser: this.currentUser || {}, 
+        currentUser: this.currentUser || {},
       },
     });
     return await modal.present();

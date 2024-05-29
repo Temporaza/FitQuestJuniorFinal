@@ -12,10 +12,12 @@ import { AuthenticationForParentsService } from 'src/app/authenticationParents/a
 interface ParentData {
   fullname: string;
   profile?: string;
+  premium: boolean;
 }
 
 interface User {
   fullname: string;
+  gender: string;
   // Add other properties if needed
 }
 
@@ -26,7 +28,7 @@ interface User {
 })
 export class ParentsProfilePagePage implements OnInit {
   @ViewChild('previewImage') previewImage: ElementRef;
-  @Input() currentUser: any;
+  @Input() currentUser: User & { premium?: boolean };
   isEditMode: boolean = false;
   originalCurrentUser: any;
   parentUID: string | null = null;

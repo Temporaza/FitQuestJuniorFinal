@@ -1,0 +1,79 @@
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  color: white;
+}
+
+ion-toolbar {
+  --background: #bd7f60;
+}
+
+ion-content {
+  h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #ff6600;
+    text-align: center;
+    font-family: "IntegralCF-Bold";
+  }
+
+  h3 {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #333;
+    font-family: "IntegralCF-Bold";
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666; // Adjust color as needed
+    font-family: "IntegralCF";
+  }
+
+  ul {
+    margin-left: 1rem;
+    list-style-type: disc;
+
+    li {
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      color: #666; // Adjust color as needed
+    }
+  }
+
+  ion-button {
+    --background: #bd7f60;
+    --color: #fff;
+    width: fit-content;
+    margin: 20px auto;
+    border-radius: 20px;
+  }
+}
+
+.Question1,
+.Question2,
+.Question3,
+.Question4,
+.Question5,
+.Question6 {
+  margin: 10px;
+}
+
+.visit {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 180px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  h1 {
+    font-family: "IntegralCF-Bold";
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+}

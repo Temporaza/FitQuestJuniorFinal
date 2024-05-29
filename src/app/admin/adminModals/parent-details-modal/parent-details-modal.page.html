@@ -10,10 +10,16 @@
 <ion-content>
   <!-- Display details for the selected parent -->
   <ion-card class="details-container">
-    <ion-card-content>
-      <div><strong>Fullname:</strong> {{ parentDetails.fullname }}</div>
-      <div><strong>Gender:</strong> {{ parentDetails.gender }}</div>
-      <div><strong>Email:</strong> {{ parentDetails.email }}</div>
+    <ion-card-content style="color: black">
+      <div class="detail-item">
+        <strong>Full Name:</strong> {{ parentDetails.fullname }}
+      </div>
+      <div class="detail-item">
+        <strong>Gender:</strong> {{ parentDetails.gender }}
+      </div>
+      <div class="detail-item">
+        <strong>Email:</strong> {{ parentDetails.email }}
+      </div>
       <div class="premium">
         <strong>Premium:</strong> {{ parentDetails.premium ? 'Yes' : 'No' }}
         <div class="btn-prem" (click)="togglePremiumStatus()">
@@ -25,16 +31,28 @@
 
       <!-- Display user information from the 'users' subcollection -->
       <ion-card class="user-details" *ngFor="let user of parentDetails.users">
-        <ion-card-title style="margin-right: 20px">Kid</ion-card-title>
+        <ion-card-header>
+          <ion-card-title>Kid</ion-card-title>
+        </ion-card-header>
         <ion-card-content>
-          <div><strong>Full Name:</strong> {{ user.fullname }}</div>
-          <div><strong>User ID:</strong> {{ user.id }}</div>
-          <div><strong>Email:</strong> {{ user.email }}</div>
-          <div><strong>BMI:</strong> {{ user.bmi }}</div>
-          <div><strong>Height:</strong> {{ user.height }} cm</div>
-          <div><strong>Weight:</strong> {{ user.weight }} kg</div>
-          <div><strong>Age:</strong> {{ user.age }}</div>
-          <div><strong>Status:</strong> {{ user.status }}</div>
+          <div class="detail-item">
+            <strong>Full Name:</strong> {{ user.fullname }}
+          </div>
+          <div class="detail-item"><strong>User ID:</strong> {{ user.id }}</div>
+          <div class="detail-item">
+            <strong>Email:</strong> {{ user.email }}
+          </div>
+          <div class="detail-item"><strong>BMI:</strong> {{ user.bmi }}</div>
+          <div class="detail-item">
+            <strong>Height:</strong> {{ user.height }} cm
+          </div>
+          <div class="detail-item">
+            <strong>Weight:</strong> {{ user.weight }} kg
+          </div>
+          <div class="detail-item"><strong>Age:</strong> {{ user.age }}</div>
+          <div class="detail-item">
+            <strong>Status:</strong> {{ user.status }}
+          </div>
         </ion-card-content>
       </ion-card>
     </ion-card-content>

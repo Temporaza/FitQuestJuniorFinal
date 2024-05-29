@@ -147,8 +147,10 @@ ion-card-footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "IntegralCf-Bold";
   h1 {
-    font-size: 15px;
+    font-size: 12px;
+    color: black;
   }
 }
 
@@ -176,4 +178,8 @@ ion-card-footer {
     margin-bottom: 20px;
     color: black;
   }
+}
+
+.add-premium {
+  display: flex;
 }

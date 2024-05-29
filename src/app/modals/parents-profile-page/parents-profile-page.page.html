@@ -78,6 +78,12 @@
             <ion-label>Sex:</ion-label>
             <ion-text>{{ currentUser.gender }}</ion-text>
           </ion-item>
+          <ion-item>
+            <ion-label>Premium Status:</ion-label>
+            <ion-text
+              >{{ currentUser.premium ? 'Premium' : 'Not Premium' }}</ion-text
+            >
+          </ion-item>
           <!-- <ion-item>
             <ion-label>Role:</ion-label>
             <ion-text>{{ currentUser.role }}</ion-text>

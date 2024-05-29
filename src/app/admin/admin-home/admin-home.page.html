@@ -1,6 +1,5 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
- 
     <ion-title>Admin Home</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="logout()">Logout</ion-button>
@@ -9,37 +8,77 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card class="parent-container">
-    <ion-card-header>
-      <ion-card-title>Parents List</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let parent of parents">
-          <ion-label>{{ parent.fullname }}</ion-label>
-          <ion-button (click)="openDetailsModal(parent.id)">
-            Show Details
-          </ion-button>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid>
+    <!-- Parents Container -->
+    <ion-row>
+      <ion-col size="12" size-lg="6">
+        <ion-card class="parent-container">
+          <ion-card-header>
+            <ion-card-title>
+              Parents List
+              <div
+                class="list"
+                fill="clear"
+                size="small"
+                (click)="toggleParentList()"
+              >
+                <h1>{{ showParentList ? 'Hide List' : 'Show List' }}</h1>
+              </div>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content *ngIf="showParentList">
+            <ion-list>
+              <ion-item *ngFor="let parent of parents">
+                <ion-label>{{ parent.fullname }}</ion-label>
+                <div class="details" (click)="openDetailsModal(parent.id)">
+                  <h1>Details</h1>
+                </div>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
 
-   <!-- Users Container -->
-   <ion-card class="users-container">
-    <ion-card-header>
-      <ion-card-title>Users List</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list>
-        <ion-item *ngFor="let user of users">
-          <ion-label>{{ user.fullname }}</ion-label>
-          <ion-button (click)="openUserDetailsModal(user.id)">
-            Show Details
-          </ion-button>
-        </ion-item>
-      </ion-list>
-    </ion-card-content>
-  </ion-card>
+      <!-- Users Container -->
+      <ion-col size="12" size-lg="6">
+        <ion-card class="users-container">
+          <ion-card-header>
+            <ion-card-title>
+              Kids List
+              <div
+                class="list"
+                fill="clear"
+                size="small"
+                (click)="toggleUserList()"
+              >
+                <h1>{{ showUserList ? 'Hide List' : 'Show List' }}</h1>
+              </div>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content *ngIf="showUserList">
+            <ion-list>
+              <ion-item *ngFor="let user of users">
+                <ion-label>{{ user.fullname }}</ion-label>
+                <div class="details" (click)="openUserDetailsModal(user.id)">
+                  <h1>Details</h1>
+                </div>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <section style="margin-top: 20px">
+    <!-- Chart Section -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Number of Parents</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  </section>
 </ion-content>
-

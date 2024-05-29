@@ -336,6 +336,14 @@ const routes: Routes = [
     path: 'activity-log-modal',
     loadChildren: () => import('./modals/activity-log-modal/activity-log-modal.module').then( m => m.ActivityLogModalPageModule)
   },
+  {
+    path: 'faqs',
+    loadChildren: () => import('./modals/faqs/faqs.module').then( m => m.FaqsPageModule)
+  },
+  {
+    path: 'upgrade-version-modal',
+    loadChildren: () => import('./modals/upgrade-version-modal/upgrade-version-modal.module').then( m => m.UpgradeVersionModalPageModule)
+  },
 ];
 
 @NgModule({

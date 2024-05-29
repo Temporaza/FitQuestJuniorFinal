@@ -1,9 +1,20 @@
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  color: white;
+}
+
+ion-toolbar {
+  --background: #bd7f60;
+}
+
 ion-card {
   max-width: 600px; /* Set your desired maximum width */
   margin: 0 auto; /* Center the card horizontally */
 }
 
-.parent-container {
+.parent-container,
+.users-container {
   padding: 16px; /* Add padding to the parent container if needed */
   margin-top: 5vh;
 }
@@ -19,4 +30,45 @@ ion-title {
 
 ion-toolbar {
   --background: #bd7f60;
+}
+
+ion-card-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.details {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "IntegralCf-Bold";
+  h1 {
+    font-size: 12px;
+    color: black;
+  }
+}
+
+.list {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "IntegralCf-Bold";
+  h1 {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: black;
+  }
 }

@@ -17,6 +17,8 @@ import {
 } from '@angular/animations';
 import { TaskStatusService } from 'src/app/services/task-status.service';
 import { ExerciseExplanationPage } from 'src/app/modals/exercise-explanation/exercise-explanation.page';
+import { Router } from '@angular/router';
+import { FaqsPage } from 'src/app/modals/faqs/faqs.page';
 
 @Component({
   selector: 'app-activities',
@@ -37,7 +39,8 @@ export class ActivitiesPage implements OnInit {
     private loadingController: LoadingController,
     private alertController: AlertController,
     private taskStatusService: TaskStatusService,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -185,5 +188,18 @@ export class ActivitiesPage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  async openFaqsModal() {
+    const modal = await this.modalController.create({
+      component: FaqsPage,
+    });
+    return await modal.present();
+  }
+  playButtonClickSound() {
+    const audio = new Audio();
+    audio.src = 'assets/btn-sound.mp3';
+    audio.load();
+    audio.play();
   }
 }

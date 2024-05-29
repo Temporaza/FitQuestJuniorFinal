@@ -17,10 +17,12 @@ import { LoginPage } from 'src/app/pages/login/login.page';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Location } from '@angular/common';
 import { ActivityLogModalPage } from 'src/app/modals/activity-log-modal/activity-log-modal.page';
+import { UpgradeVersionModalPage } from 'src/app/modals/upgrade-version-modal/upgrade-version-modal.page';
 
 interface ParentData {
   users?: string[];
   babies?: any[];
+  premium?: boolean; // Add this line
 }
 
 interface UserData {
@@ -48,6 +50,7 @@ export class VaccinationPage implements OnInit {
   usersData: UserData[] = [];
   babies: any[] = [];
   subscriptions: Subscription[] = [];
+  isPremium: boolean = false;
 
   constructor(
     private firestore: AngularFirestore,
@@ -111,6 +114,7 @@ export class VaccinationPage implements OnInit {
             this.babies = data?.babies || [];
             this.usersData = [];
             const usersUIDs: string[] = data?.users || [];
+            this.isPremium = data?.premium || false;
 
             usersUIDs.forEach((userUID) => {
               const userSubscription = this.firestore
@@ -270,7 +274,8 @@ export class VaccinationPage implements OnInit {
 
   openSignupModal() {
     this.playButtonClickSound();
-    if (this.usersData.length >= 1) {
+    const maxKids = this.isPremium ? 4 : 1; // Allow 4 kids if premium, else 1
+    if (this.usersData.length >= maxKids) {
       // If maximum users reached, display an alert
       this.presentMaxUsersAlert();
     } else {
@@ -370,6 +375,14 @@ export class VaccinationPage implements OnInit {
     const modal = await this.modalController.create({
       component: ActivityLogModalPage,
       componentProps: { userData: { ...userData } },
+    });
+    return await modal.present();
+  }
+
+  async openUpgradeModal() {
+    this.playButtonClickSound();
+    const modal = await this.modalController.create({
+      component: UpgradeVersionModalPage,
     });
     return await modal.present();
   }

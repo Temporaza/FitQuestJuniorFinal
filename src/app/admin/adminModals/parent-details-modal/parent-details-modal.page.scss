@@ -43,7 +43,7 @@ ion-toolbar {
 .btn-prem {
   background: url(/assets/ebook/brd.png) center / contain no-repeat;
   position: relative;
-  width: 150px;
+  width: 180px;
   height: 50px;
   margin: 0 auto;
   display: flex;
@@ -54,4 +54,29 @@ ion-toolbar {
     font-size: 15px;
     color: black;
   }
+}
+
+.details-container {
+  margin: 20px;
+}
+
+.detail-item {
+  margin-bottom: 10px;
+}
+
+.premium-status {
+  font-weight: bold;
+  color: var(--ion-color-primary);
+}
+
+.premium-toggle {
+  margin-top: 5px;
+}
+
+.premium {
+  color: var(--ion-color-primary);
+}
+
+.non-premium {
+  color: var(--ion-color-danger);
 }

@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Upgrade Version</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" style="color: black">
+  <ion-card>
+    <ion-card-content>
+      <div
+        style="color: black"
+        class="header"
+        *ngIf="parentName && parentEmail"
+      >
+        <h1>Name:</h1>
+        <p>{{ parentName }}</p>
+        <h1>Email:</h1>
+        <p>{{ parentEmail }}</p>
+      </div>
+      <!-- If data is loading, display a message -->
+      <p *ngIf="!parentName || !parentEmail">Loading parent information...</p>
+      <p style="color: black">
+        Upgrade to our premium version to enjoy additional features:
+      </p>
+      <ul style="color: black">
+        <li>Add kids</li>
+        <li>Access to Baby Book</li>
+        <li>Priority support</li>
+      </ul>
+      <h1
+        style="text-align: center; color: black; font-family: 'IntegralCF-Bold'"
+      >
+        ₱ 300 only
+      </h1>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="upgrade-instructions">
+    <h2>How to Upgrade</h2>
+
+    <div class="upgrade-instruction-section">
+      <p>
+        Our process for upgrading to premium requires parents to email us or
+        contact us on Facebook after they have sent money to our bank accounts.
+        Please provide proof of payment via email or Facebook message before we
+        upgrade your premium status on our admin side.
+      </p>
+    </div>
+
+    <div class="bank-info-section">
+      <h3>Bank Account Numbers</h3>
+      <div>
+        <p
+          style="
+            text-align: center;
+            font-family: 'IntegralCF-Bold';
+            font-size: 15px;
+          "
+        >
+          Name: Raven Koby Temporaza
+        </p>
+      </div>
+      <div class="gcash">
+        <img src="assets/gcash.png" alt="GCash" width="50" height="50" />
+        <p>GCash: 09810391315</p>
+      </div>
+      <div class="bpi">
+        <img src="assets/bpi.png" alt="BPI" width="50" height="50" />
+        <p>BPI: 203139235</p>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <h3>Contact Information</h3>
+      <p>
+        <ion-icon name="mail"></ion-icon> Email:
+        <a href="mailto:kobyraventemporaza@gmail.com" target="_blank"
+          >kobyraventemporaza@gmail.com</a
+        >
+        <br />
+        <ion-icon name="logo-facebook"></ion-icon> Facebook:
+        <a href="https://www.facebook.com/fitQuestJunior" target="_blank"
+          >fitQuest Junior</a
+        >
+        <br />
+        <ion-icon name="call"></ion-icon> Phone: 0981039135
+      </p>
+    </div>
+  </div>
+</ion-content>

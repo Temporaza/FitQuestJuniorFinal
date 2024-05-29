@@ -217,3 +217,17 @@ ion-fab-button::part(native):active::after {
   margin-top: 11vh;
   text-align: center;
 }
+
+.completeTask {
+  color: black;
+  justify-content: center;
+  margin: 0 20px;
+  background: rgba(
+    252,
+    128,
+    66,
+    0.6
+  ); /* Adjust the opacity by modifying the last value (0.6) */
+  border-radius: 10px;
+  border: 2px solid rgb(214, 214, 214);
+}

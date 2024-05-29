@@ -1,0 +1,63 @@
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  color: white;
+  font-size: 16px;
+}
+
+ion-toolbar {
+  --background: #bd7f60;
+}
+
+.header {
+  margin: 10px;
+  border-radius: 6px;
+  padding: 5px;
+  h1 {
+    font-family: "IntegralCF-Bold";
+    font-size: 15px;
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
+}
+
+.upgrade-instructions {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.upgrade-instructions h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.upgrade-instructions h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.upgrade-instructions p {
+  margin-bottom: 20px;
+}
+
+h2,
+h3 {
+  font-family: "IntegralCf-Bold";
+}
+
+a {
+  text-decoration: none;
+}
+
+.gcash,
+.bpi {
+  display: FLEX;
+  margin: 10px;
+  gap: 20px;
+}

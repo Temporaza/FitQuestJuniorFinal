@@ -1,34 +1,73 @@
-ion-content {
-    --background: #f4f4f4;
-  }
-  
-  .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  
-  ion-card {
-    max-width: 400px;
-    width: 100%;
-    margin: auto; /* Center the card */
-  }
-  
-  ion-card-header {
-    text-align: center;
-  }
-  
-  ion-card-content {
-    ion-item {
-      margin-bottom: 15px;
-    }
-  
-    ion-button {
-      margin-top: 20px;
-    }
-  }
+ion-title {
+  text-align: center;
+  font-family: "IntegralCF-Bold";
+  color: white;
+}
 
-ion-title{
-    text-align: center;
+ion-toolbar {
+  --background: #bd7f60;
+}
+
+ion-header {
+  --background: #bd7f60; /* Set header background color */
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* Set background color for login container */
+}
+
+ion-content {
+  --background: #dbd7d7;
+}
+
+ion-card {
+  max-width: 400px;
+  width: 90%; /* Adjust card width */
+  margin: auto;
+  background-color: #fff; /* Set card background color */
+  border-radius: 10px; /* Add border radius for a smoother look */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add box shadow for depth */
+}
+
+ion-card-header {
+  text-align: center;
+  background-color: #bd7f60; /* Set card header background color */
+  color: #fff; /* Set text color */
+  border-top-left-radius: 10px; /* Adjust border radius for header */
+  border-top-right-radius: 10px;
+}
+
+ion-card-content {
+  padding: 20px;
+}
+
+ion-button {
+  margin-top: 20px;
+  --background: #bd7f60; /* Set button background color */
+  --border-radius: 5px; /* Adjust button border radius */
+  --color: #fff; /* Set button text color */
+}
+
+ion-input {
+  border-radius: 5px; /* Add border radius to input fields */
+}
+
+.log-btn {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "IntegralCf-Bold";
+  h1 {
+    font-size: 12px;
+    color: black;
   }
+}
