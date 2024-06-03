@@ -101,6 +101,11 @@ ion-content {
   .title {
     width: 50%;
   }
+
+  .larger-button {
+    height: 120px;
+    width: 120px;
+  }
 }
 
 @media only screen and (min-width: 400px) and (max-width: 500px) {
@@ -191,8 +196,8 @@ ion-fab-button::part(native):active::after {
   background-size: contain;
 
   background-position: center;
-  height: 120px;
-  width: 120px;
+  height: 100px;
+  width: 100px;
 }
 
 .centered-wrapper {
@@ -214,7 +219,7 @@ ion-fab-button::part(native):active::after {
   font-family: "IntegralCF-Bold";
   font-size: 13px;
   color: black;
-  margin-top: 11vh;
+  margin-top: 8vh;
   text-align: center;
 }
 
@@ -230,4 +235,58 @@ ion-fab-button::part(native):active::after {
   ); /* Adjust the opacity by modifying the last value (0.6) */
   border-radius: 10px;
   border: 2px solid rgb(214, 214, 214);
+}
+
+.premium-grid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.premium-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  h1 {
+    font-family: "IntegralCF-Bold";
+  }
+  img {
+    width: 200px;
+    height: 230px;
+  }
+  ion-card {
+    height: 450px;
+    width: 360px;
+  }
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  font-family: "IntegralCF-Bold";
+  ul {
+    text-align: start;
+  }
+}
+
+.btn-proceed {
+  background: url(/assets/ebook/brd.png) center / contain no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 50px;
+  font-family: "IntegralCF-Bold";
+  font-size: 23px;
+  color: black;
+  text-align: center;
+  h1 {
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
 }

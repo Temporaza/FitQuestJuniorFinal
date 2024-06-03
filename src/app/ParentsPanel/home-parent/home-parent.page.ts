@@ -54,6 +54,8 @@ export class HomeParentPage implements OnInit {
   usersData: UserData[] = [];
 
   currentUser: any;
+  premiumStatus: boolean = false;
+  showPremiumContent: boolean = true;
 
   constructor(
     private authFire: AngularFireAuth,
@@ -90,8 +92,20 @@ export class HomeParentPage implements OnInit {
         parentDocRef.valueChanges().subscribe((data: any) => {
           if (data) {
             this.checkedVaccines = data.checkedVaccines || [];
-            console.log('checkedVaccines:', this.checkedVaccines);
+            // console.log('checkedVaccines:', this.checkedVaccines);
             this.profileImageUrl = data.profile || null;
+
+            // Log the premium status
+            this.premiumStatus = data.premium || false;
+            console.log('Premium status:', this.premiumStatus);
+
+            const premiumContentHidden = sessionStorage.getItem(
+              'premiumContentHidden'
+            );
+            if (!premiumContentHidden && this.premiumStatus) {
+              this.showPremiumContent = true; // Show the premium content
+              this.yaySound(); // Play the yay sound
+            }
           }
         });
 
@@ -101,6 +115,12 @@ export class HomeParentPage implements OnInit {
         this.router.navigate(['/parent-login']);
       }
     });
+
+    // Check if premium content was previously hidden
+    const premiumContentHidden = sessionStorage.getItem('premiumContentHidden');
+    if (premiumContentHidden) {
+      this.showPremiumContent = false;
+    }
     this.location.replaceState('/home-parent');
   }
 
@@ -326,5 +346,20 @@ export class HomeParentPage implements OnInit {
     audio.src = 'assets/btn-sound.mp3';
     audio.load();
     audio.play();
+  }
+
+  yaySound() {
+    const audio = new Audio();
+    audio.src = 'assets/yay.mp3';
+    audio.load();
+    audio.play();
+  }
+
+  premiumButtonClick() {
+    this.playButtonClickSound();
+    console.log('Premium button clicked!');
+    this.showPremiumContent = false; // Set the flag to false to hide the content
+    // Store the state in sessionStorage
+    sessionStorage.setItem('premiumContentHidden', 'true');
   }
 }

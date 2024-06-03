@@ -12,6 +12,7 @@ import {
   AlertController,
   LoadingController,
   ModalController,
+  ToastController,
 } from '@ionic/angular';
 import { PetBodyServiceService } from '../services/pet-body.service.service';
 import { TaskStatusService } from '../services/task-status.service';
@@ -132,7 +133,8 @@ export class HomePage {
     private renderer: Renderer2,
     private location: Location,
     private petHatService: PetHatServiceService,
-    private modalController: ModalController
+    private modalController: ModalController,
+    private toastController: ToastController
   ) {
     this.user = authService.getProfile;
 
@@ -186,15 +188,31 @@ export class HomePage {
     if (currentUser) {
       try {
         const userId = currentUser.uid;
-        await this.firestore.collection('users').doc(userId).update({
-          petName: this.newPetName,
-        });
-        this.petName = this.newPetName; // Update the displayed pet name
-        this.editMode = false; // Exit edit mode
+        if (this.newPetName.trim() !== '') {
+          // Check if the new pet name is not empty after trimming whitespace
+          await this.firestore.collection('users').doc(userId).update({
+            petName: this.newPetName,
+          });
+          this.petName = this.newPetName; // Update the displayed pet name
+          this.editMode = false; // Exit edit mode
+        } else {
+          // Display a toast if the pet name is empty
+          this.presentToast('Pet name cannot be empty.');
+        }
       } catch (error) {
         console.error('Error updating pet name:', error);
       }
     }
+  }
+
+  // Function to present toast
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000, // Toast duration in milliseconds
+      position: 'bottom', // Position of the toast message
+    });
+    toast.present();
   }
 
   cancelEditNameMode() {

@@ -32,6 +32,35 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-grid *ngIf="premiumStatus && showPremiumContent" class="premium-grid">
+    <ion-row>
+      <ion-col size="12" class="premium-content">
+        <ion-card color="warning">
+          <img src="assets/newAssets/family.png" alt="Premium Content" />
+          <ion-card-content>
+            <h1>Welcome to Premium</h1>
+            <h3 style="font-family: 'IntegralCf'">
+              These features are now available
+            </h3>
+            <div class="list">
+              <ul style="color: black">
+                <li>Add another kid</li>
+                <li>Access to Baby Book</li>
+                <li>Priority support</li>
+              </ul>
+            </div>
+            <h2 style="font-weight: bold; font-family: 'IntegralCf'">
+              Thank you and Take Care!!!
+            </h2>
+          </ion-card-content>
+        </ion-card>
+        <div class="btn-proceed" (click)="premiumButtonClick()">
+          <h1>Proceed</h1>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
   <ion-grid>
     <ion-row>
       <ion-col class="com-nav" size="12" size-md="6">
